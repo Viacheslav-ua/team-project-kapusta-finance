@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,6 +21,14 @@ function App() {
       </header>
     </div>
   );
+=======
+import "./App.css";
+
+import AuthPage from "./components/Pages/AuthPage";
+
+function App() {
+  return <div className="App">{<AuthPage />}</div>;
+>>>>>>> Stashed changes
 }
 
 export default App;
