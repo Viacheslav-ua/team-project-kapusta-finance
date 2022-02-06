@@ -1,6 +1,5 @@
-import AuthPageTitle from "../components/AuthPageTitle";
-import AuthForm from "../components/AuthForm";
-
+import AuthPageTitle from "../../components/AuthPageTitle";
+import AuthForm from "../../components/AuthForm";
 
 import style from "./AuthPage.module.css";
 
