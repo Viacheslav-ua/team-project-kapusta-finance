@@ -5,7 +5,7 @@
   --text-color-1: rgba(82, 85, 95, 0.4);
   --text-color-2: rgba(82, 85, 95, 0.7);
   --text-color-3: rgba(82, 85, 95, 1);
-  --acent-color: rgba(255, 117, 29, 1);
+  --accent-color: rgba(255, 117, 29, 1);
   --accent-color-2: rgba(255, 218, 192, 1);
   --accent-color-3: rgba(231, 25, 46, 1);
   --accent-color-4: rgba(64, 121, 70, 1);
@@ -15,6 +15,8 @@
   --box-shadow-tab-wrrap: 0px 10px 60px rgba(170, 178, 197, 0.2);
   --color-placeholder: rgba(199, 204, 220, 1);
   --color-icon: rgba(7, 31, 65, 1);
+  --time: 250ms;
+  --timing: ease-in-out;
 }
 
 /* roboto-regular - latin-ext_latin_cyrillic-ext_cyrillic */
