@@ -16,12 +16,6 @@ const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
-        // <Route path="/" element={<AuthPage />} />
-        // <Route path="/expenses" element={<ExpensesPage />} />
-        // <Route path="/income" element={<IncomePage />} />
-      </Routes> */}
-
       <Suspense fallback="loading...">
         <Routes>
           <Route
@@ -48,18 +42,6 @@ function App() {
           <Route path="*" element={<PublicRoute component={PageNotFound} />} />
         </Routes>
       </Suspense>
-
-      {/* //       <Routes>
-//         <Route path="/" element={<AuthPage />} />
-//         <Route path="/expenses" element={<ExpensesPage />} />
-//         <Route path="/income" element={<IncomePage />} />
-//       </Routes> */}
-
-      {/* <Container>
-        <Header />
-        <AuthPage />
-        <AnimatedCabbage />
-      </Container> */}
     </div>
   );
 }
