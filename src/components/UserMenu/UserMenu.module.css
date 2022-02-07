@@ -1,0 +1,123 @@
+.container {
+  margin-right: 20px;
+}
+.container,
+.btn {
+  display: flex;
+  align-items: center;
+  border-style: none;
+  background-color: #fff;
+  border-color: #ffff;
+  text-decoration: none;
+  font-family: Segoe UI;
+  font-weight: 500;
+  font-size: 16px;
+}
+.name {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.user_name_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #52555f;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  border-radius: 50px;
+  background-color: #f5f6fa;
+}
+.user_icon {
+  height: 16px;
+  width: 16px;
+  fill: #cbccd0;
+}
+.user_icon_text,
+.user_name_text {
+  color: #52555f;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+}
+.user_icon_text {
+  text-decoration: underline;
+}
+@media screen and (max-width: 319.98px) {
+  .user_icon_text {
+    display: none;
+  }
+  .name {
+    margin-right: 10px;
+  }
+  .user_name_text {
+    display: none;
+  }
+  .btn {
+    padding: 0px;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 767.98px) and (min-width: 320px) {
+  .user_icon_text {
+    display: none;
+  }
+  .user_name_text {
+    display: none;
+  }
+  .btn {
+    padding: 0px;
+    cursor: pointer;
+  }
+  .name {
+    margin-right: 10px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .user_icon {
+    display: none;
+  }
+  .btn {
+    padding: 0;
+    cursor: pointer;
+  }
+  .name:after {
+    content: " ";
+    background: #e0e5eb;
+    width: 1px;
+    height: 36px;
+    float: left;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .user_name_icon {
+    padding: 0;
+    margin-right: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .user_icon {
+    display: none;
+  }
+  .btn {
+    padding: 0;
+    cursor: pointer;
+  }
+  .name:after {
+    content: " ";
+    background: #e0e5eb;
+    width: 1px;
+    height: 36px;
+    float: left;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .user_name_icon {
+    padding: 0;
+    margin-right: 10px;
+  }
+}
