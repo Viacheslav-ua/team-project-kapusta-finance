@@ -11,7 +11,7 @@
   /*Верхний фон с капустами на стр. логинизации*/
   .mainBgAuth {
     height: 286px;
-    /* background: #f5f6fb url(components/images/mob-top.svg); */
+
     background: #f5f6fb url(../../Images/mob-top.svg);
     background-position-y: 104px;
     background-position-x: 100%;
