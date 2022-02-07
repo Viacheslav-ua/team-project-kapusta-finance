@@ -1,0 +1,39 @@
+.bg_contaiter::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-bottom-left-radius: 130px;
+  background-color: #f2f5fc;
+}
+
+@media screen and (min-width: 768px) {
+  .bg_contaiter::before {
+    min-height: 527px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .bg_contaiter::before {
+    min-height: 342px;
+  }
+}
+
+.bg_contaiter {
+  height: 100vh;
+}
+@media screen and (min-width: 1280px) {
+  .bg_contaiter {
+    background-image: url(../../Images/desktop-bottom2.svg);
+    background-position: 0% 100%;
+    background-repeat: repeat-x, no-repeat;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .bg_contaiter {
+    min-height: 1240px;
+    background-image: url(../../Images/tablet-bottom.svg);
+    background-repeat: no-repeat;
+    background-position: bottom 64px right 88px;
+  }
+}
