@@ -10,6 +10,7 @@ import IncomePage from "./pages/IncomePage/IncomePage";
 import Container from "./components/Container";
 import AnimatedCabbage from "./components/AnimatedCabbage/AnimatedCabbage";
 
+
 const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="*" element={<PublicRoute component={PageNotFound} />} />
         </Routes>
       </Suspense>
+      
     </div>
   );
 }
