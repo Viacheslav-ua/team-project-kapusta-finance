@@ -10,6 +10,7 @@ import IncomePage from "./pages/IncomePage/IncomePage";
 import ReportPage from './pages/ReportPage/ReportPage';
 import Container from "./components/Container";
 import AnimatedCabbage from "./components/AnimatedCabbage/AnimatedCabbage";
+import { CurrentPeriod } from "./components/CurrentPeriod/CurrentPeriod";
 import Balance from "./components/Balance/Balance";
 import ModalBalance from "./components/ModalBalance";
 
