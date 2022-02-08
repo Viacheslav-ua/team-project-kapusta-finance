@@ -12,7 +12,7 @@
 
 @media screen and (min-width: 768px) {
   .buttons {
-    margin-top: 142px;
+    margin-top: 58px;
     margin-left: 51px;
   }
   .link {
@@ -124,7 +124,7 @@
 
 @media screen and (min-width: 1280px) {
   .buttons {
-    margin-top: 93px;
+    margin-top: 48px;
     margin-left: 110px;
   }
   .container {

@@ -7,6 +7,7 @@ import Header from "../src/components/Header/Header";
 import AuthForm from "./components/AuthForm/AuthForm";
 import ExpensesPage from "./pages/ExpensesPage/ExpensesPage";
 import IncomePage from "./pages/IncomePage/IncomePage";
+import ReportPage from './pages/ReportPage/ReportPage';
 import Container from "./components/Container";
 import AnimatedCabbage from "./components/AnimatedCabbage/AnimatedCabbage";
 
@@ -39,7 +40,8 @@ function App() {
           />
           <Route
             path={routes.report}
-            element={<PrivateRoute component={AuthPage} />}
+            element={<PublicRoute component={ReportPage} />}
+            // element={<PrivateRoute component={AuthPage} />}
           />
           <Route path="*" element={<PublicRoute component={PageNotFound} />} />
         </Routes>
