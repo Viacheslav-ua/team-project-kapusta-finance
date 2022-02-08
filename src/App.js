@@ -9,6 +9,8 @@ import ExpensesPage from "./pages/ExpensesPage/ExpensesPage";
 import IncomePage from "./pages/IncomePage/IncomePage";
 import Container from "./components/Container";
 import AnimatedCabbage from "./components/AnimatedCabbage/AnimatedCabbage";
+import Balance from "./components/Balance/Balance";
+import ModalBalance from "./components/ModalBalance";
 
 
 const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
