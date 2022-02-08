@@ -1,0 +1,98 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1200;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 194px;
+  max-width: 282px;
+  width: 100%;
+  border-radius: 30px;
+  background-color: var(--bg-text-color);
+  box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    min-height: 194px;
+    max-width: 380px;
+  }
+}
+
+.closeBtn {
+  padding: 0;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: black;
+  height: 12px;
+  width: 12px;
+}
+
+.icon {
+  height: 12px;
+  width: 12px;
+  stroke: var(--text-color-3);
+  transition-property: transform;
+  transition: transform var(--time) var(--timing);
+}
+
+.closeBtn:hover,
+.icon:hover {
+  stroke: var(--accent-color);
+  transform: scale(1.2);
+}
+
+.text {
+  margin: 50px 0 20px 0;
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  line-height: 1.14;
+  text-align: center;
+  color: var(--text-color-2);
+}
+
+.btnBlock {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 265px;
+  width: 100%;
+}
+
+.btn {
+  padding: 12px 0;
+  width: 125px;
+  height: 44px;
+  border-radius: 16px;
+  border: 2px solid #f5f6fb;
+  background-color: var(--bg-text-color);
+  cursor: pointer;
+  transition: background-color var(--time) var(--timing),
+    color var(--time) var(--timing);
+  font-family: Roboto;
+  font-size: 12px;
+  line-height: 1.17;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--accent-color);
+  color: var(--bg-text-color);
+}
