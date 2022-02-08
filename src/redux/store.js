@@ -8,6 +8,7 @@ import { persistStore, persistReducer, FLUSH,
 import storage from 'redux-persist/lib/storage';
 import financeReducer from './finance/finance-reducer';
 import authReducer from './auth/auth-reducers'
+import { authApi } from './services/authAPI'
 
 const persistAuthConfig = {
     key: 'auth',
@@ -18,6 +19,7 @@ const persistAuthConfig = {
 const store = configureStore({
   reducer: {
     auth: persistReducer(persistAuthConfig, authReducer),
+    [authApi.reducerPath]: authApi.reducer,
     finance: financeReducer,
   },
   devTools: process.env.NODE_ENV === 'development',
@@ -26,7 +28,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
       }
-    })
+    }).concat(authApi.middleware)
 })
 
 const persistor = persistStore(store)
