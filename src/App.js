@@ -9,6 +9,7 @@ import ExpensesPage from "./pages/ExpensesPage/ExpensesPage";
 import IncomePage from "./pages/IncomePage/IncomePage";
 import Container from "./components/Container";
 import AnimatedCabbage from "./components/AnimatedCabbage/AnimatedCabbage";
+import { CurrentPeriod } from "./components/CurrentPeriod/CurrentPeriod";
 
 const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
@@ -21,7 +22,7 @@ function App() {
           <Route
             exact
             path={routes.auth}
-            element={<PublicRoute restricted component={AuthPage} />}
+            element={<PublicRoute restricted component={CurrentPeriod} />}
           />
           <Route
             path={routes.google}
