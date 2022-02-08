@@ -29,11 +29,13 @@ function App() {
           />
           <Route
             path={routes.expenses}
-            element={<PrivateRoute component={ExpensesPage} />}
+            element={<PublicRoute component={ExpensesPage} />}
+            // element={<PrivateRoute component={ExpensesPage} />}
           />
           <Route
             path={routes.income}
-            element={<PrivateRoute component={AuthPage} />}
+            element={<PrivateRoute component={IncomePage} />}
+            // element={<PrivateRoute component={IncomePage} />}
           />
           <Route
             path={routes.report}
