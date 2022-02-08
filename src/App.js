@@ -22,7 +22,7 @@ function App() {
           <Route
             exact
             path={routes.auth}
-            element={<PublicRoute restricted component={CurrentPeriod} />}
+            element={<PublicRoute restricted component={AuthPage} />}
           />
           <Route
             path={routes.google}
