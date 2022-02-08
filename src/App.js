@@ -34,7 +34,7 @@ function App() {
           />
           <Route
             path={routes.income}
-            element={<PrivateRoute component={IncomePage} />}
+            element={<PublicRoute component={IncomePage} />}
             // element={<PrivateRoute component={IncomePage} />}
           />
           <Route

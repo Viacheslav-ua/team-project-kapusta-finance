@@ -1,11 +1,15 @@
 import ExpensesIncome from "../../components/ExpensesIncome/ExpensesIncome";
+import Header from '../../components/Header/Header';
 
-import s from "./ExpensesPage.module.css";
+import s from "../../components/Container/StylesBg.module.css";
 
 export default function ExpensesPage () {
   return (
-    <div className={s.container}>
-      <ExpensesIncome />
+    <div className={s.mainBg}>
+      <div className={s.bottomFon}>
+      <Header />
+        <ExpensesIncome />
+        </div>
     </div>
   );
 }

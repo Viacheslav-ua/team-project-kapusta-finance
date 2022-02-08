@@ -3,7 +3,7 @@
   margin-right: auto;
   width: 320px;
   background: var(--bg-text-color);
-  box-shadow: 0px 10px 60px var(--box-shadow-tab-wrrap);
+  box-shadow: var(--box-shadow-tab-wrrap);
   border-radius: 0px 30px 30px 30px;
 }
 .buttons {
@@ -21,9 +21,8 @@
     justify-content: center;
     width: 138px;
     height: 40px;
-    background: var(--bg-tab-selected);
+    background: #fafbfd;
     border-radius: 20px 20px 0 0;
-    border: 1px solid rgb(241, 241, 241);
     border-bottom: none;
     font-family: "Roboto";
     font-style: normal;
@@ -38,14 +37,16 @@
   }
   .link__active {
     color: var(--accent-color);
+    background: #fefefe;
   }
   .container {
+    display: block;
     margin-left: 51px;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
     width: 665px;
     height: 626px;
-
-    border: 1px solid red;
+    background: var(--bg-text-color);
+    border: 1px solid var(--bg-text-color);
   }
   .transactionHistory {
     width: 605px;
@@ -128,7 +129,7 @@
   }
   .container {
     margin-left: 110px;
-    margin-bottom: 83px;
+    /* margin-bottom: 83px; */
     width: 1060px;
     height: 579px;
   }
