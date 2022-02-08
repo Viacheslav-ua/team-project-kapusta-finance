@@ -7,8 +7,8 @@ const Container = ({ children }) => {
 
   return (
    <div
-      className={stylesBg.mainBgAuth}
-      // className = { stylesBg.mainBg}
+      // className={stylesBg.mainBgAuth}
+      className = { stylesBg.mainBg}
     >
       <div
         // className={null} 
