@@ -22,15 +22,7 @@ const initialValues = {
 };
 
 const AuthForm = () => {
-  //   const dispatch = useDispatch();
 
-  //   const formSubmit = ({ email, password }) => {
-  //     if (email.trim() === "" || password.trim() === "") {
-  //       return;
-  //     }
-
-  //     dispatch(authOperations.logIn({ email, password }));
-  //   };
 
   const butRegClick = ({ email, password }) => {
     if (email.trim() === "" || password.trim() === "") {
@@ -38,14 +30,11 @@ const AuthForm = () => {
     }
   };
 
-  //     dispatch(authOperations.register({ email, password }));
-  //   };
-
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={FormSchema}
-      //   onSubmit={formSubmit}
+     
     >
       {(formik) => {
         const { validateForm, values, handleChange, isValid } = formik;

@@ -1,0 +1,13 @@
+.animationBlock {
+  display: block;
+  position: relative;
+  margin-top: 20px;
+}
+
+.kapustaBody {
+  display: block;
+  position: absolute;
+  height: 142px;
+  width: 183px;
+}
+
