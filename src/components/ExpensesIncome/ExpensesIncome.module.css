@@ -2,23 +2,17 @@
   margin-left: auto;
   margin-right: auto;
   width: 320px;
-  background: #ffffff;
-  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  background: var(--bg-text-color);
+  box-shadow: var(--box-shadow-tab-wrrap);
   border-radius: 0px 30px 30px 30px;
 }
 .buttons {
   display: flex;
 }
+
 @media screen and (min-width: 768px) {
-  .container {
-    margin-left: 51px;
-    width: 665px;
-    height: 626px;
-    margin-bottom: 40px;
-    /* overflow: scroll; */
-  }
   .buttons {
-    margin-top: 142px;
+    margin-top: 58px;
     margin-left: 51px;
   }
   .link {
@@ -27,9 +21,8 @@
     justify-content: center;
     width: 138px;
     height: 40px;
-    background: #fefefe;
+    background: #fafbfd;
     border-radius: 20px 20px 0 0;
-    border: 1px solid rgb(241, 241, 241);
     border-bottom: none;
     font-family: "Roboto";
     font-style: normal;
@@ -44,19 +37,26 @@
   }
   .link__active {
     color: var(--accent-color);
+    background: #fefefe;
+  }
+  .container {
+    display: block;
+    margin-left: 51px;
+    /* margin-bottom: 40px; */
+    width: 665px;
+    height: 626px;
+    background: var(--bg-text-color);
+    border: 1px solid var(--bg-text-color);
   }
   .transactionHistory {
-    display: block;
     width: 605px;
-    max-height: 346px;
-    /* overflow: scroll; */
+    table-layout: fixed;
     margin-left: 30px;
-    margin-bottom: 48px;
+    margin-top: 48px;
     border-collapse: collapse;
   }
-
   .tableHeader {
-    background: #f5f6fb;
+    background: var(--bg-color);
     height: 40px;
   }
   .tableTitle {
@@ -73,17 +73,25 @@
   }
   .tableTitle:first-child {
     border-top-left-radius: 20px;
-    /* border: 2px solid #f5f6fb; */
   }
   .tableTitle:last-child {
     border-top-right-radius: 20px;
   }
-  .tableBody {
+  .tableContainer {
+    width: 605px;
+    height: 346px;
     overflow: scroll;
+    overflow-x: hidden;
+    margin-left: 30px;
+    border-collapse: collapse;
+    border-bottom: 2px solid var(--bg-color);
+  }
+  .tableBodyContainer {
+    width: 605px;
+    border-collapse: collapse;
   }
   .tableRow {
-    border: 2px solid #f5f6fb;
-    box-sizing: border-box;
+    border: 2px solid var(--bg-color);
     height: 40px;
     font-family: Roboto;
     font-style: normal;
@@ -91,35 +99,59 @@
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0.04em;
-
-    color: #52555f;
+    text-align: left;
+    color: var(--text-color-2);
+  }
+  .tableRowElement {
+    padding-left: 20px;
+  }
+  /* Стили для скролла */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    width: 6px;
+    height: 344px;
+    background: var(--bg-color);
+  }
+  ::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 130px;
+    background: var(--accent-color);
+    border-radius: 2px;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .buttons {
+    margin-top: 48px;
+    margin-left: 110px;
+  }
   .container {
     margin-left: 110px;
+    /* margin-bottom: 83px; */
     width: 1060px;
     height: 579px;
-    margin-bottom: 83px;
-  }
-  .buttons {
-    margin-top: 93px;
-    margin-left: 110px;
   }
   .transactionHistory {
     width: 760px;
-    max-height: 344px;
     margin-left: 20px;
-    margin-bottom: 61px;
+    margin-top: 59px;
+    table-layout: fixed;
+    border-collapse: collapse;
   }
-}
-
-@media screen and (max-width: 767px) {
-  /* .buttons {
-    position: fixed;
-    bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-  } */
+  .tableHeader {
+    background: var(--bg-color);
+    height: 40px;
+  }
+  .tableContainer {
+    width: 760px;
+    height: 344px;
+    margin-left: 20px;
+  }
+  .tableBodyContainer {
+    width: 760px;
+    border-collapse: collapse;
+    border-top: hidden;
+  }
 }

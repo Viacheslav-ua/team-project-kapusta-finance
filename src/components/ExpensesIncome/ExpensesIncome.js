@@ -12,6 +12,7 @@ export default function ExpensesIncome() {
     </div>
     
     <div className={s.container}>
+
       <table className={s.transactionHistory}>
       <thead className={s.tableHeader}>
         <tr>
@@ -20,19 +21,24 @@ export default function ExpensesIncome() {
           <th className={s.tableTitle}>категория</th>
           <th className={s.tableTitle}>сумма</th>
         </tr>
-      </thead>
+        </thead>
+        </table>
 
-      <tbody className={s.tableBody}>
+      <div className={s.tableContainer}>
+        <table className={s.tableBodyContainer}>
+          <tbody>
         {items.map((el) => (
           <tr className={s.tableRow} key={el.id}>
-            <td>{el.date}</td>
-            <td>{el.descr}</td>
-            <td>{el.category}</td>
-            <td>{el.sum}</td>
+            <td className={s.tableRowElement}>{el.date}</td>
+            <td className={s.tableRowElement}>{el.descr}</td>
+            <td className={s.tableRowElement}>{el.category}</td>
+            <td className={s.tableRowElement}>{el.sum}</td>
           </tr>
         ))}
-      </tbody>
-    </table>
+        </tbody>
+        </table>
+      </div>
+         
     </div>
 
     </>)
