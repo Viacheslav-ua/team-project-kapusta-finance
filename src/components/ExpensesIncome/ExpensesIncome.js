@@ -2,6 +2,7 @@ import React from "react";
 import s from './ExpensesIncome.module.css'
 import { NavLink } from 'react-router-dom'
 import items from './expenses.json'
+import sprite from "../../Images/sprite.svg";
 
 export default function ExpensesIncome() {
   
@@ -32,7 +33,16 @@ export default function ExpensesIncome() {
             <td className={s.tableRowElement}>{el.date}</td>
             <td className={s.tableRowElement}>{el.descr}</td>
             <td className={s.tableRowElement}>{el.category}</td>
-            <td className={s.tableRowElement}>{el.sum}</td>
+            <td className={s.tableRowElement}>
+              {el.sum}
+            </td>
+            <td className={s.tableRowElement}>
+              <button className={s.deleteBtn}>
+                <svg className={s.icon}>
+                  <use href={sprite + "#delete"} alt="delete transaction" />
+                </svg>
+              </button>
+            </td>
           </tr>
         ))}
         </tbody>

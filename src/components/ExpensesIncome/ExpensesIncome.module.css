@@ -9,11 +9,27 @@
 .buttons {
   display: flex;
 }
+/* .tableRowElement_btn {
+  display: flex;
+} */
+.deleteBtn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+.icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-color-3);
+  margin-left: 20px;
+}
 
 @media screen and (min-width: 768px) {
   .buttons {
-    margin-top: 58px;
     margin-left: 51px;
+  }
+  .icon {
+    margin-left: 40px;
   }
   .link {
     display: flex;
@@ -101,6 +117,12 @@
     letter-spacing: 0.04em;
     text-align: left;
     color: var(--text-color-2);
+
+    /* -- */
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
   .tableRowElement {
     padding-left: 20px;
@@ -124,8 +146,10 @@
 
 @media screen and (min-width: 1280px) {
   .buttons {
-    margin-top: 48px;
     margin-left: 110px;
+  }
+  .icon {
+    margin-left: 59px;
   }
   .container {
     margin-left: 110px;
