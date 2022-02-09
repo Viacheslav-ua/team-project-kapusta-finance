@@ -5,9 +5,6 @@ import { routes, PrivateRoute, PublicRoute } from "./routes";
 
 import Header from "../src/components/Header/Header";
 import AuthForm from "./components/AuthForm/AuthForm";
-import ExpensesPage from "./pages/ExpensesPage/ExpensesPage";
-import IncomePage from "./pages/IncomePage/IncomePage";
-import ReportPage from './pages/ReportPage/ReportPage';
 import Container from "./components/Container";
 import AnimatedCabbage from "./components/AnimatedCabbage/AnimatedCabbage";
 import { CurrentPeriod } from "./components/CurrentPeriod/CurrentPeriod";
@@ -17,6 +14,8 @@ import ModalBalance from "./components/ModalBalance";
 
 const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
+const BalancePage = lazy(() => import("./pages/BalancePage/BalancePage"));
+const ReportPage = lazy(() => import("./pages/ReportPage/ReportPage"));
 
 function App() {
   return (
@@ -33,14 +32,9 @@ function App() {
             element={<PublicRoute restricted component={AuthPage} />}
           />
           <Route
-            path={routes.expenses}
-            element={<PublicRoute component={ExpensesPage} />}
-            // element={<PrivateRoute component={ExpensesPage} />}
-          />
-          <Route
-            path={routes.income}
-            element={<PublicRoute component={IncomePage} />}
-            // element={<PrivateRoute component={IncomePage} />}
+            path={routes.balance}
+            element={<PublicRoute component={BalancePage} />}
+            // element={<PrivateRoute component={BalancePage} />}
           />
           <Route
             path={routes.report}

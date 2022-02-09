@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     margin-top: 40px;
-    margin-left: 50px;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 174px;
@@ -27,7 +26,4 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .report {
-    margin-left: 110px;
-  }
 }

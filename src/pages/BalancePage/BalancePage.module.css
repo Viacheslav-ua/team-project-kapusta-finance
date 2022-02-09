@@ -1,0 +1,60 @@
+.buttonsMob {
+  width: 100%;
+  height: 53px;
+  position: fixed;
+  bottom: 0px;
+  height: 53px;
+}
+.buttonExpenseMob {
+  min-width: 50%;
+  height: 53px;
+  top: 514px;
+  padding: 0;
+  background-color: var(--bg-tab);
+  border: 1px solid var(--bg-text-color);
+  cursor: pointer;
+  font-family: "Roboto";
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.buttonExpenseMob:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-text-color);
+  filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
+  transition: var(--time) var(--timing);
+}
+@media screen and (min-width: 768px) {
+  .buttons {
+    display: flex;
+  }
+  .buttonExpense {
+    width: 138px;
+    height: 40px;
+    background: var(--bg-tab);
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+    font-family: "Roboto";
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+  }
+  .buttonExpenseActive {
+    color: var(--accent-color);
+    background: var(--bg-tab-selected);
+  }
+  .buttonExpense:hover {
+    color: var(--text-color-3);
+    filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
+    transition: var(--time) var(--timing);
+  }
+}
+@media screen and (min-width: 1280px) {
+}

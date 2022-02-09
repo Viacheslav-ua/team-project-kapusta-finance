@@ -12,7 +12,7 @@ const Container = ({ children }) => {
     >
       <div
         // className={null} 
-        // className = { stylesBg.bottomFon}
+        className = { stylesBg.bottomFon}
       >
 
         <div className={style.container}>{children}</div>

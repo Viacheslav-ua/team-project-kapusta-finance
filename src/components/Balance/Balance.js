@@ -19,7 +19,7 @@ export default function Balance() {
   return (
     <div className={s.container}>
       <div className={s.containerLeft}>
-        <a className={s.wrapperReports} href=" ">
+        <a className={s.wrapperReports} href="/report">
           <button className={s.reports} >Перейти к отчетам
             <svg className={s.icon}>
               <use href={`${sprite}#diagram`}></use>
