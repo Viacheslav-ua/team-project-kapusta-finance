@@ -1,5 +1,5 @@
 import items from "./expenses.json";
-import sprite from "../../Images/sprite.svg";
+import sprite from "../../../Images/sprite.svg";
 import s from './TableBalance.module.css';
 
 const TableBalance = ({type}) => {
