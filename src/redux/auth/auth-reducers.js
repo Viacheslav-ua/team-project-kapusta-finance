@@ -4,7 +4,8 @@ import * as actions from './auth-actions'
 
 const initialState = {
     user: { name: null, email: null },
-    token: null,
+    refreshToken: null,
+    entranceToken: null,
     isLoggedIn: false
 }
 
@@ -12,8 +13,12 @@ const user = createReducer(initialState.user, {
     [actions.user]: (_, {payload}) => payload
 })
 
-const token = createReducer(initialState.token, {
-    [actions.token]: (_, {payload}) => payload
+const refreshToken = createReducer(initialState.refreshToken, {
+    [actions.refreshToken]: (_, {payload}) => payload
+})
+
+const entranceToken = createReducer(initialState.entranceToken, {
+    [actions.entranceToken]: (_, {payload}) => payload
 })
 
 const isLoggedIn = createReducer(initialState.isLoggedIn, {
@@ -22,6 +27,7 @@ const isLoggedIn = createReducer(initialState.isLoggedIn, {
 
 export default combineReducers({
     user,
-    token,
+    refreshToken,
+    entranceToken,
     isLoggedIn,
 })
