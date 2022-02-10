@@ -22,8 +22,6 @@ const initialValues = {
 };
 
 const AuthForm = () => {
-
-
   const butRegClick = ({ email, password }) => {
     if (email.trim() === "" || password.trim() === "") {
       return;
@@ -31,11 +29,7 @@ const AuthForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={FormSchema}
-     
-    >
+    <Formik initialValues={initialValues} validationSchema={FormSchema}>
       {(formik) => {
         const { validateForm, values, handleChange, isValid } = formik;
 
@@ -46,10 +40,9 @@ const AuthForm = () => {
             </h4>
 
             <a href={"/"} className={style.googleAuthButton}>
-              <svg className={style.googleIcon} width="18" height="18">
-                <use href={`${sprite}#google`}></use>
+              <svg className={style.googleIcon}>
+                <use href={sprite + "#google"} alt="Google" width="18" />
               </svg>
-
               <span className={style.googleText}>Google</span>
             </a>
 

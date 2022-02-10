@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Header from "../../components/Header/Header";
+// import Header from "../../components/Header/Header";
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
 import Container from "../../components/Container/index";
 import TransactionForm from "../../components/BalancePageComponents/TransactionForm/index";
@@ -27,7 +27,6 @@ const BalancePage = () => {
 
   return (
     <>
-      <Header />
       <Container>
         {viewPort.width >= 768 && (
           <>

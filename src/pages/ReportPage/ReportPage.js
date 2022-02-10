@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+// import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
 import MultipleSlider from "../../components/MultipleSlider/MultipleSlider";
@@ -10,7 +10,6 @@ const ReportPage = () => {
   return (
     <div>
       <div>
-        <Header />
         <Link to="/balance" className={style.report}>
           Вернуться на главную
         </Link>
