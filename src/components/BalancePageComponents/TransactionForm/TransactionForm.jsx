@@ -30,19 +30,23 @@ function TransactionForm() {
               className={style.inputeDate}
             />
           </div>
-          <div className={style.inputWrapper}>
-            <input className={style.input} />
-            {/* {errors.name && <p>Обязательное поле</p>} */}
+
+          <div className={style.inputTransactionContainer}>
+            <div className={style.inputWrapper}>
+              <input className={style.input} />
+              {/* {errors.name && <p>Обязательное поле</p>} */}
+            </div>
+            <div className={style.category}>
+              <input className={style.inputCategoty} />
+            </div>
+            <div className={style.valueContainer}>
+              <input placeholder="0,00" className={style.inputValue} />
+              <svg className={style.calculator}>
+                <use href={`${sprite}#calculator`}></use>
+              </svg>
+            </div>
           </div>
-          <div className={style.category}>
-            <input className={style.inputCategoty} />
-          </div>
-          <div className={style.valueContainer}>
-            <input placeholder="0,00" className={style.inputValue} />
-            <svg className={style.calculator}>
-              <use href={`${sprite}#calculator`}></use>
-            </svg>
-          </div>
+
           <div className={style.btnContainer}>
             <button type="submit" className={style.formBtn}>
               Ввод
