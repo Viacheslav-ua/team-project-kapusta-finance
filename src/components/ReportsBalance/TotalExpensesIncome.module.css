@@ -1,0 +1,114 @@
+.componentBox {
+  position: relative;
+  width: 282px;
+  height: 85px;
+  padding: 20px 11px 25px 14px;
+  background: #ffffff;
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .componentBox {
+    position: relative;
+    width: 668px;
+    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #ffffff;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    border-radius: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .componentBox {
+    position: relative;
+    width: 1060px;
+    height: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #ffffff;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    border-radius: 20px;
+  }
+}
+
+.balanceList {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media screen and (min-width: 768px) {
+  .balanceList {
+    justify-content: center;
+  }
+}
+
+.balanceItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14px;
+}
+
+@media screen and (min-width: 768px) {
+  .balanceItem {
+    flex-direction: row;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.balanceText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 20px;
+  color: #52555f;
+}
+
+.expensesValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 20px;
+  letter-spacing: 0.04em;
+  color: #e53935;
+}
+
+.expensesValue::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 70.5px;
+  left: 50%;
+  top: 7px;
+  border: 1px solid #e0e5eb;
+}
+
+@media screen and (min-width: 768px) {
+  .expensesValue::after {
+    height: 36px;
+    left: 50%;
+    top: 7px;
+  }
+}
+
+.incomeValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 20px;
+  letter-spacing: 0.04em;
+  color: #407946;
+}
