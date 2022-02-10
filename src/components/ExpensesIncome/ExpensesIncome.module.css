@@ -128,7 +128,7 @@
     padding-left: 20px;
   }
   /* Стили для скролла */
-  ::-webkit-scrollbar {
+  /* ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
@@ -141,7 +141,7 @@
     height: 130px;
     background: var(--accent-color);
     border-radius: 2px;
-  }
+  } */
 }
 
 @media screen and (min-width: 1280px) {
