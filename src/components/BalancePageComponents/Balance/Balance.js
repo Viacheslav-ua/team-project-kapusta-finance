@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import s from '../Balance/Balance.module.css';
-import sprite from '../../Images/sprite.svg';
+import sprite from '../../../Images/sprite.svg';
 import ModalBalance from '../ModalBalance';
 
 

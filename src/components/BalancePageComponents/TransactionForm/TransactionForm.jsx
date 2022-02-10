@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 // import DropDownList from "../DropDownList/DropDownList";
 import style from "./TransitionForm.module.css";
-import sprite from "../../Images/sprite.svg";
+import sprite from "../../../Images/sprite.svg";
 
 registerLocale("ru", ru);
 
