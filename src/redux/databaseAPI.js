@@ -24,14 +24,28 @@ export const databaseAPI = createApi({
             invalidatesTags: ['Auth'],
         }),
         logoutUser: builder.mutation({
-            query: token => ({
+            query: refreshToken => ({
                 url: '/auth/logout',
                 method: 'POST',
                 headers: {
-                    Authorization : `Bearer ${token}`
+                    Authorization : `Bearer ${refreshToken}`
                 }
             }),
             invalidatesTags: ['Auth'],
+        }),
+        refreshToken: builder.mutation({
+            query: refreshToken => ({
+                url: '/auth/refresh',
+                method: 'GET',
+                headers: {
+                    Authorization : `Bearer ${refreshToken}`
+                }
+            }),
+            invalidatesTags: ['Auth'],
+        }),
+        loginByGoogle: builder.query({
+            query: () => '/auth/google',
+            providesTags: ['Auth'],
         }),
         resetBalance: builder.mutation({
             query: balance => ({
@@ -44,4 +58,11 @@ export const databaseAPI = createApi({
     })
 })
 
-export const { useRegistrationUserMutation, useLoginUserMutation, useLogoutUserMutation, useResetBalanceMutation } = databaseAPI
+export const {
+    useRegistrationUserMutation,
+    useLoginUserMutation,
+    useLogoutUserMutation,
+    useRefreshTokenMutation,
+    useLoginByGoogleQuery,
+    useResetBalanceMutation
+} = databaseAPI
