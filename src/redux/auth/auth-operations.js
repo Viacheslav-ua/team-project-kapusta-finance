@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 const BASE_USER_URL = "http://localhost:3001";
 const userLogin = "/api/auth/login";
@@ -19,18 +20,13 @@ export const register = createAsyncThunk(
       });
 
       const data = await response.json();
+      console.log(data);
 
-      if (data.code === 409) {
-        alert(
-          "Такой пользователь уже существует, создайте нового пользователя"
-        );
-        throw new Error("Required");
-      }
-      return data.data;
+      toast.success("Вы зарегистрированы");
+      return data;
     } catch (error) {
-      return rejectWithValue({
-        error: error.message,
-      });
+      toast.error("Пользователь с таким email уже зарегистрирован ");
+      console.log(error);
     }
   }
 );
@@ -47,11 +43,12 @@ export const login = createAsyncThunk(
         body: JSON.stringify(user),
       });
       const data = await response.json();
-      if (!data.data.token) {
-        alert("Такого пользователя не существует");
+      if (!data.accessToken) {
+        toast.error("Такого пользователя не существует");
         throw new Error("Required");
       }
-      return data.data;
+      toast.success("Вы успешно залогинились");
+      return data;
     } catch (error) {
       return rejectWithValue({
         error: error.message,

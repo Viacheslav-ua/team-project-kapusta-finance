@@ -4,7 +4,6 @@ import { register, login, current, logOut } from "./auth-operations";
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    name: "",
     email: "",
     token: null,
     error: null,
@@ -28,7 +27,7 @@ const authSlice = createSlice({
       return {
         ...state,
         isLoading: false,
-        name: action.payload.name,
+
         email: action.payload.email,
         id: action.payload.id,
         isAuth: false,
