@@ -21,7 +21,9 @@ export const register = createAsyncThunk(
       const data = await response.json();
 
       if (data.code === 409) {
-        alert("Такой пользователь уже есть, попробуйте другое имя");
+        alert(
+          "Такой пользователь уже существует, создайте нового пользователя"
+        );
         throw new Error("Required");
       }
       return data.data;
