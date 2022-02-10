@@ -1,0 +1,126 @@
+.tableHead {
+  width: 97%;
+  table-layout: fixed;
+  border: none;
+  overflow-x: hidden;
+}
+.tableMain {
+  width: 605px;
+  text-align: center;
+  border-radius: 30px;
+  color: var(--text-color);
+  border-radius: 20px 20px 0 0;
+  background-color: var(--bg-color);
+  border-spacing: 0px 2px;
+  border-left: 2px;
+  border-left-style: outset;
+  border-right-style: inset;
+  border-right-color: transparent;
+  border-left-color: transparent;
+}
+.tableMainBody {
+  border-radius: 0;
+}
+.tableHeader {
+  display: none;
+}
+.tableTitle {
+  padding: 10px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  align-items: center;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  font-family: Roboto;
+  font-style: normal;
+}
+.thDate {
+  width: 100px;
+}
+.thDescr {
+  max-width: 200px;
+  text-align: left;
+}
+.tdDescr {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  padding-left: 20px;
+}
+.thCtg {
+  width: 140px;
+}
+.thSum {
+  width: 130px;
+}
+.tdSum {
+  width: 130px;
+  font-weight: 700;
+  color: var(--accent-color-4);
+}
+.tdSumExpense {
+  color: var(--accent-color-3);
+}
+.thIcon {
+  width: 40px;
+}
+.tableBodyScroll {
+  height: 342px;
+  overflow-x: hidden;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--bg-text-color);
+}
+.tableRow {
+  display: revert;
+  align-items: center;
+  height: 38px;
+  padding: 0 8px;
+  background: var(--bg-text-color);
+  color: var(--text-color-3);
+  border-bottom: 2px solid #f4f6fb;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+}
+.deleteBtn {
+  margin-right: auto;
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: transparent;
+  background: transparent;
+}
+.icon {
+  width: 16px;
+  height: 18px;
+  fill: var(--text-color-3);
+}
+
+@media screen and (min-width: 768px) {
+  .tableMain {
+    width: 605px;
+  }
+  .tableHeader {
+    display: revert;
+    align-items: center;
+    height: 38px;
+    font-size: 12px;
+    font-weight: normal;
+    /* color: var(--text-color-3); */
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .tableMain {
+    width: 760px;
+  }
+}

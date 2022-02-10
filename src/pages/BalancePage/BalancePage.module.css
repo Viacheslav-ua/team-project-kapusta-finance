@@ -26,6 +26,20 @@
   filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
   transition: var(--time) var(--timing);
 }
+.buttonGoBack {
+  position: absolute;
+  left: 19px;
+  top: 71px;
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--accent-color);
+}
 @media screen and (min-width: 768px) {
   .buttons {
     display: flex;
