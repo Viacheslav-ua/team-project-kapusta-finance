@@ -1,27 +1,119 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
-import * as actions from './auth-actions'
+import { createSlice } from "@reduxjs/toolkit";
+import { register, login, current, logOut } from "./auth-operations";
 
-const initialState = {
-    user: { name: null, email: null },
+const authSlice = createSlice({
+  name: "auth",
+  initialState: {
+    name: "",
+    email: "",
     token: null,
-    isLoggedIn: false
-}
+    error: null,
+    isLoading: false,
+    isAuth: false,
 
-const user = createReducer(initialState.user, {
-    [actions.user]: (_, {payload}) => payload
-})
+    id: "",
+  },
+  redusers: {
+    renameProp: (state, action) => {
+      return { ...state, myLoad: action.payload };
+    },
+  },
+  extraReducers: {
+    [register.pending](state, action) {
+      return {
+        isLoading: true,
+      };
+    },
+    [register.fulfilled](state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        name: action.payload.name,
+        email: action.payload.email,
+        id: action.payload.id,
+        isAuth: false,
+      };
+    },
+    [register.rejected](state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+      };
+    },
+    [login.pending](state, action) {
+      return {
+        isLoading: true,
+      };
+    },
+    [login.fulfilled](state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        token: action.payload.token,
+        id: action.payload.id,
+        isAuth: false,
+      };
+    },
+    [login.rejected](state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+      };
+    },
+    [current.pending](state, action) {
+      return {
+        ...state,
+        isLoading: true,
+        isAuth: false,
+      };
+    },
+    [current.fulfilled](state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        name: action.payload.name,
+        email: action.payload.email,
+        id: action.payload.id,
+        isAuth: true,
+      };
+    },
+    [current.rejected](state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+        isAuth: false,
+      };
+    },
+    [logOut.pending](state, action) {
+      return {
+        ...state,
+        isLoading: true,
+        isAuth: false,
+      };
+    },
+    [logOut.fulfilled](state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        name: "",
+        email: "",
+        token: "",
+        isAuth: false,
+      };
+    },
+    [logOut.rejected](state, action) {
+      return {
+        ...state,
+        isLoading: false,
+        //  error: action.payload,
+        isAuth: false,
+      };
+    },
+  },
+});
 
-const token = createReducer(initialState.token, {
-    [actions.token]: (_, {payload}) => payload
-})
-
-const isLoggedIn = createReducer(initialState.isLoggedIn, {
-    [actions.isLoggedIn]: (_, {payload}) => payload
-})
-
-export default combineReducers({
-    user,
-    token,
-    isLoggedIn,
-})
+export const { renameProp } = authSlice.actions;
+export default authSlice.reducer;
