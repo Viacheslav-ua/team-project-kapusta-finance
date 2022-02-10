@@ -13,7 +13,7 @@ import { databaseAPI } from './databaseAPI'
 const persistAuthConfig = {
     key: 'auth',
     storage,
-    whitelist: ['token']
+    whitelist: ['refreshToken', 'entranceToken']
 }
 
 const store = configureStore({

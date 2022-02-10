@@ -9,6 +9,7 @@ import Container from "./components/Container";
 import AnimatedCabbage from "./components/AnimatedCabbage/AnimatedCabbage";
 import { CurrentPeriod } from "./components/CurrentPeriod/CurrentPeriod";
 
+// import ModalBalance from "./components/ModalBalance";
 
 
 const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
