@@ -1,199 +1,246 @@
 @media screen and (max-width: 767px) {
-    .container {
-        padding-left: 20;
-        padding-right: 20;
-        padding-top: 37px;
-        padding-bottom: 11px;
-    }
+  .container {
+    padding-left: 20;
+    padding-right: 20;
+    padding-top: 37px;
+    padding-bottom: 11px;
+  }
 
-    .wrapperReports {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .wrapperReports {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
 
-    .reports {
-        margin-right: 12px;
-        font-size: 12px;
-        line-height: 1.17;
-        letter-spacing: 0.04em;
-        color: var(--text-color-2);
-    }
+  .reports {
+    margin-right: 12px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: var(--text-color-2);
+    border: transparent;
+    background: transparent;
+    width: 154px;
+    height: 24px;
+    cursor: pointer;
+  }
 
-    .title {
-        margin-top: 43px;
-        margin-bottom: 6px;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 1.17;
-        text-align: center;
-        letter-spacing: 0.02em;
-        color: var(--text-color-2);
-    }
+  .title {
+    margin-top: 43px;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--text-color-2);
+  }
 
-    .btn {
-        width: 125px;
-        height: 44px;
-        background-color: var(--bg-text-color);
-        border: 2px solid var(--bg-text-color);
-        font-size: 12px;
-        line-height: 1.17;
-        letter-spacing: 0.02em;
-    }
+  .btn {
+    width: 125px;
+    height: 44px;
+    background-color: var(--bg-text-color);
+    border: 2px solid var(--bg-text-color);
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+  }
 
-    .wrapperBtn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .wrapperBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .money {
-        margin-right: 15px;
-        font-weight: bold;
-        border-radius: 22px 0px 0px 22px;
-        color: var(--dark-text-color);
-    }
+  .money {
+    text-align: center;
+    margin-right: 15px;
+    font-weight: bold;
+    border-radius: 22px 0px 0px 22px;
+    color: var(--dark-text-color);
+  }
 
-    .confirm {
-        color: var(--text-color-2);
-        border-radius: 0px 22px 22px 0px;
-    }
+  .money::placeholder {
+    padding: 12px 30px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    color: #000000;
+  }
 
-    .activeBtn {
-        background: var(--accent-color);
-        color: var(--bg-text-color);
-    }
-    .icon {
-        fill: var(--text-color-3);
-        width: 14px;
-        height: 14px;
-        padding-bottom: 4px;
-    }
+  .confirm {
+    color: var(--text-color-2);
+    border-radius: 0px 22px 22px 0px;
+  }
 
+  .confirm:hover,
+  .confirm:focus {
+    background: var(--accent-color);
+    color: var(--bg-text-color);
+  }
+
+  .icon {
+    fill: var(--text-color-3);
+    width: 14px;
+    height: 14px;
+    margin-left: 15px;
+  }
 }
 
 @media screen and (min-width: 768px) {
-    .container {
-        padding-top: 40px;
-        padding-bottom: 70px;
-        display: flex;
-        align-items: center;
-        flex-direction: row-reverse;
-        justify-content: flex-start;
-        padding-left: 50px;
-        padding-right: 50px;
-    }
+  .container {
+    padding-top: 40px;
+    padding-bottom: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    /* padding-left: 50px; */
+    /* padding-right: 50px; */
+  }
 
-    .containerRight {
-        display: flex;
-        align-items: center;
-    }
+  .containerRight {
+    display: flex;
+    align-items: center;
+  }
 
-    .wrapperReports {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 7px;
-    }
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .wrapperBalance {
-        display: flex;
-        flex-direction: row;
-    }
+  .wrapperBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .reports {
-        margin-right: 12px;
-        margin-left: 111px;
-        font-size: 12px;
-        line-height: 1.17;
-        letter-spacing: 0.04em;
-        color: var(--text-color-2);
-    }
+  .wrapperReports {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 7px;
+  }
 
-    .btn {
-        border: 2px solid var(--bg-text-color);
-        box-sizing: border-box;
-        border-radius: 16px;
-        width: 125px;
-        height: 44px;
-        background-color: var(--bg-color);
-        font-size: 12px;
-        line-height: 1.17;
-        letter-spacing: 0.02em;
-    }
+  .wrapperBalance {
+    display: flex;
+    flex-direction: row;
+  }
 
-    .confirm {
-        margin-left: 15px;
-        padding: 12px 6px;
-        color: var(--text-color-2);
-    }
+  .reports {
+    margin-right: 12px;
+    margin-left: 111px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: var(--text-color-2);
+    border: transparent;
+    background: transparent;
+    width: 154px;
+    height: 24px;
+  }
 
-    .money {
-        margin-left: 21px;
-        font-weight: bold;
-        color: var(--text-color);
-    }
+  .btn {
+    border: 2px solid var(--bg-text-color);
+    box-sizing: border-box;
+    border-radius: 16px;
+    width: 125px;
+    height: 44px;
+    background-color: var(--bg-color);
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+  }
 
-    .title {
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 1.17;
-        letter-spacing: 0.02em;
+  .confirm {
+    margin-left: 15px;
+    padding: 12px 6px;
+    color: var(--text-color-2);
+  }
 
-        color: var(--text-color-2);
-    }
+  .money {
+    text-align: center;
+    margin-left: 21px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
 
-    .icon {
-        fill: var(--text-color-3);
-        width: 14px;
-        height: 14px;
-        padding-bottom: 5px;
-    }
+  .money::placeholder {
+    padding: 12px 30px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    color: #000000;
+  }
 
+  .title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    color: var(--text-color-2);
+  }
+
+  .icon {
+    fill: var(--text-color-3);
+    width: 14px;
+    height: 14px;
+    margin-left: 15px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .container {
-        padding-top: 40px;
-        padding-bottom: 9px;
-        display: flex;
-        align-items: center;
-        flex-direction: row-reverse;
-        justify-content: flex-start;
-        padding-left: 110px;
-        padding-right: 110px;
-    }
+  .container {
+    padding-top: 40px;
+    padding-bottom: 9px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    /* padding-left: 110px; */
+    /* padding-right: 110px; */
+  }
 
-    .wrapperReports {
-        align-items: center;
-    }
+  .wrapperReports {
+    align-items: center;
+  }
 
-    .reports {
-        margin-left: 205px;
-    }
+  .reports {
+    margin-left: 205px;
+  }
 
-    .btn {
-        border: 2px solid var(--bg-text-color);
-        box-sizing: border-box;
-        border-radius: 16px;
-        width: 125px;
-        height: 44px;
-        background-color: var(--bg-color);
-        font-size: 12px;
-        line-height: 1.17;
-        letter-spacing: 0.02em;
-    }
+  .btn {
+    border: 2px solid var(--bg-text-color);
+    box-sizing: border-box;
+    border-radius: 16px;
+    width: 125px;
+    height: 44px;
+    background-color: var(--bg-color);
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+  }
 
-    .confirm {
-        margin-left: 15px;
-        padding: 12px 6px;
-        color: var(--text-color-2);
-    }
+  .confirm {
+    margin-left: 15px;
+    padding: 12px 6px;
+    color: var(--text-color-2);
+  }
 
-    .money {
-        margin-left: 21px;
-        font-weight: bold;
-        color: var(--text-color);
-    }
+  .money {
+    margin-left: 21px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
 
+  .icon {
+    fill: var(--text-color-3);
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+  }
 }

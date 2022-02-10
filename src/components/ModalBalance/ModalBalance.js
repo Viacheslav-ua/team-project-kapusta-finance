@@ -10,6 +10,6 @@ export default function ModalBalance() {
                 Ты не можешь тратить деньги пока их у тебя нет :)
             </p>
         </div>
-    );  
+    );
 }
 

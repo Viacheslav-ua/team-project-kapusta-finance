@@ -1,7 +1,6 @@
 const routes = {
   auth: "/",
-  expenses: "/expenses",
-  income: "/income",
+  balance: "/balance",
   report: "/report",
   google: "/google-redirect",
 };

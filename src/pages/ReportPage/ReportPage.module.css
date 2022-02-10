@@ -2,9 +2,7 @@
   .report {
     display: flex;
     justify-content: center;
-    align-items: baseline;
     margin-top: 40px;
-    margin-left: 50px;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 174px;
@@ -19,21 +17,13 @@
     letter-spacing: 0.04em;
     color: var(--text-color-2);
   }
-  .svg {
+  .icon {
     width: 14px;
     height: 14px;
-    fill: black;
-  }
-  .report::before {
-    content: url(../../Images/iconReports.svg);
-    display: block;
-    text-align: center;
+    fill: var(--accent-color);
     margin-right: 15px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .report {
-    margin-left: 110px;
-  }
 }
