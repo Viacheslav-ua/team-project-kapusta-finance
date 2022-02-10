@@ -71,4 +71,13 @@
   }
 }
 @media screen and (min-width: 1280px) {
+  .transactionTableSummaryContainer {
+    width: 1060px;
+    padding: 35px 20px 35px 20px;
+    border-radius: 0px 30px 30px 30px;
+    /* margin: 5px, 0px, 20px, 0px; */
+    display: block;
+    height: 640px;
+    background: var(--bg-tab-selected);
+  }
 }
