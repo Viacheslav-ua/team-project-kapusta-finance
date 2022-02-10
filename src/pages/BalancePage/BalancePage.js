@@ -1,14 +1,10 @@
 import { useState } from "react";
 
-import Header from '../../components/Header/Header';
-import Balance from '../../components/BalancePageComponents/Balance/Balance';
-import Container from '../../components/Container/index';
+import Header from "../../components/Header/Header";
+import Balance from "../../components/BalancePageComponents/Balance/Balance";
+import Container from "../../components/Container/index";
 import TransactionForm from "../../components/BalancePageComponents/TransactionForm/index";
-import TableBalance from '../../components/BalancePageComponents/TableBalance/index';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
-
-
-import TableBalance from "../../components/TableBalance/index";
+import TableBalance from "../../components/BalancePageComponents/TableBalance/TableBalance";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 import s from "./BalancePage.module.css";
