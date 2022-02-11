@@ -5,7 +5,8 @@ import Balance from "../../components/BalancePageComponents/Balance/Balance";
 import Container from "../../components/Container/index";
 import TransactionForm from "../../components/BalancePageComponents/TransactionForm/index";
 import TableBalance from "../../components/BalancePageComponents/TableBalance/TableBalance";
-import SummaryTable from '../../components/BalancePageComponents/SummaryTable/index';
+import TableBalanceMob from "../../components/BalancePageComponents/TableBalanceMob/TableBalanceMob";
+import SummaryTable from "../../components/BalancePageComponents/SummaryTable/index";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 import s from "./BalancePage.module.css";
@@ -78,6 +79,7 @@ const BalancePage = () => {
             {listRender ? (
               <>
                 <Balance />
+                <TableBalanceMob type={type} />
                 <div className={s.buttonsMob}>
                   <button
                     className={`${s.buttonExpenseMob} ${
