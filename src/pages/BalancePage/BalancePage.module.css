@@ -69,15 +69,27 @@
     filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
     transition: var(--time) var(--timing);
   }
+  .transactionTableSummaryContainer {
+    width: 665px;
+    height: 626px;
+    padding: 28px 30px;
+    margin-bottom: 40px;
+    border-radius: 0px 30px 30px 30px;
+    display: block;
+    background: var(--bg-text-color);
+    box-shadow: var(--box-shadow-tab-wrrap);
+  }
 }
 @media screen and (min-width: 1280px) {
   .transactionTableSummaryContainer {
     width: 1060px;
-    padding: 35px 20px 35px 20px;
-    border-radius: 0px 30px 30px 30px;
-    /* margin: 5px, 0px, 20px, 0px; */
-    display: block;
-    height: 640px;
-    background: var(--bg-tab-selected);
+    height: 579px;
+    padding: 35px 20px;
+    margin-bottom: 0;
+  }
+  .tableSummaryContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
   }
 }

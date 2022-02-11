@@ -201,6 +201,7 @@
     align-items: center;
     flex-direction: row-reverse;
     justify-content: flex-start;
+    max-width: 1060px;
     /* padding-left: 110px; */
     /* padding-right: 110px; */
   }

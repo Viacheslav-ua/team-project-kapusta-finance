@@ -2,37 +2,39 @@ import React from 'react';
 import { useTable } from 'react-table';
 import styles from './SummaryTable.module.css';
 
-function SummaryTable({title, data}) {
+function SummaryTable() {
+// function SummaryTable({title, data}) {
 
-//  const data = React.useMemo(
-//      () => [
-//        {
-//          month: 'Ноябрь',
-//          amount: '10 000.00',
-//        },
-//        {
-//          month: 'Октябрь',
-//          amount: '30 000.00',
-//        },
-//        {
-//          month: 'Сентябрь',
-//          amount: '30 000.00',
-//          },
-//        {
-//          month: 'Август',
-//          amount: '20 000.00',
-//          },
-//        {
-//          month: 'Июль',
-//          amount: '15 000.00',
-//          },
-//        {
-//          month: 'Июнь',
-//          amount: '18 000.00',
-//        },
-//      ],
-//      []
-//  )
+  const title = "СВОДКА";
+ const data = React.useMemo(
+     () => [
+       {
+         month: 'Ноябрь',
+         amount: '10 000.00',
+       },
+       {
+         month: 'Октябрь',
+         amount: '30 000.00',
+       },
+       {
+         month: 'Сентябрь',
+         amount: '30 000.00',
+         },
+       {
+         month: 'Август',
+         amount: '20 000.00',
+         },
+       {
+         month: 'Июль',
+         amount: '15 000.00',
+         },
+       {
+         month: 'Июнь',
+         amount: '18 000.00',
+       },
+     ],
+     []
+ )
 
  const columns = React.useMemo(
     () => [
