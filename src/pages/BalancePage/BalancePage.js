@@ -2,6 +2,7 @@ import { useState } from "react";
 
 // import Header from "../../components/Header/Header";
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
+import GoToReports from "../../components/BalancePageComponents/GoToReport";
 import Container from "../../components/Container/index";
 import TransactionForm from "../../components/BalancePageComponents/TransactionForm/index";
 import TableBalance from "../../components/BalancePageComponents/TableBalance/TableBalance";
@@ -11,6 +12,7 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 import s from "./BalancePage.module.css";
 import sprite from "../../Images/sprite.svg";
+
 
 const BalancePage = () => {
   const [type, setType] = useState("expense");
@@ -32,7 +34,10 @@ const BalancePage = () => {
       <Container>
         {viewPort.width >= 768 && (
           <>
-            <Balance />
+            <div className={s.balanceWrapper}>
+              <GoToReports />
+              <Balance />
+            </div>
             <div className={s.buttons}>
               <button
                 className={`${s.buttonExpense} ${
@@ -78,7 +83,10 @@ const BalancePage = () => {
           <>
             {listRender ? (
               <>
+              <div className={s.balanceWrapper}>
+                <GoToReports />
                 <Balance />
+              </div>
                 <TableBalanceMob type={type} />
                 <div className={s.buttonsMob}>
                   <button
