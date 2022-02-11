@@ -1,13 +1,11 @@
 import React from "react";
+import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
-// import authOperations from "redux/auth/auth-operations";
-// import Constants from "Constants/";
 import sprite from "../../Images/sprite.svg";
-
 import style from "./AuthForm.module.css";
+import { useLoginByGoogleQuery, useLoginUserMutation, useRegistrationUserMutation } from "../../redux/services/authAPI"
 
 const FormSchema = Yup.object().shape({
   email: Yup.string().email().required("Это обязательное поле"),
@@ -21,12 +19,44 @@ const initialValues = {
   password: "",
 };
 
+
+
+
 const AuthForm = () => {
-  const butRegClick = ({ email, password }) => {
+  const [loginUser, { isLoading : isLoadingLogin, isError : isErrorLogin }] = useLoginUserMutation()
+  const [registrationUser, { isLoading: isLoadingRegistration, isError: isErrorRegistration }] = useRegistrationUserMutation()
+  const dispatch = useDispatch()
+
+  const handleSubmit = useCallback(async ({ email, password }, e) => {
     if (email.trim() === "" || password.trim() === "") {
       return;
     }
-  };
+    const dataUser = {
+      email: email,
+      password: password,
+    }
+    
+    switch (e.target.name) {
+      case 'login':
+        try {
+          const response = await loginUser(dataUser)
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+        break
+      case 'registration':
+        try {
+          const response = await registrationUser(dataUser)
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+        break
+      default:
+        return
+    }
+  }, [loginUser, registrationUser])
 
   return (
     <Formik initialValues={initialValues} validationSchema={FormSchema}>
@@ -98,16 +128,25 @@ const AuthForm = () => {
               </div>
 
               <div className={style.authButtons}>
-                <button type="submit" className={style.btn}>
+                <button
+                  type="button"
+                  name="login"
+                  className={style.btn}
+                  onClick={(e) =>
+                    validateForm().then(() => {
+                      handleSubmit(values, e)
+                    })
+                  }>
                   ВOЙТИ
                 </button>
 
                 <button
                   type="button"
+                  name="registration"
                   className={style.btn}
-                  onClick={() =>
+                  onClick={(e) =>
                     validateForm().then(() => {
-                      butRegClick(values);
+                      handleSubmit(values, e)
                     })
                   }
                 >
