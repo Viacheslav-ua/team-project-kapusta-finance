@@ -1,5 +1,4 @@
 .tableHead {
-  /* width: 97%; */
   table-layout: fixed;
   border: none;
   overflow-x: hidden;
@@ -18,9 +17,6 @@
   border-right-color: transparent;
   border-left-color: transparent;
 }
-/* .tableBody {
-  border-bottom: black;
-} */
 .tableMainBody {
   border-radius: 0;
 }
@@ -75,8 +71,21 @@
   height: 342px;
   overflow-x: hidden;
   margin-top: 0px;
-  /* margin-bottom: 20px; */
+  border-top: none;
   border-bottom: 1px solid var(--bg-color);
+}
+.tableBodyScroll::-webkit-scrollbar {
+  width: 6px;
+}
+.tableBodyScroll::-webkit-scrollbar-track {
+  width: 6px;
+  background: #f5f6fb;
+}
+.tableBodyScroll::-webkit-scrollbar-thumb {
+  width: 6px;
+  height: 130px;
+  background: #ff751d;
+  border-radius: 2px;
 }
 .tableRow {
   display: revert;

@@ -12,20 +12,21 @@ import {
 import storage from "redux-persist/lib/storage";
 import financeReducer from "./finance/finance-reducer";
 import authReducer from "./auth/auth-reducers";
+
 import { databaseAPI } from "./databaseAPI";
 import { transactionsApi } from "./transactionsAPI";
 
 const persistAuthConfig = {
   key: "auth",
   storage,
-  whitelist: ["token"],
+  whitelist: ["accessToken", "refreshToken"],
 };
 
 const store = configureStore({
   reducer: {
     auth: persistReducer(persistAuthConfig, authReducer),
     finance: financeReducer,
-    [databaseAPI.reducerPath]: databaseAPI.reducer,
+    [authAPI.reducerPath]: authAPI.reducer,
     [transactionsApi.reducerPath]: transactionsApi.reducer,
   },
   devTools: process.env.NODE_ENV === "development",
@@ -34,8 +35,9 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(databaseAPI.middleware),
+    }).concat(authAPI.middleware, transactionsApi.middleware),
 });
+
 const persistor = persistStore(store);
 // eslint-disable-next-line import/no-anonymous-default-export
 export default { store, persistor };

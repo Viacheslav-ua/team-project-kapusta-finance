@@ -1,0 +1,117 @@
+.tableBodyScroll {
+  overflow-x: hidden;
+  padding-top: 45px;
+  margin-bottom: 55px;
+}
+.tableWrapper {
+  padding: 0;
+  width: 100%;
+}
+.tableRowContainer {
+  display: block;
+  min-width: 282px;
+  height: 42px;
+
+  border-bottom: 1px solid #f5f6fb;
+  margin-bottom: 10px;
+}
+.tableRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* height: 36px;
+  padding: 0 8px;
+  background: var(--bg-text-color);
+  color: var(--text-color-3);
+  border-bottom: 2px solid #f4f6fb;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em; */
+}
+.tableItemWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 148px;
+}
+.tdDescr {
+  display: inline-block;
+  height: 20px;
+  margin-bottom: 3px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: start;
+  letter-spacing: 0.04em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-color-3);
+}
+.dateCategoryWrapper {
+  display: flex;
+}
+.tdDate {
+  margin-right: 20px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-color-3);
+}
+.tdCtg {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  line-height: 9px;
+  letter-spacing: 0.04em;
+  color: var(--text-color-3);
+}
+.tablesumWrapper {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  padding-left: 10px;
+}
+.tdSum {
+  display: inline-flex;
+  min-width: 84px;
+  justify-content: flex-end;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  color: var(--accent-color-4);
+}
+.tdSumExpense {
+  color: var(--accent-color-3);
+}
+.buttonWrapper {
+}
+.deleteBtn {
+  margin-right: auto;
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border: transparent;
+  background: transparent;
+}
+.icon {
+  width: 16px;
+  height: 18px;
+  fill: var(--text-color-3);
+}
+
+.tdIcon {
+  width: 40px;
+}

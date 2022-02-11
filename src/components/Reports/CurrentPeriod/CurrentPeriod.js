@@ -2,11 +2,11 @@ import Slider from "react-slick";
 // import "slick-carousel/slick/slick.css"; 
 // import "slick-carousel/slick/slick-theme.css";
 import './CurrentPeriod.css'
-import MONTHS from '../../helpers/months';
+import MONTHS from '../../../helpers/months';
 
 
 
-export const CurrentPeriod = () => {
+export default function CurrentPeriod() {
 const settings = {
       infinite: true,
       speed: 500,
