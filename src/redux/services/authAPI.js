@@ -1,15 +1,15 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export const databaseAPI = createApi({
-    reducerPath: 'databaseAPI',
+export const authAPI = createApi({
+    reducerPath: 'authAPI',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://localhost:3001/api'
+        baseUrl: 'https://localhost:3001/api/auth'
     }),
-    tagTypes: ['Auth', 'Banking'],
+    tagTypes: ['Auth'],
     endpoints: builder => ({
         registrationUser: builder.mutation({
             query: newUser => ({
-                url: '/auth/registration',
+                url: '/registration',
                 method: 'POST',
                 body: newUser
             }),
@@ -17,7 +17,7 @@ export const databaseAPI = createApi({
         }),
         loginUser: builder.mutation({
             query: dataLogin => ({
-                url: '/auth/login',
+                url: '/login',
                 method: 'POST',
                 body: dataLogin,
             }),
@@ -25,7 +25,7 @@ export const databaseAPI = createApi({
         }),
         logoutUser: builder.mutation({
             query: refreshToken => ({
-                url: '/auth/logout',
+                url: '/logout',
                 method: 'POST',
                 headers: {
                     Authorization : `Bearer ${refreshToken}`
@@ -35,7 +35,7 @@ export const databaseAPI = createApi({
         }),
         refreshToken: builder.mutation({
             query: refreshToken => ({
-                url: '/auth/refresh',
+                url: '/refresh',
                 method: 'GET',
                 headers: {
                     Authorization : `Bearer ${refreshToken}`
@@ -44,16 +44,8 @@ export const databaseAPI = createApi({
             invalidatesTags: ['Auth'],
         }),
         loginByGoogle: builder.query({
-            query: () => '/auth/google',
+            query: () => '/google',
             providesTags: ['Auth'],
-        }),
-        resetBalance: builder.mutation({
-            query: balance => ({
-                url: '/banking/reset-balance',
-                method: 'PATCH',
-                body: balance,
-            }),
-            invalidatesTags: ['Banking'],
         })
     })
 })
@@ -63,6 +55,5 @@ export const {
     useLoginUserMutation,
     useLogoutUserMutation,
     useRefreshTokenMutation,
-    useLoginByGoogleQuery,
-    useResetBalanceMutation
-} = databaseAPI
+    useLoginByGoogleQuery
+} = authAPI
