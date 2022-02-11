@@ -37,11 +37,11 @@
   }
 
   .bottomFon {
-    padding-bottom: 219px;
+    /* padding-bottom: 219px; */
     background: url(../../Images/tablet-bottom.svg);
     background-repeat: no-repeat;
-    background-position-y: 100%;
-    background-position-x: 70%;
+    background-position-y: 94%;
+    background-position-x: 90%;
   }
 }
 
@@ -50,6 +50,7 @@
     height: 526px;
     background: #f5f6fb;
     border-bottom-left-radius: 120px;
+    max-width: 1280px;
   }
 
   .mainBgAuth {

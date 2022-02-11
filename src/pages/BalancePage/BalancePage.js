@@ -5,6 +5,7 @@ import Balance from "../../components/BalancePageComponents/Balance/Balance";
 import Container from "../../components/Container/index";
 import TransactionForm from "../../components/BalancePageComponents/TransactionForm/index";
 import TableBalance from "../../components/BalancePageComponents/TableBalance/TableBalance";
+import SummaryTable from '../../components/BalancePageComponents/SummaryTable/index';
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 import s from "./BalancePage.module.css";
@@ -51,12 +52,25 @@ const BalancePage = () => {
                 доход
               </button>
             </div>
-            <div className={s.transactionTableSummaryContainer}>
+            {viewPort.width >= 768 && viewPort.width < 1280 && (
+              <>
+                <div className={s.transactionTableSummaryContainer}>
+                  <TransactionForm />
+                  <TableBalance type={type} />
+                </div>
+                <SummaryTable />
+              </>
+            )}
+            {viewPort.width >= 1280 && (
+              <div className={s.transactionTableSummaryContainer}>
               <TransactionForm />
-              <TableBalance type={type} />
-              {/* <ExpensesIncome /> */}
-              {/* <SummaryTable title={titleSummary} data={dataSummary}/> */}
+              <div className={s.tableSummaryContainer}>
+                <TableBalance type={type} />
+                <SummaryTable />
+              </div>
             </div>
+            )}
+            
           </>
         )}
         {viewPort.width < 768 && (
@@ -91,7 +105,8 @@ const BalancePage = () => {
                   <svg className={s.icon}>
                     <use href={sprite + "#arrow"} alt="Go back" />
                   </svg>
-                </button>
+                  </button>
+                  <TransactionForm />
               </>
             )}
           </>

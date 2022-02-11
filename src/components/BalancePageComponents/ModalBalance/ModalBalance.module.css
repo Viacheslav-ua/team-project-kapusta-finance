@@ -1,56 +1,55 @@
 .modal_balance {
-    border-radius: 30px;
-    background: linear-gradient(120deg, #1d346a 3%, #031634 69%);
-    max-height: 163px;
-    max-width: 282px;
-    padding: 30px 25px 31px 25px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 1;
-  
+  border-radius: 30px;
+  background: linear-gradient(120deg, #1d346a 3%, #031634 69%);
+  max-height: 163px;
+  max-width: 282px;
+  padding: 30px 25px 31px 25px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
 }
 
 .modal_balance::before {
-    content: '';
-    background-color: #172d5e;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    left: 75px;
-    top: -8px;
-    transform: rotate(45deg);
+  content: "";
+  background-color: #172d5e;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 75px;
+  top: -8px;
+  transform: rotate(45deg);
 }
 
 .modal_first_info {
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 20px;
-    color: var(--bg-text-color);
-    text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 20px;
+  color: var(--bg-text-color);
+  text-align: left;
 }
 
 .modal_second_info {
-    font-size: 12px;
-    line-height: 16px;
-    color: var(--bg-text-color);
-    text-align: left;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--bg-text-color);
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
-    .modal_balance {
-        position: absolute;
-        top: 98px;
-        left: 137px;
-    }
+  .modal_balance {
+    position: absolute;
+    top: 148px;
+    left: 137px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .modal_balance {
-        position: absolute;
-        top: 98px;
-        left: 495px;
-        max-height: 163px;
-        max-width: 292px;
-    }
+  .modal_balance {
+    position: absolute;
+    top: 148px;
+    left: 495px;
+    max-height: 163px;
+    max-width: 292px;
+  }
 }
