@@ -11,7 +11,6 @@ import { CurrentPeriod } from "./components/CurrentPeriod/CurrentPeriod";
 
 // import ModalBalance from "./components/ModalBalance";
 
-
 const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
 const BalancePage = lazy(() => import("./pages/BalancePage/BalancePage"));
@@ -20,6 +19,7 @@ const ReportPage = lazy(() => import("./pages/ReportPage/ReportPage"));
 function App() {
   return (
     <div className="App">
+      <Header />
       <Suspense fallback="loading...">
         <Routes>
           <Route
@@ -44,7 +44,6 @@ function App() {
           <Route path="*" element={<PublicRoute component={PageNotFound} />} />
         </Routes>
       </Suspense>
-      
     </div>
   );
 }
