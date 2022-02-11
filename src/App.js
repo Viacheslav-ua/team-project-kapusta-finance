@@ -7,7 +7,6 @@ import Header from "../src/components/Header/Header";
 import AuthForm from "./components/AuthForm/AuthForm";
 import Container from "./components/Container";
 import AnimatedCabbage from "./components/AnimatedCabbage/AnimatedCabbage";
-import { CurrentPeriod } from "./components/CurrentPeriod/CurrentPeriod";
 import Balance from "./components/Balance/Balance";
 import ModalBalance from "./components/ModalBalance";
 

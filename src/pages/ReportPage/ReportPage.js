@@ -1,8 +1,10 @@
 import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
-import MultipleSlider from "../../components/MultipleSlider/MultipleSlider";
-import sprite from "../../Images/sprite.svg";
+import ReportsBalance from '../../components/Reports/ReportsBalance'
+import MultipleSlider from "../../components/Reports/MultipleSlider/MultipleSlider";
+import CurrentPeriod from "../../components/Reports/CurrentPeriod/CurrentPeriod";
+
 
 import style from "./ReportPage.module.css";
 
@@ -11,9 +13,13 @@ const ReportPage = () => {
     <div>
       <div>
         <Header />
-        <Link to="/balance" className={style.report}>
+        <div className={style.topWrapper}>
+          <Link to="/balance" className={style.report}>
           Вернуться на главную
         </Link>
+        <CurrentPeriod/>
+        </div>
+        <ReportsBalance/>
         <MultipleSlider />
       </div>
     </div>

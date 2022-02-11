@@ -1,5 +1,5 @@
 .sliderContainer {
-  margin: 40px auto 0;
+  margin: 40px;
   width: 300px;
 }
 
@@ -33,13 +33,13 @@
 .slick-next {
   top: 10;
   left: 135px;
-  background-image: url("../../Images/next.svg");
+  background-image: url("../../../Images/next.svg");
 }
 
 .slick-prev {
   top: 10;
   right: 135px;
-  background-image: url("../../Images/prev.svg");
+  background-image: url("../../../Images/prev.svg");
 }
 
 .slick-slider {

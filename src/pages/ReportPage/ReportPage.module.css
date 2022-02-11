@@ -27,3 +27,20 @@
 
 @media screen and (min-width: 1280px) {
 }
+
+.topWrapper {
+  margin: 0 auto;
+  width: 320px;
+  display: flex;
+  justify-content: space-around;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .topWrapper {
+    width: 670px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .topWrapper {
+    width: 1060px;
+  }
+}

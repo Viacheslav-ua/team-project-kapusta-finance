@@ -1,6 +1,6 @@
-import { expenseOptions } from '../../helpers/expencesOptions'
+import { expenseOptions } from '../../../helpers/expencesOptions'
 import {data} from './data'
-import sprite from '../../Images/sprite.svg'
+import sprite from '../../../Images/sprite.svg'
 import style from './SliderExpences.module.css'
 
 
