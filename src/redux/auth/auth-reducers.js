@@ -17,7 +17,7 @@ const refreshToken = createReducer(initialState.refreshToken, {
     [actions.refreshToken]: (_, {payload}) => payload
 })
 
-const accessToken = createReducer(initialState.entranceToken, {
+const accessToken = createReducer(initialState.accessToken, {
     [actions.accessToken]: (_, {payload}) => payload
 })
 
