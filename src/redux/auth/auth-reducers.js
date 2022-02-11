@@ -51,7 +51,7 @@ const authSlice = createSlice({
         isLoading: false,
         token: action.payload.token,
         id: action.payload.id,
-        isAuth: false,
+        isAuth: true,
       };
     },
     [login.rejected](state, action) {
