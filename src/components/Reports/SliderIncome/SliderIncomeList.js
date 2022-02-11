@@ -1,5 +1,5 @@
-import sprite from '../../Images/sprite.svg'
-import { incomeOptions } from '../../helpers/incomeOptions'
+import sprite from '../../../Images/sprite.svg'
+import { incomeOptions } from '../../../helpers/incomeOptions'
 import {data} from './data'
 import style from './SliderIncome.module.css'
 

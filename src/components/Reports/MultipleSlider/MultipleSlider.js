@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import { useEffect, useState } from 'react';
-import SliderIncomeList from "../../SliderIncome/SliderIncomeList";
+import SliderIncomeList from "../SliderIncome/SliderIncomeList";
 import SliderExpencesList from "../SliderExpences/SliderExpencesList";
 import Chart from "../Chart/Chart";
 import styles from './MultipleSlider.module.css'
