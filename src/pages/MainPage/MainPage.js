@@ -1,11 +1,7 @@
-import style from './MainPage.module.css'
+import style from "./MainPage.module.css";
 
 const MainPage = () => {
-    return (
-        <div className={style.bg_contaiter}>
+  return <div className={style.bg_container}></div>;
+};
 
-        </div>
-    )
-}
-
-export default MainPage
+export default MainPage;
