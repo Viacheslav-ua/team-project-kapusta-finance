@@ -106,7 +106,8 @@ const BalancePage = () => {
                   <svg className={s.icon}>
                     <use href={sprite + "#arrow"} alt="Go back" />
                   </svg>
-                </button>
+                  </button>
+                  <TransactionForm />
               </>
             )}
           </>
