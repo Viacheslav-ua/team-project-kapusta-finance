@@ -13,8 +13,8 @@ import storage from "redux-persist/lib/storage";
 import financeReducer from "./finance/finance-reducer";
 import authReducer from "./auth/auth-reducers";
 
-import { databaseAPI } from "./databaseAPI";
-import { transactionsApi } from "./transactionsAPI";
+import { authAPI } from "./services/authAPI";
+import { transactionsApi } from "./services/transactionsAPI";
 
 const persistAuthConfig = {
   key: "auth",
