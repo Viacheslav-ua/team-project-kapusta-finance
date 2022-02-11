@@ -14,11 +14,13 @@ import financeReducer from "./finance/finance-reducer";
 import authReducer from "./auth/auth-reducers";
 import { databaseAPI } from "./databaseAPI";
 import { transactionsApi } from "./transactionsAPI";
+
 const persistAuthConfig = {
   key: "auth",
   storage,
   whitelist: ["token"],
 };
+
 const store = configureStore({
   reducer: {
     auth: persistReducer(persistAuthConfig, authReducer),

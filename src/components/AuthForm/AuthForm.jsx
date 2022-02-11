@@ -46,7 +46,7 @@ const AuthForm = () => {
               <span className={style.googleText}>Google</span>
             </a>
 
-            <h4 className={`${style.auth} ${style.authTittle}`}>
+            <h4 className={style.authTittle}>
               Или зайти с помощью e-mail и пароля, <br />
               предварительно зарегистрировавшись:
             </h4>

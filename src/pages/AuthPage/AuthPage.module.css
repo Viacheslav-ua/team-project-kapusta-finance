@@ -1,3 +1,13 @@
+@media screen and (max-width: 319.98px) {
+}
+@media screen and (max-width: 767.98px) and (min-width: 320px) {
+}
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .authContainer {
+    display: flex;
+    align-items: center;
+  }
+}
 @media screen and (min-width: 1280px) {
   .authContainer {
     display: flex;

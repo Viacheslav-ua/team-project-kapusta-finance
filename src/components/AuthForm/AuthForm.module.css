@@ -20,11 +20,25 @@
     vertical-align: top;
     letter-spacing: 0.04em;
     color: #52555f;
-    padding-top: 40px;
+    padding-top: 30px;
     width: 222px;
     height: 24px;
     margin: auto;
   }
+  .authTitle {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    text-align: center;
+    vertical-align: top;
+    letter-spacing: 0.04em;
+    color: #52555f;
+    padding-top: 30px;
+    width: 222px;
+    height: 24px;
+    margin: auto;
+  }
+
   .googleAuthButton {
     font-weight: 500;
     font-size: 14px;
@@ -65,7 +79,7 @@
     margin-left: 29px;
     margin-right: 18px;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   .formRowTitle {
     font-weight: 400;
@@ -98,6 +112,7 @@
   .password::placeholder {
     color: #a6abb9;
   }
+
   .email,
   .password {
     padding-left: 20px;
@@ -172,9 +187,10 @@
     font-size: 12px;
     line-height: 1.4;
     letter-spacing: 0.04em;
-    padding-top: 40px;
+    padding-top: 30px;
     width: 265px;
     height: 28px;
+    text-align: left;
   }
   .googleAuthButton {
     margin-top: 20px;
@@ -196,20 +212,24 @@
     margin-right: 85px;
     justify-content: space-between;
   }
+  .authTittle {
+    padding-top: 30px;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    margin-left: 86px;
+    margin-right: 85px;
+    color: #52555f;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1279.98px) {
   .auth {
-    font-size: 12px;
-    line-height: 1.4;
-    letter-spacing: 0.04em;
+    padding: 0;
     padding-top: 40px;
-    padding-bottom: 20px;
-    width: 265px;
-    height: 28px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .auth {
     text-align: left;
     padding-bottom: 40px;
   }
@@ -221,5 +241,60 @@
   .btn {
     width: 125px;
     height: 44px;
+  }
+  .formRow {
+    margin: 20px 85px 40px 86px;
+  }
+  .googleAuthButton {
+    margin-top: 10px;
+  }
+  .authTittle {
+    padding-top: 30px;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    margin-left: 86px;
+    margin-right: 85px;
+    color: #52555f;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .auth {
+    padding: 0;
+    padding-top: 40px;
+    text-align: left;
+    padding-bottom: 40px;
+  }
+  .email,
+  .password {
+    width: 265px;
+    height: 52px;
+  }
+  .btn {
+    width: 125px;
+    height: 44px;
+  }
+  .formRow {
+    margin: 20px 85px 40px 86px;
+  }
+  .googleAuthButton {
+    margin-top: 10px;
+  }
+  .authTittle {
+    padding-top: 30px;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    margin-left: 86px;
+    margin-right: 85px;
+    color: #52555f;
   }
 }
