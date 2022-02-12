@@ -1,10 +1,9 @@
 import { expenseOptions } from '../../../helpers/expencesOptions'
-import {data} from './data'
 import sprite from '../../../Images/sprite.svg'
 import style from './SliderExpences.module.css'
 
 
-export default function SliderExpencesList ()  {
+export default function SliderExpencesList ({data})  {
     return (
         <ul className={style.expencesList}>
             {data.map(({ _id, categoryName, amount }) => {

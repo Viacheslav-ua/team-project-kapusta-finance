@@ -1,4 +1,3 @@
-import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
 import { Link } from "react-router-dom";
 import ReportsBalance from "../../components/Reports/ReportsBalance";
@@ -9,9 +8,8 @@ import style from "./ReportPage.module.css";
 
 const ReportPage = () => {
   return (
-    <div>
-      <div>
-        <Header />
+    <>
+        {/* <Container> */}
         <div className={style.topWrapper}>
           <Link to="/balance" className={style.report}>
             Вернуться на главную
@@ -20,8 +18,8 @@ const ReportPage = () => {
         </div>
         <ReportsBalance />
         <MultipleSlider />
-      </div>
-    </div>
+      {/* </Container> */}
+      </>
   );
 };
 
