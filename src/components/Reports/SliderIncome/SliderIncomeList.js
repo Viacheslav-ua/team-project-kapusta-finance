@@ -1,9 +1,8 @@
 import sprite from '../../../Images/sprite.svg'
 import { incomeOptions } from '../../../helpers/incomeOptions'
-import {data} from './data'
 import style from './SliderIncome.module.css'
 
-export default function SliderIncomeList() {
+export default function SliderIncomeList({data}) {
     return (
         <ul className={style.incomeList}>
             {data.map(({ _id, categoryName, amount }) => {

@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .balance{
   display: flex;
   flex-direction: row;
@@ -27,6 +28,30 @@
     margin-left: 0;
   }
 };
+
+/* .inputeDate {
+  font-family: Roboto;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--text-color-3);
+  border: none;
+  cursor: pointer;
+  background: #f5f6fb;
+  width: 74px;
+}
+.calendar {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  fill: var(--text-color-3);
+}
+.calendarWrapper {
+  display: flex;
+  margin-top: 40px;
+  width: 104px;
+  height: 40px;
+} */
 
 .buttonsMob {
   width: 100%;
@@ -58,6 +83,7 @@
 }
 .buttonGoBack {
   position: absolute;
+  z-index: 1;
   left: 19px;
   top: 71px;
   outline: none;
@@ -109,6 +135,12 @@
     background: var(--bg-text-color);
     box-shadow: var(--box-shadow-tab-wrrap);
   }
+  .balanceWrapper {
+    max-width: 767px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
 }
 @media screen and (min-width: 1280px) {
   .transactionTableSummaryContainer {
@@ -121,5 +153,9 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+  }
+  .balanceWrapper {
+    max-width: 1279px;
+    justify-content: end;
   }
 }

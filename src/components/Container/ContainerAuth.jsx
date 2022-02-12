@@ -6,8 +6,8 @@ const Container = ({ children }) => {
  
 
   return (
-   <div className = { stylesBg.mainBg}>
-      <div className = { stylesBg.bottomFon}>
+   <div className={stylesBg.mainBgAuth}>
+      <div className = { stylesBg.bottomFonAuth}>
         <div className={style.container}>{children}</div>
       </div>
     </div>
