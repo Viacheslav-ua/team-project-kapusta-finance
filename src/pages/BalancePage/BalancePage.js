@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-// import Header from "../../components/Header/Header";
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
 import GoToReports from "../../components/BalancePageComponents/GoToReport";
 import Container from "../../components/Container/index";
@@ -115,7 +114,7 @@ const BalancePage = () => {
                   <svg className={s.icon}>
                     <use href={sprite + "#arrow"} alt="Go back" />
                   </svg>
-                  </button>
+                </button>
                   <TransactionForm />
               </>
             )}

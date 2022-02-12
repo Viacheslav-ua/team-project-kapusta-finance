@@ -18,6 +18,13 @@
     background-repeat: no-repeat;
     border-bottom-left-radius: 120px;
   }
+  .bottomFonAuth {
+    background: url(../../Images/mob-bottom-auth.svg);
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: 35px;
+    padding-bottom: 76px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -37,11 +44,23 @@
   }
 
   .bottomFon {
-    /* padding-bottom: 219px; */
     background: url(../../Images/tablet-bottom.svg);
     background-repeat: no-repeat;
     background-position-y: 94%;
-    background-position-x: 90%;
+    background-position-x: 84%;
+  }
+  .bottomFonReport {
+    background: url(../../Images/tablet-bottom.svg);
+    background-repeat: no-repeat;
+    background-position-y: 104%;
+    background-position-x: 88%;
+  }
+  .bottomFonAuth {
+    background: url(../../Images/tablet-bottom.svg);
+    background-repeat: no-repeat;
+    background-position-y: 93.5%;
+    background-position-x: 103px;
+    padding-bottom: 192px;
   }
 }
 
@@ -68,5 +87,19 @@
     background-repeat: no-repeat;
     background-position-y: 100%;
     background-position-x: center;
+  }
+  .bottomFonReport {
+    padding-bottom: 74px;
+    background: url(../../Images/desktop-bottom2.svg);
+    background-repeat: no-repeat;
+    background-position-y: 100%;
+    background-position-x: center;
+  }
+  .bottomFonAuth {
+    background: url(../../Images/tablet-bottom.svg);
+    background-repeat: no-repeat;
+    background-position-y: 94%;
+    background-position-x: 230px;
+    padding-bottom: 142px;
   }
 }

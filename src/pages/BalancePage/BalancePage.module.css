@@ -3,21 +3,6 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 768px) {
-  .balanceWrapper {
-    max-width: 767px;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-  }
-}
-@media  screen and (min-width: 1280px) {
-  .balanceWrapper{
-    max-width: 1279px;
-    justify-content: end;
-  }
-};
-
 .buttonsMob {
   width: 100%;
   height: 53px;
@@ -48,6 +33,7 @@
 }
 .buttonGoBack {
   position: absolute;
+  z-index: 1;
   left: 19px;
   top: 71px;
   outline: none;
@@ -99,6 +85,12 @@
     background: var(--bg-text-color);
     box-shadow: var(--box-shadow-tab-wrrap);
   }
+  .balanceWrapper {
+    max-width: 767px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
 }
 @media screen and (min-width: 1280px) {
   .transactionTableSummaryContainer {
@@ -111,5 +103,9 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+  }
+  .balanceWrapper {
+    max-width: 1279px;
+    justify-content: end;
   }
 }
