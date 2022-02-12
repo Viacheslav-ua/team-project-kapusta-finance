@@ -1,10 +1,8 @@
 import React from 'react';
-import { toast } from 'react-toastify';
 import { useState } from 'react';
 import s from '../Balance/Balance.module.css';
 import ModalBalance from '../ModalBalance';
-import 'react-toastify/dist/ReactToastify.css';
-
+import ConfirmButton from '../ConfirmButton/ConfirmButton';
 
 export default function Balance() {
   const [balance, setBalance] = useState('');
@@ -12,13 +10,7 @@ export default function Balance() {
   const onHandleChange = e => {
     setBalance(e.target.value);
   };
-  const clickOnBtn = e => {
-    e.preventDefault();
-    const valueInput = e.target.value;
-    if (!valueInput) {
-      toast.error('Пожалуйста, введите правильное значение!');
-    }
-  };
+  
   return (
     <div className={s.container}>
       
@@ -36,19 +28,12 @@ export default function Balance() {
                 value={`${balance}`}
                 placeholder="00.00 UAH"
               />
-
-              <button
-                className={`${s.confirm} ${s.btn}`}
-                type="submit"
-                onClick={clickOnBtn}
-              >
-                ПОДТВЕРДИТЬ
-              </button>
             </div>
           </div>
         </form>
       </div>
       {!+balance && <ModalBalance />}
+      
     </div>
   );
 }

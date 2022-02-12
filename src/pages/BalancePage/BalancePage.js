@@ -2,6 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
+import ConfirmButton from "../../components/BalancePageComponents/ConfirmButton/ConfirmButton";
 import GoToReports from "../../components/BalancePageComponents/GoToReport";
 import Container from "../../components/Container/index";
 import TransactionForm from "../../components/BalancePageComponents/TransactionForm/index";
@@ -36,8 +37,9 @@ const BalancePage = () => {
         {viewPort.width >= 768 && (
           <>
             <div className={s.balanceWrapper}>
-              <GoToReports />
               <Balance />
+              <ConfirmButton />
+              <GoToReports />
             </div>
             <div className={s.buttons}>
               <button
@@ -85,23 +87,30 @@ const BalancePage = () => {
             {listRender ? (
               <>
               <div className={s.balanceWrapper}>
-                <GoToReports />
-                <Balance />
-                </div>
-                <div className={s.calendarWrapper}>
-                  <svg className={s.calendar}>
-                      <use href={`${sprite}#calendar`}></use>
-                  </svg>
-                  <DatePicker
-                    type="date"
-                    locale="ru"
-                    selected={selectedDate}
-                    onChange={(date) => setSelectedDate(date)}
-                    dateFormat="dd.MM.yyyy"
-                    // maxDate={new Date()}
-                    className={s.inputeDate}
-                  />
-                </div>
+                  <GoToReports />
+                  <div className={s.balance}>
+                      <Balance /><ConfirmButton />
+                  </div>
+              </div>
+              
+//                 <GoToReports />
+//                 <Balance />
+//                 </div>
+//                 <div className={s.calendarWrapper}>
+//                   <svg className={s.calendar}>
+//                       <use href={`${sprite}#calendar`}></use>
+//                   </svg>
+//                   <DatePicker
+//                     type="date"
+//                     locale="ru"
+//                     selected={selectedDate}
+//                     onChange={(date) => setSelectedDate(date)}
+//                     dateFormat="dd.MM.yyyy"
+//                     // maxDate={new Date()}
+//                     className={s.inputeDate}
+//                   />
+//                 </div>
+
                 <TableBalanceMob type={type} />
                 <div className={s.buttonsMob}>
                   <button

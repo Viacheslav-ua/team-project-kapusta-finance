@@ -1,12 +1,18 @@
 @media screen and (max-width: 767px) {
   .container {
-    position: relative;
+    /* position: relative; */
     padding-left: 20;
     padding-right: 20;
-    padding-top: 37px;
+    /* //padding-top: 37px; */
     padding-bottom: 11px;
   }
 
+  .containerRight {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items:flex-end;
+  }
   .wrapperReports {
     display: flex;
     align-items: center;
@@ -32,7 +38,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
-    text-align: center;
+    text-align: end;
     letter-spacing: 0.02em;
     color: var(--text-color-2);
   }
@@ -70,19 +76,6 @@
     color: #000000;
   }
 
-  .confirm {
-    color: var(--text-color-2);
-    border-radius: 0px 22px 22px 0px;
-    cursor: pointer;
-
-  }
-
-  .confirm:hover,
-  .confirm:focus {
-    background: var(--accent-color);
-    color: var(--bg-text-color);
-  }
-
   .icon {
     fill: var(--text-color-3);
     width: 14px;
@@ -103,6 +96,7 @@
 
   .containerRight {
     display: flex;
+    justify-content: baseline;
     align-items: center;
   }
 
@@ -154,12 +148,6 @@
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.02em;
-  }
-
-  .confirm {
-    margin-left: 15px;
-    padding: 12px 6px;
-    color: var(--text-color-2);
   }
 
   .money {
@@ -225,20 +213,7 @@
     line-height: 1.17;
     letter-spacing: 0.02em;
   }
-
-  .confirm {
-    margin-left: 15px;
-    padding: 12px 6px;
-    color: var(--text-color-2);
-    cursor: pointer;
-  }
-
-  .confirm:hover,
-  .confirm:focus {
-    background: var(--accent-color);
-    color: var(--bg-text-color);
-  }
-
+  
   .money {
     margin-left: 21px;
     font-weight: bold;
