@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DatePicker from "react-datepicker";
 
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
 import GoToReports from "../../components/BalancePageComponents/GoToReport";
@@ -16,6 +17,7 @@ import sprite from "../../Images/sprite.svg";
 const BalancePage = () => {
   const [type, setType] = useState("expense");
   const [listRender, setListRender] = useState(true);
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const viewPort = useWindowDimensions();
 
@@ -85,7 +87,21 @@ const BalancePage = () => {
               <div className={s.balanceWrapper}>
                 <GoToReports />
                 <Balance />
-              </div>
+                </div>
+                <div className={s.calendarWrapper}>
+                  <svg className={s.calendar}>
+                      <use href={`${sprite}#calendar`}></use>
+                  </svg>
+                  <DatePicker
+                    type="date"
+                    locale="ru"
+                    selected={selectedDate}
+                    onChange={(date) => setSelectedDate(date)}
+                    dateFormat="dd.MM.yyyy"
+                    // maxDate={new Date()}
+                    className={s.inputeDate}
+                  />
+                </div>
                 <TableBalanceMob type={type} />
                 <div className={s.buttonsMob}>
                   <button
