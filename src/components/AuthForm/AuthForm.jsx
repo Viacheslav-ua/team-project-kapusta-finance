@@ -1,11 +1,13 @@
 import React from "react";
-import { useState, useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import toast, { Toaster } from 'react-hot-toast';
 import sprite from "../../Images/sprite.svg";
 import style from "./AuthForm.module.css";
 import { useLoginByGoogleQuery, useLoginUserMutation, useRegistrationUserMutation } from "../../redux/services/authAPI"
+import * as actions from "../../redux/auth/auth-actions"
 
 const FormSchema = Yup.object().shape({
   email: Yup.string().email().required("Это обязательное поле"),
@@ -19,6 +21,7 @@ const initialValues = {
   password: "",
 };
 
+const reg = /.+?(?=@)/
 
 
 
@@ -27,10 +30,18 @@ const AuthForm = () => {
   const [registrationUser, { isLoading: isLoadingRegistration, isError: isErrorRegistration }] = useRegistrationUserMutation()
   const dispatch = useDispatch()
 
+  const sendDataInStore = useCallback( (response) => {
+    dispatch(actions.user({ ...response.data.user, name: response.data.user.email.match(reg)[0] }))
+    dispatch(actions.accessToken(response.data.accessToken))
+    dispatch(actions.refreshToken(response.data.refreshToken))
+    dispatch(actions.isLoggedIn(true))
+  }, [dispatch])
+
   const handleSubmit = useCallback(async ({ email, password }, e) => {
     if (email.trim() === "" || password.trim() === "") {
       return;
     }
+
     const dataUser = {
       email: email,
       password: password,
@@ -40,7 +51,7 @@ const AuthForm = () => {
       case 'login':
         try {
           const response = await loginUser(dataUser)
-          console.log(response);
+          sendDataInStore(response)
         } catch (error) {
           console.log(error);
         }
@@ -48,7 +59,7 @@ const AuthForm = () => {
       case 'registration':
         try {
           const response = await registrationUser(dataUser)
-          console.log(response);
+          sendDataInStore(response)
         } catch (error) {
           console.log(error);
         }
@@ -56,8 +67,14 @@ const AuthForm = () => {
       default:
         return
     }
-  }, [loginUser, registrationUser])
+  }, [loginUser, registrationUser, sendDataInStore])
 
+  useEffect(() => {
+        if (isErrorLogin || isErrorRegistration) {
+            toast.error('Ошибка запроса')
+        }
+    },[isErrorLogin, isErrorRegistration])
+  
   return (
     <Formik initialValues={initialValues} validationSchema={FormSchema}>
       {(formik) => {
@@ -152,6 +169,7 @@ const AuthForm = () => {
                 >
                   РЕГИСТРАЦИЯ
                 </button>
+                {(isErrorLogin || isErrorRegistration) && <Toaster position="top-right" />}
               </div>
             </Form>
           </div>

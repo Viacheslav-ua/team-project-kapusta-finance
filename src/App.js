@@ -33,13 +33,13 @@ function App() {
           />
           <Route
             path={routes.balance}
-            element={<PublicRoute component={BalancePage} />}
-            // element={<PrivateRoute component={BalancePage} />}
+            // element={<PublicRoute component={BalancePage} />}
+            element={<PrivateRoute component={BalancePage} />}
           />
           <Route
             path={routes.report}
-            element={<PublicRoute component={ReportPage} />}
-            // element={<PrivateRoute component={AuthPage} />}
+            // element={<PublicRoute component={ReportPage} />}
+            element={<PrivateRoute component={ReportPage} />}
           />
           <Route path="*" element={<PublicRoute component={PageNotFound} />} />
         </Routes>

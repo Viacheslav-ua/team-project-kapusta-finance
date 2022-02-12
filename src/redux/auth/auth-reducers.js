@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import * as actions from './auth-actions'
 
 const initialState = {
-    user: { name: null, email: null },
+    user: { id: null, email: null, name: null },
     refreshToken: null,
     accessToken: null,
     isLoggedIn: false
