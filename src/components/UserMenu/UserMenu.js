@@ -10,8 +10,8 @@ export default function UserMenu() {
   return (
     <div className={s.container}>
       <div className={s.name}>
-        {<p className={s.user_name_icon}>{userName.charAt(0)}</p>}
-        {<p className={s.user_name_text}>{userName}</p>}
+        {/* {<p className={s.user_name_icon}>{name.charAt(0)}</p>} */}
+        {<p className={s.user_name_text}>{name}</p>}
       </div>
       <button className={s.btn}>
         <svg className={s.user_icon}>
