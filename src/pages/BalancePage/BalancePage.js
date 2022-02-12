@@ -2,6 +2,7 @@ import { useState } from "react";
 
 // import Header from "../../components/Header/Header";
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
+import ConfirmButton from "../../components/BalancePageComponents/ConfirmButton/ConfirmButton";
 import GoToReports from "../../components/BalancePageComponents/GoToReport";
 import Container from "../../components/Container/index";
 import TransactionForm from "../../components/BalancePageComponents/TransactionForm/index";
@@ -35,8 +36,9 @@ const BalancePage = () => {
         {viewPort.width >= 768 && (
           <>
             <div className={s.balanceWrapper}>
-              <GoToReports />
               <Balance />
+              <ConfirmButton />
+              <GoToReports />
             </div>
             <div className={s.buttons}>
               <button
@@ -84,8 +86,10 @@ const BalancePage = () => {
             {listRender ? (
               <>
               <div className={s.balanceWrapper}>
-                <GoToReports />
-                <Balance />
+                  <GoToReports />
+                  <div className={s.balance}>
+                      <Balance /><ConfirmButton />
+                  </div>
               </div>
                 <TableBalanceMob type={type} />
                 <div className={s.buttonsMob}>
