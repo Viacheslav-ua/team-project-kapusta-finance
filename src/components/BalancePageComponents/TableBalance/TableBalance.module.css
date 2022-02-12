@@ -105,16 +105,36 @@
 .deleteBtn {
   margin-right: auto;
   margin-left: auto;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   border: transparent;
   background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 300ms cubic-bezier(0, 0, 1, 0.74);
 }
+
 .icon {
   width: 16px;
   height: 18px;
   fill: var(--text-color-3);
+}
+
+.deleteBtn:focus,
+.deleteBtn:hover {
+  fill: #ff751d;
+}
+
+.deleteBtn:focus .icon,
+.deleteBtn:hover .icon {
+  fill: #ffffff;
+}
+
+.deleteBtn:focus,
+.deleteBtn:hover {
+  background-color: #ff751d;
 }
 
 @media screen and (min-width: 768px) {

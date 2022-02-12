@@ -1,8 +1,22 @@
+import { useState } from 'react';
+import { transactionsApi } from '../../../redux/services/transactionsAPI';
+import { useDispatch } from 'react-redux';
+import Modal from '../../Multipurpose-modal/Multipurpose-modal';
 import items from "./expenses.json";
 import sprite from "../../../Images/sprite.svg";
 import s from './TableBalance.module.css';
 
-const TableBalance = ({type}) => {
+const TableBalance = ({type, id}) => {
+  const dispatch = useDispatch();
+  const [showModal, setShowModal] = useState(false);
+  
+   const onOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const onCloseModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -33,7 +47,11 @@ const TableBalance = ({type}) => {
                       : `-${el.sum.toLocaleString('ru')}.00 грн.`}
                   </td>
                   <td className={s.thIcon}>
-                    <button className={s.deleteBtn}>
+                    <button
+                      className={s.deleteBtn}
+                      type='button'
+                      onClick={onOpenModal}
+                    >
                       <svg className={s.icon}>
                         <use
                           href={sprite + "#delete"}
@@ -46,6 +64,15 @@ const TableBalance = ({type}) => {
               ))}
             </tbody>
           </table>
+
+          {showModal === true && (
+            <Modal
+              questionText = 'Вы уверены?'
+              onClickApproved={() => dispatch(transactionsApi.deleteTransaction(id))}
+              onClose={onCloseModal}
+            />
+          )}
+
       </div>
         </div>
     </>
