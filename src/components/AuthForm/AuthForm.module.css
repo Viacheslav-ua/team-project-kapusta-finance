@@ -263,6 +263,10 @@
   }
 }
 @media screen and (min-width: 1280px) {
+  .container {
+    margin-left: 0;
+    margin-top: 117px;
+  }
   .auth {
     padding: 0;
     padding-top: 40px;

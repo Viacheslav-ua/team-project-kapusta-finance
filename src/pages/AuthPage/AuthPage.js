@@ -1,6 +1,6 @@
 import AuthPageTitle from "../../components/AuthPageTitle";
 import AuthForm from "../../components/AuthForm";
-import Container from "../../components/Container/index";
+import Container from "../../components/Container/ContainerAuth";
 
 import style from "./AuthPage.module.css";
 
