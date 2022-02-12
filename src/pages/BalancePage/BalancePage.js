@@ -14,7 +14,6 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 import s from "./BalancePage.module.css";
 import sprite from "../../Images/sprite.svg";
 
-
 const BalancePage = () => {
   const [type, setType] = useState("expense");
   const [listRender, setListRender] = useState(true);
@@ -72,44 +71,44 @@ const BalancePage = () => {
             )}
             {viewPort.width >= 1280 && (
               <div className={s.transactionTableSummaryContainer}>
-              <TransactionForm />
-              <div className={s.tableSummaryContainer}>
-                <TableBalance type={type} />
-                <SummaryTable />
+                <TransactionForm />
+                <div className={s.tableSummaryContainer}>
+                  <TableBalance type={type} />
+                  <SummaryTable />
+                </div>
               </div>
-            </div>
             )}
-            
           </>
         )}
         {viewPort.width < 768 && (
           <>
             {listRender ? (
               <>
-              <div className={s.balanceWrapper}>
+                <div className={s.balanceWrapper}>
                   <GoToReports />
                   <div className={s.balance}>
-                      <Balance /><ConfirmButton />
+                    <Balance />
+                    <ConfirmButton />
                   </div>
-              </div>
-              
-//                 <GoToReports />
-//                 <Balance />
-//                 </div>
-//                 <div className={s.calendarWrapper}>
-//                   <svg className={s.calendar}>
-//                       <use href={`${sprite}#calendar`}></use>
-//                   </svg>
-//                   <DatePicker
-//                     type="date"
-//                     locale="ru"
-//                     selected={selectedDate}
-//                     onChange={(date) => setSelectedDate(date)}
-//                     dateFormat="dd.MM.yyyy"
-//                     // maxDate={new Date()}
-//                     className={s.inputeDate}
-//                   />
-//                 </div>
+                </div>
+
+                {/* <GoToReports />
+                 <Balance />
+                 </div>
+                 <div className={s.calendarWrapper}>
+                   <svg className={s.calendar}>
+                       <use href={`${sprite}#calendar`}></use>
+                   </svg>
+                   <DatePicker
+                     type="date"
+                     locale="ru"
+                     selected={selectedDate}
+                     onChange={(date) => setSelectedDate(date)}
+                     dateFormat="dd.MM.yyyy"
+                     // maxDate={new Date()}
+                     className={s.inputeDate}
+                   />
+                 </div> */}
 
                 <TableBalanceMob type={type} />
                 <div className={s.buttonsMob}>
@@ -140,7 +139,7 @@ const BalancePage = () => {
                     <use href={sprite + "#arrow"} alt="Go back" />
                   </svg>
                 </button>
-                  <TransactionForm />
+                <TransactionForm />
               </>
             )}
           </>
