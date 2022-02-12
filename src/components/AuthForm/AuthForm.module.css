@@ -1,4 +1,4 @@
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 220px) {
   .container {
     background-color: #ffffff;
     box-shadow: 5px 10px 20px 0px #aab2c566;
@@ -20,23 +20,27 @@
     vertical-align: top;
     letter-spacing: 0.04em;
     color: #52555f;
-    padding-top: 30px;
+    padding-top: 40px;
+    padding-bottom: 24px;
     width: 222px;
     height: 24px;
     margin: auto;
   }
-  .authTitle {
+
+  .authTittle {
     font-weight: 400;
     font-size: 10px;
     line-height: 1.2;
-    text-align: center;
+    text-align: left;
     vertical-align: top;
     letter-spacing: 0.04em;
     color: #52555f;
     padding-top: 30px;
+    padding-bottom: 24px;
     width: 222px;
     height: 24px;
     margin: auto;
+    margin-left: 29px;
   }
 
   .googleAuthButton {
@@ -102,7 +106,7 @@
     padding: auto;
     color: #a6abb9;
     background-color: #f6f7fb;
-    width: 213px;
+    width: 253px;
     height: 52px;
     border: 0;
     border-radius: 30px;
@@ -174,7 +178,7 @@
     color: #eb5757;
   }
 }
-@media (min-width: 480px) {
+@media (min-width: 480px) and (max-width: 767.98px) {
   .container {
     width: 436px;
     height: 535px;
@@ -187,16 +191,16 @@
     font-size: 12px;
     line-height: 1.4;
     letter-spacing: 0.04em;
-    padding-top: 30px;
+    padding-top: 50px;
     width: 265px;
     height: 28px;
     text-align: left;
   }
   .googleAuthButton {
-    margin-top: 20px;
+    margin-top: 22px;
   }
   .formRow {
-    margin: 20px 85px 30px 86px;
+    margin: 24px 85px 30px 86px;
   }
   .formRowTitle {
     font-size: 12px;
@@ -205,7 +209,7 @@
   }
   .email,
   .password {
-    width: 225px;
+    width: 265px;
   }
   .authButtons {
     margin-left: 86px;
@@ -214,7 +218,9 @@
   }
   .authTittle {
     padding-top: 30px;
+    padding-bottom: 20px;
     text-align: left;
+    width: 265px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -227,11 +233,27 @@
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .container {
+    width: auto;
+    height: 535px;
+    margin-top: 117px;
+    margin-bottom: 142px;
+    margin-left: auto;
+    margin-right: 60px;
+    box-shadow: 0px 10px 60px 0px #aab2c533;
+  }
   .auth {
+    width: 265px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: #52555f;
     padding: 0;
-    padding-top: 40px;
+    padding-top: 48px;
     text-align: left;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
   }
   .email,
   .password {
@@ -243,13 +265,22 @@
     height: 44px;
   }
   .formRow {
-    margin: 20px 85px 40px 86px;
+    margin: 20px 85px 30px 86px;
+  }
+  .formRowTitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: #000000;
   }
   .googleAuthButton {
-    margin-top: 10px;
+    margin-top: 15px;
   }
   .authTittle {
-    padding-top: 30px;
+    width: 265px;
+    padding-top: 34px;
     text-align: left;
     font-family: Roboto;
     font-style: normal;
@@ -260,18 +291,36 @@
     margin-left: 86px;
     margin-right: 85px;
     color: #52555f;
+  }
+  .authButtons {
+    padding-top: 10px;
+    margin-left: 85px;
+    width: 265px;
   }
 }
 @media screen and (min-width: 1280px) {
   .container {
-    margin-left: 0;
+    /* display: inline-block; */
+    width: auto;
+    height: 535px;
     margin-top: 117px;
+    margin-left: auto;
+    margin-right: 60px;
+    box-shadow: 0px 10px 60px 0px #aab2c533;
+
   }
   .auth {
+    width: 265px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: #52555f;
     padding: 0;
-    padding-top: 40px;
+    padding-top: 48px;
     text-align: left;
-    padding-bottom: 40px;
+    padding-bottom: 30px;
   }
   .email,
   .password {
@@ -283,13 +332,22 @@
     height: 44px;
   }
   .formRow {
-    margin: 20px 85px 40px 86px;
+    margin: 20px 85px 30px 86px;
+  }
+  .formRowTitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: #000000;
   }
   .googleAuthButton {
-    margin-top: 10px;
+    margin-top: 15px;
   }
   .authTittle {
-    padding-top: 30px;
+    width: 265px;
+    padding-top: 34px;
     text-align: left;
     font-family: Roboto;
     font-style: normal;
@@ -300,5 +358,10 @@
     margin-left: 86px;
     margin-right: 85px;
     color: #52555f;
+  }
+  .authButtons {
+    padding-top: 10px;
+    margin-left: 85px;
+    width: 265px;
   }
 }
