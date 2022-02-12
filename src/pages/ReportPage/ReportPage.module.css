@@ -1,8 +1,23 @@
+.icon {
+  width: 14px;
+  height: 14px;
+  fill: var(--accent-color);
+}
+.report {
+  margin-left: 19px;
+  margin-top: 15px;
+}
+.topWrapper {
+}
+
 @media screen and (min-width: 768px) {
   .report {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 24px;
     margin-top: 40px;
+    margin-left: 0;
     padding-top: 10px;
     padding-bottom: 10px;
     width: 174px;
@@ -18,10 +33,11 @@
     color: var(--text-color-2);
   }
   .icon {
-    width: 14px;
-    height: 14px;
-    fill: var(--accent-color);
     margin-right: 15px;
+  }
+
+  .bottomWrapper {
+    margin-bottom: 76px;
   }
 }
 
@@ -37,10 +53,15 @@
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .topWrapper {
     width: 670px;
+    justify-content: space-between;
   }
 }
 @media screen and (min-width: 1280px) {
   .topWrapper {
     width: 1060px;
+    justify-content: space-between;
+  }
+  .bottomWrapper {
+    margin-bottom: 0;
   }
 }

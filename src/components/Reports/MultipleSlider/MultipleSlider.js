@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import { useEffect, useState } from 'react';
-import SliderIncomeList from "../SliderIncome/SliderIncomeList";
-import SliderExpencesList from "../SliderExpences/SliderExpencesList";
+import SliderIncome from "../SliderIncome/SliderIncome";
+import SliderExpences from "../SliderExpences/SliderExpences";
 import Chart from "../Chart/Chart";
 import styles from './MultipleSlider.module.css'
 
@@ -108,10 +108,10 @@ export default function MultipleSlider() {
           ref={slider => setNav2(slider)}
         >
           <div className={styles.slider_big__item}>
-            <SliderExpencesList/>
+            <SliderExpences/>
           </div>
           <div className={styles.slider_big__item}>
-            <SliderIncomeList />
+            <SliderIncome />
           </div>
         </Slider>
       </div>
