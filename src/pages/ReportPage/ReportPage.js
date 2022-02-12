@@ -1,3 +1,4 @@
+
 import Header from "../../components/Header/Header";
 import Container from "../../components/Container/ContainerReport";
 import { NavLink } from "react-router-dom";
@@ -13,6 +14,7 @@ const ReportPage = () => {
   const viewPort = useWindowDimensions();
   return (
       <Container>
+
         <div className={style.topWrapper}>
           <NavLink to="/balance" className={style.report}>
             <svg className={style.icon}>
@@ -25,6 +27,7 @@ const ReportPage = () => {
       <ReportsBalance />
       <div className={style.bottomWrapper}>
         <MultipleSlider />
+
       </div>
       </Container>
   );
