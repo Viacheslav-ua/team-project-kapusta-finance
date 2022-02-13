@@ -121,9 +121,6 @@ const BalancePage = () => {
                   </div>
                 </div>
 
-                {/* <GoToReports />
-                 <Balance />
-                 </div> */}
                  <div className={s.calendarWrapper}>
                    <svg className={s.calendar}>
                        <use href={`${sprite}#calendar`}></use>
@@ -134,12 +131,11 @@ const BalancePage = () => {
                      selected={selectedDate}
                      onChange={(date) => setSelectedDate(date)}
                      dateFormat="dd.MM.yyyy"
-                     // maxDate={new Date()}
                      className={s.inputeDate}
                    />
                  </div>
 
-                <TableBalanceMob type={type} />
+                <TableBalanceMob id={type} />
                 <div className={s.buttonsMob}>
                   <button
                     className={`${s.buttonExpenseMob} ${
