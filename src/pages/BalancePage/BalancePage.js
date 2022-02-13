@@ -16,7 +16,6 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { useFetchAllTransactionsMutation } from "../../redux/services/transactionsAPI";
 import { getAccessToken } from "../../redux/auth/auth-selectors";
 import * as actions from "../../redux/finance/finance-actions";
-import { getBalance } from "../../redux/finance/finance-selectors";
 
 import s from "./BalancePage.module.css";
 import sprite from "../../Images/sprite.svg";
@@ -25,37 +24,31 @@ const BalancePage = () => {
   const [type, setType] = useState("expense");
   const [listRender, setListRender] = useState(true);
   const [selectedDate, setSelectedDate] = useState(new Date());
-
   const viewPort = useWindowDimensions();
-  
-  const getDataBalance = useSelector(getBalance);
-  // const accessToken = useSelector(getAccessToken);
-  // const [data] = useFetchAllTransactionsMutation();
-  // const dispatch = useDispatch();
+  const accessToken = useSelector(getAccessToken);
+  const [fetchAllTransactions] = useFetchAllTransactionsMutation();
+  const dispatch = useDispatch();
 
-  // console.log(getDataBalance); /*Получаем все транзакции*/
+  const sendDataInStore = useCallback(
+    (response) => {
+      dispatch(actions.balance(response.data.total))
+      dispatch(actions.allTransaction(response.data.data))
+    },
+    [dispatch]
+  );
 
-  // const sendDataInStore = useCallback(
-  //   (response) => {
-  //     dispatch(actions.balance(response.data.data));
-  //   },
-  //   [dispatch]
-  // );
+  const getAllTransactions = useCallback(async () => {
+    try {
+      const response = await fetchAllTransactions(accessToken);
+      sendDataInStore(response)
+    } catch (error) {
+      console.log(error);
+    }
+  }, [accessToken, fetchAllTransactions, sendDataInStore]);
 
-  // const getAllTransactions = useCallback(async () => {
-  //   try {
-  //     const result = await data(accessToken);
-  //     sendDataInStore(result);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [accessToken, data, sendDataInStore]);
-
-  // useEffect(() => {
-  //   getAllTransactions();
-  // }, [getAllTransactions]);
-
-
+  useEffect(() => {
+    getAllTransactions();
+  }, []);
 
   const btnTypeToggle = (e) => {
     setType(`${e.target.title}`);

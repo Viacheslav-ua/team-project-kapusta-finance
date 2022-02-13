@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { transactionsApi } from '../../../redux/services/transactionsAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Multipurpose-modal/Multipurpose-modal';
-import { getBalance } from "../../../redux/finance/finance-selectors";
+// import { getBalance } from "../../../redux/finance/finance-selectors";
 import items from "./expenses.json";
 import sprite from "../../../Images/sprite.svg";
 import s from './TableBalance.module.css';
@@ -10,9 +10,9 @@ import s from './TableBalance.module.css';
 const TableBalance = ({type, id}) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  const getDataBalance = useSelector(getBalance);
+  // const getDataBalance = useSelector(getBalance);
 
-  console.log("categoryName", getDataBalance);
+  // console.log("categoryName", getDataBalance);
   
    const onOpenModal = () => {
     setShowModal(true);

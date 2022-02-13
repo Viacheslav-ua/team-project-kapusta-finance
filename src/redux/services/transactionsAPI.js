@@ -7,6 +7,18 @@ export const transactionsApi = createApi({
     baseUrl: "http://localhost:3001/api/banking",
   }),
   endpoints: (builder) => ({
+    fetchResetBalance: builder.mutation({
+      query: (accessToken, balance) => ({
+        url: `/reset-balance`,
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: balance
+      }),
+      invalidatesTags: ["Banking"],
+    }),
+
     fetchAllTransactions: builder.mutation({
       query: (accessToken) => ({
         url: `/get-transactions?reception=all`,
@@ -65,6 +77,7 @@ export const transactionsApi = createApi({
   }),
 });
 export const {
+  useFetchResetBalanceMutation,
   useAddTransactionMutation,
   useFetchAllTransactionsMutation,
   useDeleteTransactionMutation,

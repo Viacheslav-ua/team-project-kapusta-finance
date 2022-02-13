@@ -4,22 +4,32 @@ import * as actions from "./finance-actions";
 
 const initialState = {
   balance: 0.0,
-  balanceProfit: 0.0,
-  balanceCosts: 0.0,
+  allTransaction: [],
+  profitTransaction: [],
+  costsTransaction: [],
+  categoryList: [],
 };
 
 const balance = createReducer(initialState.balance, {
   [actions.balance]: (_, { payload }) => payload,
 });
-const balanceProfit = createReducer(initialState.balanceProfit, {
-  [actions.balanceProfit]: (_, { payload }) => payload,
+const allTransaction = createReducer(initialState.allTransaction, {
+  [actions.allTransaction]: (_, { payload }) => payload,
 });
-const balanceCosts = createReducer(initialState.balanceCosts, {
-  [actions.balanceCosts]: (_, { payload }) => payload,
+const profitTransaction = createReducer(initialState.profitTransaction, {
+  [actions.profitTransaction]: (_, { payload }) => payload,
+});
+const costsTransaction = createReducer(initialState.costsTransaction, {
+  [actions.costsTransaction]: (_, { payload }) => payload,
+});
+const categoryList = createReducer(initialState.categoryList, {
+  [actions.categoryList]: (_, { payload }) => payload,
 });
 
 export default combineReducers({
   balance,
-  balanceProfit,
-  balanceCosts,
+  allTransaction,
+  profitTransaction,
+  costsTransaction,
+  categoryList,
 });
