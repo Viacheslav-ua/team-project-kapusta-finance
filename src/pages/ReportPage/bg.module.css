@@ -25,7 +25,7 @@
 }
 @media screen and (min-width: 1280px) {
   .bg_contaiter {
-    height: 960px;
+    height: 1082px;
     background-image: url(../../Images/desktop-bottom2.svg);
     background-position: 0% 100%;
     background-repeat: repeat-x, no-repeat;
