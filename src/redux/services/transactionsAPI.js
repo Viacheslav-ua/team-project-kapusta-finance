@@ -7,39 +7,67 @@ export const transactionsApi = createApi({
     baseUrl: "http://localhost:3001/api/banking",
   }),
   endpoints: (builder) => ({
-    fetchAllTransactions: builder.query({
-      query: () => `/get-transactions?reception=all`,
-      providesTags: (result) => result,
+    fetchAllTransactions: builder.mutation({
+      query: (accessToken) => ({
+        url: `/get-transactions?reception=all`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }),
+      invalidatesTags: ["Banking"],
     }),
-    fetchProfitTransactions: builder.query({
-      query: () => `/get-transactions?reception=profit`,
-      providesTags: (result) => result,
+
+    fetchProfitTransactions: builder.mutation({
+      query: (accessToken) => ({
+        url: `/get-transactions?reception=profit`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }),
+      invalidatesTags: ["Banking"],
     }),
-    fetchCostsTransactions: builder.query({
-      query: () => `/get-transactions?reception=costs`,
-      providesTags: (result) => result,
+
+    fetchCostsTransactions: builder.mutation({
+      query: (accessToken) => ({
+        url: `/get-transactions?reception=costs`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }),
+      invalidatesTags: ["Banking"],
     }),
+
     addTransaction: builder.mutation({
-      query: (newTransaction) => ({
+      query: (accessToken, newTransaction) => ({
         url: `/add-transaction`,
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
         body: newTransaction,
       }),
       invalidatesTags: ["Banking"],
     }),
+
     deleteTransaction: builder.mutation({
-      query: (id) => ({
-        url: `/remove-transaction/${id}`,
-        method: "DELETE",
+      query: (accessToken, idUser) => ({
+        url: `/remove-transaction/${idUser}`,
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
       }),
-      invalidatesTags: [{ type: "Banking", id: "LIST" }],
+      invalidatesTags: ["Banking"],
     }),
   }),
 });
 export const {
   useAddTransactionMutation,
-  useFetchAllTransactionsQuery,
+  useFetchAllTransactionsMutation,
   useDeleteTransactionMutation,
-  useFetchCostsTransactionsQuery,
-  useFetchProfitTransactionsQuery,
+  useFetchCostsTransactionsMutation,
+  useFetchProfitTransactionsMutation,
 } = transactionsApi;

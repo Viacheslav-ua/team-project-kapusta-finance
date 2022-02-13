@@ -6,6 +6,7 @@ import s from "./Header.module.css";
 
 export default function Header() {
   const isLoggedIn = useSelector(getIsLoggedIn);
+
   return (
     <header className={s.header}>
       <div className={s.header_container}>
@@ -14,7 +15,7 @@ export default function Header() {
             <use href={sprite + "#logo"} alt="My logo" />
           </svg>
         </div>
-        <div className={s.header_user}>{!isLoggedIn && <UserMenu />}</div>
+        <div className={s.header_user}>{isLoggedIn && <UserMenu />}</div>
       </div>
     </header>
   );
