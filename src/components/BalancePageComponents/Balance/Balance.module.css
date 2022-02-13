@@ -9,7 +9,7 @@
 
   .containerRight {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: baseline;
     align-items:flex-end;
   }
@@ -34,11 +34,15 @@
   }
 
   .title {
-    margin-bottom: 6px;
+    margin: 0 auto 6px;
+    position: relative;
+    /* margin-bottom: 6px; */
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
-    text-align: end;
+    text-align: center;
+    align-items: center;
+    /* text-align: end; */
     letter-spacing: 0.02em;
     color: var(--text-color-2);
   }
