@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import sprite from "../../Images/sprite.svg";
 import { getUserName, getAccessToken } from "../../redux/auth/auth-selectors";
 import s from "./UserMenu.module.css";
-import { useLogoutUserMutation } from "../../redux/services/authAPI.js";
 
  function UserMenu() {
    const name = useSelector(getUserName);

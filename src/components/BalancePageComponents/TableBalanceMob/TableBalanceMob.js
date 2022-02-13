@@ -1,15 +1,11 @@
 import { useState, useCallback } from 'react';
-import { useDeleteTransactionMutation } from '../../../redux/services/transactionsAPI';
+import { useDeleteTransactionMutation, useFetchAllTransactionsQuery } from '../../../redux/services/transactionsAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import * as action from '../../../redux/finance/finance-actions';
 import Modal from '../../Multipurpose-modal/Multipurpose-modal';
 import items from "./expenses.json";
 import sprite from "../../../Images/sprite.svg";
 import s from './TableBalanceMob.module.css';
-import { useFetchAllTransactionsQuery } from '../../../redux/services/transactionsAPI';
-import { useCallback, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import * as actions from '../../../redux/finance/finance-actions';
 
 const TableBalanceMob = ({type, id}) => {
   const dispatch = useDispatch();
