@@ -1,22 +1,19 @@
-import { useState, useCallback } from 'react';
-import { useDeleteTransactionMutation } from '../../../redux/services/transactionsAPI';
-import { useDispatch, useSelector } from 'react-redux';
-import * as action from '../../../redux/finance/finance-actions';
-import Modal from '../../Multipurpose-modal/Multipurpose-modal';
+import { useState, useCallback, useEffect } from "react";
+import { useDeleteTransactionMutation } from "../../../redux/services/transactionsAPI";
+import { useDispatch, useSelector } from "react-redux";
+import * as action from "../../../redux/finance/finance-actions";
+import Modal from "../../Multipurpose-modal/Multipurpose-modal";
 import items from "./expenses.json";
 import sprite from "../../../Images/sprite.svg";
-import s from './TableBalanceMob.module.css';
-import { useFetchAllTransactionsQuery } from '../../../redux/services/transactionsAPI';
-import { useCallback, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import * as actions from '../../../redux/finance/finance-actions';
+import s from "./TableBalanceMob.module.css";
+import { useFetchAllTransactionsQuery } from "../../../redux/services/transactionsAPI";
 
-const TableBalanceMob = ({type, id}) => {
+const TableBalanceMob = ({ type, id }) => {
   const dispatch = useDispatch();
   const [removeTransaction] = useDeleteTransactionMutation();
   const [showModal, setShowModal] = useState(false);
-  
-   const onOpenModal = () => {
+
+  const onOpenModal = () => {
     setShowModal(true);
   };
 
@@ -31,10 +28,9 @@ const TableBalanceMob = ({type, id}) => {
     } catch (error) {
       console.log(error);
     }
-  }, [])
+  }, []);
 
   return (
-    
     <>
       <div className={s.tableBodyScroll}>
         <ul className={s.tableWrapper}>
@@ -42,52 +38,47 @@ const TableBalanceMob = ({type, id}) => {
             <div className={s.tableRowContainer} key={el.id}>
               <li className={s.tableRow}>
                 <div className={s.tableItemWrapper}>
-                  <p className={s.tdDescr}>
-                    {el.descr}
-                  </p>
+                  <p className={s.tdDescr}>{el.descr}</p>
                   <div className={s.dateCategoryWrapper}>
                     <p className={s.tdDate}>{el.date}</p>
-                    <p className={s.tdCtg}>
-                      {el.category}
-                    </p>
+                    <p className={s.tdCtg}>{el.category}</p>
                   </div>
                 </div>
                 <div className={s.tablesumWrapper}>
-                  <p className={`${s.tdSum} ${type !== 'income' && s.tdSumExpense}`}>
-                    {type === 'income'
+                  <p
+                    className={`${s.tdSum} ${
+                      type !== "income" && s.tdSumExpense
+                    }`}
+                  >
+                    {type === "income"
                       ? `${el.sum}.00 грн.`
                       : `- ${el.sum}.00 грн.`}
                   </p>
                 </div>
 
-                    <button
-                      className={s.deleteBtn}
-                      type='button'
-                      onClick={onOpenModal}
-                    >
-                      <svg className={s.icon}>
-                        <use
-                          href={sprite + "#delete"}
-                          alt="delete transaction"
-                        />
-                      </svg>
-                    </button>
-
+                <button
+                  className={s.deleteBtn}
+                  type="button"
+                  onClick={onOpenModal}
+                >
+                  <svg className={s.icon}>
+                    <use href={sprite + "#delete"} alt="delete transaction" />
+                  </svg>
+                </button>
               </li>
             </div>
           ))}
         </ul>
-         {showModal === true && (
-            <Modal
-              questionText = 'Вы уверены?'
-              onClickApproved={deleteTransaction(id)}
-              onClose={onCloseModal}
-            />
-          )}
+        {showModal === true && (
+          <Modal
+            questionText="Вы уверены?"
+            onClickApproved={deleteTransaction(id)}
+            onClose={onCloseModal}
+          />
+        )}
       </div>
     </>
   );
-  
 };
 
 export default TableBalanceMob;
