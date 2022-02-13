@@ -20,7 +20,7 @@ export default function Balance() {
 
   const sendDataInStore = useCallback(
     (response) => {
-      dispatch(actions.balance(response.data.data));
+      dispatch(actions.balance(response.data.total));
     },
     [dispatch]
   );
@@ -28,6 +28,7 @@ export default function Balance() {
   const getAllTransactions = useCallback(async () => {
     try {
       const result = await data(accessToken);
+      console.log("result", result);
       sendDataInStore(result);
     } catch (error) {
       console.log(error);

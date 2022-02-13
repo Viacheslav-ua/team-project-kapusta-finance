@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { transactionsApi } from '../../../redux/services/transactionsAPI';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Multipurpose-modal/Multipurpose-modal';
+import { getBalance } from "../../../redux/finance/finance-selectors";
 import items from "./expenses.json";
 import sprite from "../../../Images/sprite.svg";
 import s from './TableBalance.module.css';
@@ -9,6 +10,9 @@ import s from './TableBalance.module.css';
 const TableBalance = ({type, id}) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+  const getDataBalance = useSelector(getBalance);
+
+  console.log("categoryName", getDataBalance);
   
    const onOpenModal = () => {
     setShowModal(true);
@@ -36,6 +40,32 @@ const TableBalance = ({type, id}) => {
         <div className={s.tableBodyScroll}>
           <table className={`${s.tableMain} ${s.tableMainBody}`}>
             <tbody className={s.tableBody}>
+              {/* {getDataBalance.map((el) => (
+                <tr className={s.tableRow} key={el._id}>
+                  <td className={s.thDate}>{el.dateTransaction}</td>
+                  <td className={s.tdDescr}>{el.description}</td>
+                  <td className={s.thCtg}>{el.categoryName}</td>
+                  <td className={`${s.tdSum} ${el.isProfit !== true && s.tdSumExpense}`}>
+                    {el.isProfit === true
+                      ? `${el.amount.toLocaleString('ru')}.00 грн.`
+                      : `-${el.amount.toLocaleString('ru')}.00 грн.`}
+                  </td>
+                  <td className={s.thIcon}>
+                    <button
+                      className={s.deleteBtn}
+                      type='button'
+                      onClick={onOpenModal}
+                    >
+                      <svg className={s.icon}>
+                        <use
+                          href={sprite + "#delete"}
+                          alt="delete transaction"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              ))} */}
               {items.map((el) => (
                 <tr className={s.tableRow} key={el.id}>
                   <td className={s.thDate}>{el.date}</td>
