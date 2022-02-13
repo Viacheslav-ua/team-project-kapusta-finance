@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
@@ -11,6 +13,11 @@ import TableBalanceMob from "../../components/BalancePageComponents/TableBalance
 import SummaryTable from "../../components/BalancePageComponents/SummaryTable/index";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
+import { useFetchAllTransactionsMutation } from "../../redux/services/transactionsAPI";
+import { getAccessToken } from "../../redux/auth/auth-selectors";
+import * as actions from "../../redux/finance/finance-actions";
+import { getBalance } from "../../redux/finance/finance-selectors";
+
 import s from "./BalancePage.module.css";
 import sprite from "../../Images/sprite.svg";
 
@@ -20,6 +27,35 @@ const BalancePage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const viewPort = useWindowDimensions();
+  
+  const getDataBalance = useSelector(getBalance);
+  // const accessToken = useSelector(getAccessToken);
+  // const [data] = useFetchAllTransactionsMutation();
+  // const dispatch = useDispatch();
+
+  // console.log(getDataBalance); /*Получаем все транзакции*/
+
+  // const sendDataInStore = useCallback(
+  //   (response) => {
+  //     dispatch(actions.balance(response.data.data));
+  //   },
+  //   [dispatch]
+  // );
+
+  // const getAllTransactions = useCallback(async () => {
+  //   try {
+  //     const result = await data(accessToken);
+  //     sendDataInStore(result);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [accessToken, data, sendDataInStore]);
+
+  // useEffect(() => {
+  //   getAllTransactions();
+  // }, [getAllTransactions]);
+
+
 
   const btnTypeToggle = (e) => {
     setType(`${e.target.title}`);
