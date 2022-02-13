@@ -10,7 +10,8 @@ export default function MultipleSlider() {
       const [nav1, setNav1] = useState(null);
     const [nav2, setNav2] = useState(null);
   const [nav3, setNav3] = useState(null);
-  
+ 
+
       const expences = [
   {
     name: 'Свинина',
@@ -83,6 +84,7 @@ export default function MultipleSlider() {
     asNavFor: '.slider__first',
     centerPadding: '3px',
     adaptiveHeight: true,
+
   };
   return (
       <>
@@ -121,11 +123,12 @@ export default function MultipleSlider() {
           asNavFor={nav2}
           ref={slider => setNav3(slider)}
         >
-          <div className={styles.slider_big__item}>
-          <Chart data={ expences }/>
+        <div className={styles.slider_big__item}>
+          <Chart data={expences}/>
+      
           </div>
-          <div className={styles.slider_big__item}>
-            <Chart data={ income}/>
+        <div className={styles.slider_big__item}>
+             <Chart data={income}/>
           </div>
       </Slider>
       </>
