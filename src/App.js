@@ -36,7 +36,7 @@ function App() {
           <Route
             path={routes.balance}
             // element={<PublicRoute component={BalancePage} />}
-            element={<PrivateRoute component={BalancePage} />}
+            element={<PublicRoute component={BalancePage} />}
           />
           <Route
             path={routes.report}

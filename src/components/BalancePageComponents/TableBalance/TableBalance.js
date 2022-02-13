@@ -1,14 +1,16 @@
-import { useState } from 'react';
-import { transactionsApi } from '../../../redux/services/transactionsAPI';
-import { useDispatch, useSelector } from 'react-redux';
-import Modal from '../../Multipurpose-modal/Multipurpose-modal';
+import { useState } from "react";
+import { transactionsApi } from "../../../redux/services/transactionsAPI";
+import { useDispatch } from "react-redux";
+import Modal from "../../Multipurpose-modal/Multipurpose-modal";
+import items from "./expenses.json";
 import { getAllTransaction } from "../../../redux/finance/finance-selectors";
 import sprite from "../../../Images/sprite.svg";
-import s from './TableBalance.module.css';
+import s from "./TableBalance.module.css";
 
-const TableBalance = ({type, id}) => {
+const TableBalance = ({ type, id }) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+
   const transaction = useSelector(getAllTransaction);
   
    const onOpenModal = () => {
@@ -28,11 +30,11 @@ const TableBalance = ({type, id}) => {
         <table className={s.tableMain}>
           <thead className={s.tableHeader}>
             <tr>
-              <th className={`${s.tableTitle } ${s.thDate}`}>дата</th>
-              <th className={`${s.tableTitle } ${s.thDescr}`}>описание</th>
-              <th className={`${s.tableTitle } ${s.thCtg}`}>категория</th>
-              <th className={`${s.tableTitle } ${s.thSum}`}>сумма</th>
-              <th className={`${s.tableTitle } ${s.thIcon}`}></th>
+              <th className={`${s.tableTitle} ${s.thDate}`}>дата</th>
+              <th className={`${s.tableTitle} ${s.thDescr}`}>описание</th>
+              <th className={`${s.tableTitle} ${s.thCtg}`}>категория</th>
+              <th className={`${s.tableTitle} ${s.thSum}`}>сумма</th>
+              <th className={`${s.tableTitle} ${s.thIcon}`}></th>
             </tr>
           </thead>
         </table>
@@ -105,17 +107,17 @@ const TableBalance = ({type, id}) => {
 
           {showModal === true && (
             <Modal
-              questionText = 'Вы уверены?'
-              onClickApproved={() => dispatch(transactionsApi.deleteTransaction(id))}
+              questionText="Вы уверены?"
+              onClickApproved={() =>
+                dispatch(transactionsApi.deleteTransaction(id))
+              }
               onClose={onCloseModal}
             />
           )}
-
-      </div>
         </div>
+      </div>
     </>
   );
-  
 };
 
 export default TableBalance;
