@@ -72,6 +72,7 @@
   .btn {
     padding: 0px;
     cursor: pointer;
+    padding-right: 30px;
   }
   .name {
     margin-right: 10px;
@@ -106,6 +107,7 @@
   .btn {
     padding: 0;
     cursor: pointer;
+    padding-right: 30px;
   }
   .name:after {
     content: " ";

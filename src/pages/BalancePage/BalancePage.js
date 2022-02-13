@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
@@ -11,6 +13,10 @@ import TableBalanceMob from "../../components/BalancePageComponents/TableBalance
 import SummaryTable from "../../components/BalancePageComponents/SummaryTable/index";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
+import { useFetchAllTransactionsMutation } from "../../redux/services/transactionsAPI";
+import { getAccessToken } from "../../redux/auth/auth-selectors";
+import * as actions from "../../redux/finance/finance-actions";
+
 import s from "./BalancePage.module.css";
 import sprite from "../../Images/sprite.svg";
 
@@ -18,8 +24,31 @@ const BalancePage = () => {
   const [type, setType] = useState("expense");
   const [listRender, setListRender] = useState(true);
   const [selectedDate, setSelectedDate] = useState(new Date());
-
   const viewPort = useWindowDimensions();
+  const accessToken = useSelector(getAccessToken);
+  const [fetchAllTransactions] = useFetchAllTransactionsMutation();
+  const dispatch = useDispatch();
+
+  const sendDataInStore = useCallback(
+    (response) => {
+      dispatch(actions.balance(response.data.total))
+      dispatch(actions.allTransaction(response.data.data))
+    },
+    [dispatch]
+  );
+
+  const getAllTransactions = useCallback(async () => {
+    try {
+      const response = await fetchAllTransactions(accessToken);
+      sendDataInStore(response)
+    } catch (error) {
+      console.log(error);
+    }
+  }, [accessToken, fetchAllTransactions, sendDataInStore]);
+
+  useEffect(() => {
+    getAllTransactions();
+  }, []);
 
   const btnTypeToggle = (e) => {
     setType(`${e.target.title}`);
@@ -92,9 +121,6 @@ const BalancePage = () => {
                   </div>
                 </div>
 
-                {/* <GoToReports />
-                 <Balance />
-                 </div>
                  <div className={s.calendarWrapper}>
                    <svg className={s.calendar}>
                        <use href={`${sprite}#calendar`}></use>
@@ -105,12 +131,11 @@ const BalancePage = () => {
                      selected={selectedDate}
                      onChange={(date) => setSelectedDate(date)}
                      dateFormat="dd.MM.yyyy"
-                     // maxDate={new Date()}
                      className={s.inputeDate}
                    />
-                 </div> */}
+                 </div>
 
-                <TableBalanceMob type={type} />
+                <TableBalanceMob id={type} />
                 <div className={s.buttonsMob}>
                   <button
                     className={`${s.buttonExpenseMob} ${

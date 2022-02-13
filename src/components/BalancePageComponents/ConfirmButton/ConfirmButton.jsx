@@ -5,7 +5,7 @@ import s from '../../../components/BalancePageComponents/ConfirmButton/ConfirmBu
 export default function ConfirmButton() {
     const clickOnBtn = e => {
     e.preventDefault();
-    const valueInput = e.target.value;
+      const valueInput = e.target.value;
     if (!valueInput) {
       toast.error('Пожалуйста, введите правильное значение!');
     }
