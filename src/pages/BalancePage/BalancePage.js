@@ -94,7 +94,7 @@ const BalancePage = () => {
 
                 {/* <GoToReports />
                  <Balance />
-                 </div>
+                 </div> */}
                  <div className={s.calendarWrapper}>
                    <svg className={s.calendar}>
                        <use href={`${sprite}#calendar`}></use>
@@ -108,7 +108,7 @@ const BalancePage = () => {
                      // maxDate={new Date()}
                      className={s.inputeDate}
                    />
-                 </div> */}
+                 </div>
 
                 <TableBalanceMob type={type} />
                 <div className={s.buttonsMob}>
