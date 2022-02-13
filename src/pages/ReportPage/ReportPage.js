@@ -1,6 +1,4 @@
 
-import Header from "../../components/Header/Header";
-import Container from "../../components/Container/ContainerReport";
 import { NavLink } from "react-router-dom";
 import ReportsBalance from "../../components/Reports/ReportsBalance";
 import MultipleSlider from "../../components/Reports/MultipleSlider/MultipleSlider";
@@ -8,16 +6,16 @@ import CurrentPeriod from "../../components/Reports/CurrentPeriod/CurrentPeriod"
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
 import ConfirmButton from "../../components/BalancePageComponents/ConfirmButton/ConfirmButton";
-
 import style from "./ReportPage.module.css";
+import s from "./bg.module.css";
 import sprite from "../../Images/sprite.svg";
 
 const ReportPage = () => {
   const viewPort = useWindowDimensions();
   return (
-      <Container>
 
-        <div className={style.topWrapper}>
+    <div className={s.bg_contaiter}>
+    <div className={style.topWrapper}>
           <NavLink to="/balance" className={style.report}>
             <svg className={style.icon}>
               <use href={sprite + "#arrow"} alt="Go back" />
@@ -53,7 +51,7 @@ const ReportPage = () => {
         <MultipleSlider />
 
       </div>
-      </Container>
+      </div>
   );
 };
 
