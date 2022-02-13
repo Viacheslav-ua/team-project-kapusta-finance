@@ -2,17 +2,14 @@ import { useState } from 'react';
 import { transactionsApi } from '../../../redux/services/transactionsAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Multipurpose-modal/Multipurpose-modal';
-// import { getBalance } from "../../../redux/finance/finance-selectors";
-import items from "./expenses.json";
+import { getAllTransaction } from "../../../redux/finance/finance-selectors";
 import sprite from "../../../Images/sprite.svg";
 import s from './TableBalance.module.css';
 
 const TableBalance = ({type, id}) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  // const getDataBalance = useSelector(getBalance);
-
-  // console.log("categoryName", getDataBalance);
+  const transaction = useSelector(getAllTransaction);
   
    const onOpenModal = () => {
     setShowModal(true);
@@ -22,6 +19,9 @@ const TableBalance = ({type, id}) => {
     setShowModal(false);
   };
 
+  const expenses = transaction.filter((el)=>el.isProfit===false);
+  const income = transaction.filter((el)=>el.isProfit===true);
+  
   return (
     <>
       <div className={s.tableHead}>
@@ -38,62 +38,70 @@ const TableBalance = ({type, id}) => {
         </table>
 
         <div className={s.tableBodyScroll}>
-          <table className={`${s.tableMain} ${s.tableMainBody}`}>
+          {type==='expense'&&(
+            <>
+            <table className={`${s.tableMain} ${s.tableMainBody}`}>
             <tbody className={s.tableBody}>
-              {/* {getDataBalance.map((el) => (
+              {expenses.map((el) => (
                 <tr className={s.tableRow} key={el._id}>
-                  <td className={s.thDate}>{el.dateTransaction}</td>
-                  <td className={s.tdDescr}>{el.description}</td>
-                  <td className={s.thCtg}>{el.categoryName}</td>
-                  <td className={`${s.tdSum} ${el.isProfit !== true && s.tdSumExpense}`}>
-                    {el.isProfit === true
-                      ? `${el.amount.toLocaleString('ru')}.00 грн.`
-                      : `-${el.amount.toLocaleString('ru')}.00 грн.`}
-                  </td>
-                  <td className={s.thIcon}>
-                    <button
-                      className={s.deleteBtn}
-                      type='button'
-                      onClick={onOpenModal}
-                    >
-                      <svg className={s.icon}>
-                        <use
-                          href={sprite + "#delete"}
-                          alt="delete transaction"
-                        />
-                      </svg>
-                    </button>
-                  </td>
-                </tr>
-              ))} */}
-              {items.map((el) => (
-                <tr className={s.tableRow} key={el.id}>
-                  <td className={s.thDate}>{el.date}</td>
-                  <td className={s.tdDescr}>{el.descr}</td>
-                  <td className={s.thCtg}>{el.category}</td>
-                  <td className={`${s.tdSum} ${type !== 'income' && s.tdSumExpense}`}>
-                    {type === 'income'
-                      ? `${el.sum.toLocaleString('ru')}.00 грн.`
-                      : `-${el.sum.toLocaleString('ru')}.00 грн.`}
-                  </td>
-                  <td className={s.thIcon}>
-                    <button
-                      className={s.deleteBtn}
-                      type='button'
-                      onClick={onOpenModal}
-                    >
-                      <svg className={s.icon}>
-                        <use
-                          href={sprite + "#delete"}
-                          alt="delete transaction"
-                        />
-                      </svg>
-                    </button>
-                  </td>
+                      <td className={s.thDate}>{el.dateTransaction.substr(0,10)}</td>
+                      <td className={s.tdDescr}>{el.description}</td>
+                      <td className={s.thCtg}>{el.categoryName}</td>
+                      <td className={`${s.tdSum} ${s.tdSumExpense}`}>
+                           {`-${el.amount.toLocaleString('ru')} грн.`}
+                      </td>
+                      <td className={s.thIcon}>
+                        <button
+                          className={s.deleteBtn}
+                          type='button'
+                          onClick={onOpenModal}
+                        >
+                          <svg className={s.icon}>
+                            <use
+                              href={sprite + "#delete"}
+                              alt="delete transaction"
+                            />
+                          </svg>
+                        </button>
+                      </td>
                 </tr>
               ))}
             </tbody>
           </table>
+            </>
+          )}
+          {type==='income'&&(
+            <>
+            <table className={`${s.tableMain} ${s.tableMainBody}`}>
+            <tbody className={s.tableBody}>
+              {income.map((el) => (
+                <tr className={s.tableRow} key={el._id}>
+                      <td className={s.thDate}>{el.dateTransaction.substr(0,10)}</td>
+                      <td className={s.tdDescr}>{el.description}</td>
+                      <td className={s.thCtg}>{el.categoryName}</td>
+                      <td className={s.tdSum}>
+                           {`${el.amount.toLocaleString('ru')} грн.`}
+                      </td>
+                      <td className={s.thIcon}>
+                        <button
+                          className={s.deleteBtn}
+                          type='button'
+                          onClick={onOpenModal}
+                        >
+                          <svg className={s.icon}>
+                            <use
+                              href={sprite + "#delete"}
+                              alt="delete transaction"
+                            />
+                          </svg>
+                        </button>
+                      </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+            </>
+          )}
 
           {showModal === true && (
             <Modal
