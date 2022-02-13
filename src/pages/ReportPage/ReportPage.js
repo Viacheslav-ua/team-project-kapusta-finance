@@ -6,7 +6,6 @@ import CurrentPeriod from "../../components/Reports/CurrentPeriod/CurrentPeriod"
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
 import ConfirmButton from "../../components/BalancePageComponents/ConfirmButton/ConfirmButton";
-
 import style from "./ReportPage.module.css";
 import s from "./bg.module.css";
 import sprite from "../../Images/sprite.svg";
