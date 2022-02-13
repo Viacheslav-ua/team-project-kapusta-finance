@@ -6,6 +6,7 @@ import s from "./Header.module.css";
 
 export default function Header() {
   const isLoggedIn = useSelector(getIsLoggedIn);
+
   return (
     <header className={s.header}>
       <div className={s.header_container}>

@@ -6,6 +6,10 @@ import Modal from '../../Multipurpose-modal/Multipurpose-modal';
 import items from "./expenses.json";
 import sprite from "../../../Images/sprite.svg";
 import s from './TableBalanceMob.module.css';
+import { useFetchAllTransactionsQuery } from '../../../redux/services/transactionsAPI';
+import { useCallback, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import * as actions from '../../../redux/finance/finance-actions';
 
 const TableBalanceMob = ({type, id}) => {
   const dispatch = useDispatch();

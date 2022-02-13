@@ -11,7 +11,7 @@ const AuthPage = () => {
         <div className={style.authContainer}>
           <AuthPageTitle />
           <AuthForm />
-        </div>{" "}
+        </div>
       </Container>
     </>
   );

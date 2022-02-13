@@ -233,14 +233,15 @@
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .component {
+    display: inline-flex;
+  }
   .container {
     width: auto;
     height: 535px;
-    margin-top: 117px;
-    margin-bottom: 142px;
-    margin-left: auto;
-    margin-right: 60px;
     box-shadow: 0px 10px 60px 0px #aab2c533;
+    margin-top: 117px;
+    margin-right: 50px;
   }
   .auth {
     width: 265px;
@@ -299,15 +300,14 @@
   }
 }
 @media screen and (min-width: 1280px) {
+  .component {
+    display: inline-flex;
+  }
   .container {
-    /* display: inline-block; */
+    margin-top: 117px;
     width: auto;
     height: 535px;
-    margin-top: 117px;
-    margin-left: auto;
-    margin-right: 60px;
     box-shadow: 0px 10px 60px 0px #aab2c533;
-
   }
   .auth {
     width: 265px;

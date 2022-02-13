@@ -35,8 +35,10 @@ const AuthPageTitle = () => {
       {viewPort.width >= 768 && (
         <>
           <div className={style.titleContainer}>
-            <h1 className={style.mainTitle}>Kapu$ta</h1>
-            <h2 className={style.title}>Smart Finance</h2>
+            <div className={style.titleItems}>
+              <h1 className={style.mainTitle}>Kapu$ta</h1>
+              <h2 className={style.title}>Smart Finance</h2>
+            </div>
           </div>
         </>
       )}

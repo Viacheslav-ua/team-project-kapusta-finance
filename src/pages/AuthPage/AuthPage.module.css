@@ -4,13 +4,14 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1279.98px) {
   .authContainer {
+    justify-content: flex-end;
     display: flex;
     align-items: center;
-    flex-direction: column;
   }
 }
 @media screen and (min-width: 1280px) {
   .authContainer {
+    justify-content: flex-end;
     display: flex;
     align-items: center;
   }

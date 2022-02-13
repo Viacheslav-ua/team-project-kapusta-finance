@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import sprite from "../../Images/sprite.svg";
 import { getUserName, getAccessToken } from "../../redux/auth/auth-selectors";
 import s from "./UserMenu.module.css";
+import { useLogoutUserMutation } from "../../redux/services/authAPI.js";
 
  function UserMenu() {
    const name = useSelector(getUserName);
@@ -45,7 +46,7 @@ import s from "./UserMenu.module.css";
   return (
     <div className={s.container}>
       <div className={s.name}>
-        {/* {<p className={s.user_name_icon}>{name.charAt(0)}</p>} */}
+        {<p className={s.user_name_icon}>{name.charAt(0).toUpperCase()}</p>}
         {<p className={s.user_name_text}>{name}</p>}
       </div>
       <button className={s.btn}
