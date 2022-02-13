@@ -63,7 +63,7 @@ const BalancePage = () => {
             {viewPort.width >= 768 && viewPort.width < 1280 && (
               <>
                 <div className={s.transactionTableSummaryContainer}>
-                  <TransactionForm />
+                  <TransactionForm type={type} />
                   <TableBalance type={type} />
                 </div>
                 <SummaryTable />
@@ -71,7 +71,7 @@ const BalancePage = () => {
             )}
             {viewPort.width >= 1280 && (
               <div className={s.transactionTableSummaryContainer}>
-                <TransactionForm />
+                <TransactionForm type={type} />
                 <div className={s.tableSummaryContainer}>
                   <TableBalance type={type} />
                   <SummaryTable />
@@ -139,7 +139,7 @@ const BalancePage = () => {
                     <use href={sprite + "#arrow"} alt="Go back" />
                   </svg>
                 </button>
-                <TransactionForm />
+                <TransactionForm type={type} />
               </>
             )}
           </>
