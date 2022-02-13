@@ -14,7 +14,7 @@ export default function Header() {
             <use href={sprite + "#logo"} alt="My logo" />
           </svg>
         </div>
-        <div className={s.header_user}>{!isLoggedIn && <UserMenu />}</div>
+        <div className={s.header_user}>{isLoggedIn && <UserMenu />}</div>
       </div>
     </header>
   );

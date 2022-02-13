@@ -1,10 +1,36 @@
+import { useState, useCallback } from 'react';
+import { useDeleteTransactionMutation } from '../../../redux/services/transactionsAPI';
+import { useDispatch, useSelector } from 'react-redux';
+import * as action from '../../../redux/finance/finance-actions';
+import Modal from '../../Multipurpose-modal/Multipurpose-modal';
 import items from "./expenses.json";
 import sprite from "../../../Images/sprite.svg";
 import s from './TableBalanceMob.module.css';
 
-const TableBalanceMob = ({type}) => {
+const TableBalanceMob = ({type, id}) => {
+  const dispatch = useDispatch();
+  const [removeTransaction] = useDeleteTransactionMutation();
+  const [showModal, setShowModal] = useState(false);
+  
+   const onOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const onCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const deleteTransaction = useCallback(async (id) => {
+    try {
+      // const response = await removeTransaction(id);
+      console.log(id);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [])
 
   return (
+    
     <>
       <div className={s.tableBodyScroll}>
         <ul className={s.tableWrapper}>
@@ -30,7 +56,11 @@ const TableBalanceMob = ({type}) => {
                   </p>
                 </div>
 
-                    <button className={s.deleteBtn}>
+                    <button
+                      className={s.deleteBtn}
+                      type='button'
+                      onClick={onOpenModal}
+                    >
                       <svg className={s.icon}>
                         <use
                           href={sprite + "#delete"}
@@ -43,6 +73,13 @@ const TableBalanceMob = ({type}) => {
             </div>
           ))}
         </ul>
+         {showModal === true && (
+            <Modal
+              questionText = 'Вы уверены?'
+              onClickApproved={deleteTransaction(id)}
+              onClose={onCloseModal}
+            />
+          )}
       </div>
     </>
   );
