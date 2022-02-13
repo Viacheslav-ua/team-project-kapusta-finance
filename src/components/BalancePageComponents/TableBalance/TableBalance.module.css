@@ -103,6 +103,9 @@
   letter-spacing: 0.04em;
 }
 .deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-right: auto;
   margin-left: auto;
   width: 30px;
