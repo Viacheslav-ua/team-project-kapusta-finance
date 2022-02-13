@@ -5,6 +5,7 @@
   width: 100%;
   border-bottom-left-radius: 130px;
   background-color: #f2f5fc;
+  z-index: -2;
 }
 
 @media screen and (min-width: 768px) {
@@ -20,9 +21,11 @@
 
 .bg_contaiter {
   height: 100vh;
+  z-index: -2;
 }
 @media screen and (min-width: 1280px) {
   .bg_contaiter {
+    height: 960px;
     background-image: url(../../Images/desktop-bottom2.svg);
     background-position: 0% 100%;
     background-repeat: repeat-x, no-repeat;
