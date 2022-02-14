@@ -3,6 +3,9 @@ import ru from "date-fns/locale/ru";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import useWindowDimensions from "../../../hooks/useWindowDimensions";
+import { useForm } from "react-hook-form";
+import * as Yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { expenseOptions } from "../../../helpers/expencesOptions";
 import { incomeOptions } from "../../../helpers/incomeOptions";
@@ -12,11 +15,40 @@ import sprite from "../../../Images/sprite.svg";
 
 registerLocale("ru", ru);
 
+const FormSchema = Yup.object().shape({
+  name: Yup.string().required("Required"),
+  categories: Yup.string().required("Required"),
+  value: Yup.number().min(2).positive().required("Required"),
+});
+
 function TransactionForm({ type }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [open, setOpen] = useState(false);
+  const [placeholderCategories, setPlaceholderCategories] = useState("");
 
   const viewPort = useWindowDimensions();
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    resetField,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(FormSchema),
+  });
+
+  const getDate = (newdata) => {
+    setSelectedDate(newdata);
+    const arr = newdata.toLocaleDateString().split("-");
+  };
+
+  useEffect(() => {
+    getDate(selectedDate);
+
+    setValue("date", selectedDate);
+  }, [selectedDate, setValue]);
 
   useEffect(() => {
     const checkClick = (e) => {
@@ -30,9 +62,36 @@ function TransactionForm({ type }) {
     };
   }, [open]);
 
+  const onSubmit = async (data) => {
+    const { date, name, value, categories } = data;
+    console.log(data);
+
+    reset({
+      name: "",
+      categories: "",
+      value: "",
+    });
+  };
+
+  const clearForm = () => {
+    console.log("Сработало");
+    resetField("value");
+    resetField("name");
+    resetField("categories");
+  };
+
+  const changerPlaceholder = (value) => {
+    setPlaceholderCategories(value);
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    setValue("categories", placeholderCategories);
+  }, [placeholderCategories, setValue]);
+
   return (
     <div className={style.allContainer}>
-      <form className={style.form}>
+      <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={style.inputContainer}>
           <div className={style.calendarTransactionForm}>
             <div className={style.formContainer}>
@@ -42,6 +101,7 @@ function TransactionForm({ type }) {
                     <use href={`${sprite}#calendar`}></use>
                   </svg>
                   <DatePicker
+                    {...register("date")}
                     type="date"
                     locale="ru"
                     selected={selectedDate}
@@ -61,8 +121,11 @@ function TransactionForm({ type }) {
                   placeholder={
                     type === "expense" ? "Описание товара" : "Описание дохода"
                   }
+                  {...register("name", { required: true })}
                 />
-                {/* {errors.name && <p>Обязательное поле</p>} */}
+                {errors.name && (
+                  <p className={style.errors}>Обязательное поле</p>
+                )}
               </div>
               <div className={style.categoryArrowContainer}>
                 <div className={style.category}>
@@ -75,8 +138,12 @@ function TransactionForm({ type }) {
                         ? "Категория товара"
                         : "Категория дохода"
                     }
+                    {...register("categories", { required: true })}
                   />
                 </div>
+                {errors.categories && (
+                  <p className={style.errors}>Обязательное поле</p>
+                )}
                 {open ? (
                   <div className={style.icon}>
                     <svg className={style.arrowUp}>
@@ -95,6 +162,7 @@ function TransactionForm({ type }) {
                 <DropDownList
                   type={type}
                   options={type === "expense" ? expenseOptions : incomeOptions}
+                  changerDescription={changerPlaceholder}
                 />
               )}
 
@@ -102,7 +170,11 @@ function TransactionForm({ type }) {
                 <input
                   placeholder={viewPort.width >= 768 ? "0,00" : "00,00 UAH"}
                   className={style.inputValue}
+                  {...register("value", { required: true })}
                 />
+                {errors.value && (
+                  <p className={style.errors}>Обязательное поле</p>
+                )}
                 <svg className={style.calculator}>
                   <use href={`${sprite}#calculator`}></use>
                 </svg>
@@ -113,7 +185,7 @@ function TransactionForm({ type }) {
             <button type="submit" className={style.formBtn}>
               Ввод
             </button>
-            <button type="button" className={style.formBtn}>
+            <button type="button" className={style.formBtn} onClick={clearForm}>
               Очистить
             </button>
           </div>
