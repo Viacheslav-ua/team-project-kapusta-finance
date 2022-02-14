@@ -8,7 +8,7 @@ export const reportAPI = createApi({
   }),
   endpoints: (builder) => ({
     fetchSummary: builder.mutation({
-      query: (accessToken, countMonths) => ({
+      query: ({ accessToken, countMonths }) => ({
         url: `/summary`,
         method: "GET",
         headers: {
@@ -20,7 +20,7 @@ export const reportAPI = createApi({
     }),
 
     fetchCategoryProfit: builder.mutation({
-      query: (accessToken, date) => ({
+      query: ({ accessToken, date }) => ({
         url: `/category-grouping/profit/${date}`,
         method: "GET",
         headers: {
@@ -31,7 +31,7 @@ export const reportAPI = createApi({
     }),
 
     fetchCategoryCosts: builder.mutation({
-      query: (accessToken, date) => ({
+      query: ({ accessToken, date }) => ({
         url: `/category-grouping/costs/${date}`,
         method: "GET",
         headers: {
@@ -42,7 +42,7 @@ export const reportAPI = createApi({
     }),
 
     fetchCategoryItems: builder.mutation({
-      query: (accessToken, categoryId, date) => ({
+      query: ({ accessToken, categoryId, date }) => ({
         url: `/items-grouping/${categoryId}`,
         method: "GET",
         headers: {

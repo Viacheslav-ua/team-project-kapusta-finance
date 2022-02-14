@@ -8,7 +8,7 @@ export const transactionsApi = createApi({
   }),
   endpoints: (builder) => ({
     fetchResetBalance: builder.mutation({
-      query: (accessToken, balance) => ({
+      query: ({ accessToken, balance }) => ({
         url: `/reset-balance`,
         method: "PATCH",
         headers: {
@@ -53,7 +53,7 @@ export const transactionsApi = createApi({
     }),
 
     addTransaction: builder.mutation({
-      query: (accessToken, newTransaction) => ({
+      query: ({ accessToken, newTransaction }) => ({
         url: `/add-transaction`,
         method: "POST",
         headers: {
@@ -65,7 +65,7 @@ export const transactionsApi = createApi({
     }),
 
     deleteTransaction: builder.mutation({
-      query: (accessToken, idUser) => ({
+      query: ({ accessToken, idUser }) => ({
         url: `/remove-transaction/${idUser}`,
         method: "POST",
         headers: {
