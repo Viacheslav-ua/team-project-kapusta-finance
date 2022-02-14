@@ -7,9 +7,9 @@ import items from "./expenses.json";
 import sprite from "../../../Images/sprite.svg";
 import s from './TableBalanceMob.module.css';
 
-const TableBalanceMob = ({ id }) => {
+const TableBalanceMob = () => {
   const dispatch = useDispatch();
-  const [removeTransaction] = useDeleteTransactionMutation();
+  // const [removeTransaction] = useDeleteTransactionMutation();
   const [showModal, setShowModal] = useState(false);
   const transaction = useSelector(getAllTransaction);
 
@@ -24,14 +24,14 @@ const TableBalanceMob = ({ id }) => {
     setShowModal(false);
   };
 
-  const deleteTransaction = useCallback(async (id) => {
-    try {
-      // const response = await removeTransaction(id);
-      console.log(id);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
+  // const deleteTransaction = useCallback(async (id) => {
+  //   try {
+  //     // const response = await removeTransaction(id);
+  //     console.log(id);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
   return (
     <>
@@ -74,7 +74,7 @@ const TableBalanceMob = ({ id }) => {
         {showModal === true && (
           <Modal
             questionText="Вы уверены?"
-            onClickApproved={deleteTransaction(id)}
+            // onClickApproved={deleteTransaction(el._id)}
             onClose={onCloseModal}
           />
         )}

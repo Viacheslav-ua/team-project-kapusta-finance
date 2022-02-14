@@ -23,15 +23,21 @@ import style from "./DropDownList.module.css";
 //   );
 // };
 
-const DropDownList = ({ type, options }) => {
+const DropDownList = ({ type, options, changerDescription }) => {
   const items = Object.values(options);
-
   return (
     <div className={style.DropDownContainer}>
       <div className={style.containerList}>
         <ul className={style.list}>
           {items.map((elem) => (
-            <li className={style.item}>{elem}</li>
+            <li
+              className={style.item}
+              onClick={() => {
+                changerDescription(elem);
+              }}
+            >
+              {elem}
+            </li>
           ))}
         </ul>
       </div>

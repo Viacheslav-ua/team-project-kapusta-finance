@@ -4,7 +4,7 @@
     padding-left: 20;
     padding-right: 20;
     /* //padding-top: 37px; */
-    padding-bottom: 11px;
+    /* padding-bottom: 11px; */
   }
 
   .containerRight {
@@ -56,6 +56,23 @@
     line-height: 1.17;
     letter-spacing: 0.02em;
   }
+  .confirm {
+    /* margin-top: 8px; */
+    color: var(--text-color-2);
+    border-radius: 0px 22px 22px 0px;
+    cursor: pointer;
+
+}
+
+.confirm:hover,
+.confirm:focus {
+    background: var(--accent-color);
+    color: var(--bg-text-color);
+}
+.reportPagedisplay{
+  display: none;
+}
+
 
   .wrapperBtn {
     display: flex;
@@ -79,6 +96,11 @@
     letter-spacing: 0.02em;
     color: #000000;
   }
+  .reportPageInput{
+    border-radius: 22px;
+    border: 2px solid var(--bg-text-color);
+    width: 183px;
+  }
 
   .icon {
     fill: var(--text-color-3);
@@ -91,7 +113,7 @@
 @media screen and (min-width: 768px) {
   .container {
     padding-top: 40px;
-    padding-bottom: 70px;
+    /* padding-bottom: 70px; */
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
@@ -153,6 +175,14 @@
     line-height: 1.17;
     letter-spacing: 0.02em;
   }
+  .confirm {
+    margin-left: 15px;
+    padding: 12px 6px;
+    color: var(--text-color-2);
+}
+.reportPagedisplay{
+  display: none;
+}
 
   .money {
     text-align: center;
@@ -189,7 +219,7 @@
 @media screen and (min-width: 1280px) {
   .container {
     padding-top: 40px;
-    padding-bottom: 9px;
+    /* padding-bottom: 9px; */
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
@@ -217,6 +247,21 @@
     line-height: 1.17;
     letter-spacing: 0.02em;
   }
+  .reportPagedisplay{
+    display: block;
+  }
+  .confirm {
+    padding: 12px 6px;
+    color: var(--text-color-2);
+    cursor: pointer;
+}
+
+.confirm:hover,
+.confirm:focus {
+    background: var(--accent-color);
+    color: var(--bg-text-color);
+}
+
   
   .money {
     margin-left: 21px;
