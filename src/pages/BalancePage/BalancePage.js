@@ -46,7 +46,6 @@ const BalancePage = () => {
   const sendSummaryInStore = useCallback(
     (response) => {
       dispatch(action.summary(response.data))
-      console.log(response.data);
     }, [dispatch]
   );
 
