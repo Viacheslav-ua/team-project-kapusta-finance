@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { transactionsApi } from '../../../redux/services/transactionsAPI';
+import { useState, useCallback } from 'react';
+import { useDeleteTransactionMutation} from '../../../redux/services/transactionsAPI';
 import { useDispatch, useSelector } from 'react-redux';
+import *as action from '../../../redux/finance/finance-actions';
 import Modal from '../../Multipurpose-modal/Multipurpose-modal';
 import { getAllTransaction } from "../../../redux/finance/finance-selectors";
 import sprite from "../../../Images/sprite.svg";
@@ -10,7 +11,8 @@ const TableBalance = ({type, id}) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const transaction = useSelector(getAllTransaction);
-  
+  // const [removeTransaction] = useDeleteTransactionMutation();
+
    const onOpenModal = () => {
     setShowModal(true);
   };
@@ -18,6 +20,16 @@ const TableBalance = ({type, id}) => {
   const onCloseModal = () => {
     setShowModal(false);
   };
+
+  // const handleDeleteTransaction = useCallback(async () => {
+  //   try {
+  //     await removeTransaction(transaction);
+
+  //     onCloseModal();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
 
   const expenses = transaction.filter((el)=>el.isProfit===false);
   const income = transaction.filter((el)=>el.isProfit===true);
@@ -106,7 +118,7 @@ const TableBalance = ({type, id}) => {
           {showModal === true && (
             <Modal
               questionText = 'Вы уверены?'
-              onClickApproved={() => dispatch(transactionsApi.deleteTransaction(id))}
+              // onClickApproved={handleDeleteTransaction()}
               onClose={onCloseModal}
             />
           )}
