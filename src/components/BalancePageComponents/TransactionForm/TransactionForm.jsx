@@ -74,7 +74,6 @@ function TransactionForm({ type }) {
   };
 
   const clearForm = () => {
-    console.log("Сработало");
     resetField("value");
     resetField("name");
     resetField("categories");
