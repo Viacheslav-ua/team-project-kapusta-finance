@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
+import { getCategoryCosts} from "../../../redux/report/report-selectors";
 import SliderExpencesList from "./SliderExpencesList";
 import SliderNotification from "../SliderNotification/SliderNotification";
-import { data } from './data'
 
 export default function SliderIncome() {
+    const costs = useSelector(getCategoryCosts);
+    console.log("costs", costs)
     return (
-        data.length > 0 ? (<SliderExpencesList data={data} />) : (<SliderNotification operation={'расходов:)'} />)
+        costs.length > 0 ? (<SliderExpencesList data={costs} />) : (<SliderNotification operation={'расходов:)'} />)
     )
 }

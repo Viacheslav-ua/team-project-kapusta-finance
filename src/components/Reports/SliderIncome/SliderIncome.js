@@ -1,9 +1,11 @@
+import { useSelector } from "react-redux";
+import { getCategoryProfit} from "../../../redux/report/report-selectors";
 import SliderIncomeList from "./SliderIncomeList";
 import SliderNotification from "../SliderNotification/SliderNotification";
-import { data } from "../SliderIncome/data";
 
 export default function SliderIncome() {
+    const profit = useSelector(getCategoryProfit);
     return (
-        data.length > 0 ? (<SliderIncomeList data={data}/>) : (<SliderNotification operation={'доходов ):'}/>)
+        profit.length > 0 ? (<SliderIncomeList data={profit}/>) : (<SliderNotification operation={'доходов ):'}/>)
     )
 }
