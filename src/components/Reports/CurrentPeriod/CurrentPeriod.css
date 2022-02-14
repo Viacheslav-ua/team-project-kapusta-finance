@@ -1,6 +1,8 @@
 .sliderContainer {
-  margin: 40px;
-  width: 300px;
+  /* margin: 40px; */
+  margin-top: 10px;
+  margin-bottom: 32px;
+  /* width: 300px; */
 }
 
 .slider {
@@ -69,3 +71,12 @@
   line-height: 1.14;
   text-transform: uppercase;
 }
+@media screen and (min-width: 768px) {
+  .sliderContainer {
+    /* margin: 40px; */
+    margin-top: 42px;
+    margin-bottom: 32px;
+    /* width: 300px; */
+  }
+}
+@media screen and (min-width: 1280px) {}
