@@ -14,8 +14,12 @@ import SummaryTable from "../../components/BalancePageComponents/SummaryTable/in
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 import { useFetchAllTransactionsMutation } from "../../redux/services/transactionsAPI";
+import { useFetchSummaryMutation } from '../../redux/services/reportAPI';
+
 import { getAccessToken } from "../../redux/auth/auth-selectors";
 import * as actions from "../../redux/finance/finance-actions";
+
+import * as action from '../../redux/report/report-actions';
 
 import s from "./BalancePage.module.css";
 import sprite from "../../Images/sprite.svg";
@@ -28,6 +32,8 @@ const BalancePage = () => {
   const viewPort = useWindowDimensions();
   const accessToken = useSelector(getAccessToken);
   const [fetchAllTransactions] = useFetchAllTransactionsMutation();
+
+  const [fetchSummary] = useFetchSummaryMutation();
   const dispatch = useDispatch();
 
   const sendDataInStore = useCallback(
@@ -38,18 +44,34 @@ const BalancePage = () => {
     [dispatch]
   );
 
+  const sendSummaryInStore = useCallback(
+    (response) => {
+      dispatch(action.summary(response.data))
+    }, [dispatch]
+  );
+
   const getAllTransactions = useCallback(async () => {
     try {
       const response = await fetchAllTransactions(accessToken);
-      sendDataInStore(response)
+      sendDataInStore(response);
     } catch (error) {
       console.log(error);
     }
   }, [accessToken, fetchAllTransactions, sendDataInStore]);
 
+  const getSummaryReport = useCallback(async () => {
+    try {
+      const response = await fetchSummary(accessToken);
+      sendSummaryInStore(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [accessToken, fetchSummary, sendSummaryInStore]);
+
   useEffect(() => {
     getAllTransactions();
-  }, []);
+    getSummaryReport();
+  }, [getAllTransactions, getSummaryReport]);
 
   const btnTypeToggle = (e) => {
     setType(`${e.target.title}`);
@@ -96,7 +118,10 @@ const BalancePage = () => {
                   <TransactionForm type={type} />
                   <TableBalance type={type} />
                 </div>
-                <SummaryTable />
+                <SummaryTable
+                  type={type}
+                  title="СВОДКА"
+                />
               </>
             )}
             {viewPort.width >= 1280 && (
@@ -104,7 +129,9 @@ const BalancePage = () => {
                 <TransactionForm type={type} />
                 <div className={s.tableSummaryContainer}>
                   <TableBalance type={type} />
-                  <SummaryTable />
+                  <SummaryTable
+                    type={type}
+                  title="СВОДКА"/>
                 </div>
               </div>
             )}
