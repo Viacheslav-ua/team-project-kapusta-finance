@@ -25,7 +25,6 @@ function UserMenu() {
 
   const removeUserData = useCallback(() => {
     dispatch(action.accessToken(null));
-    dispatch(action.refreshToken(null));
     dispatch(action.isLoggedIn(false));
     dispatch(action.user({ id: null, email: null, name: null }));
   }, [dispatch]);
