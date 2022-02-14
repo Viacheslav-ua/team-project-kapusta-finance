@@ -26,6 +26,7 @@ import sprite from "../../Images/sprite.svg";
 
 const BalancePage = () => {
   const [type, setType] = useState("expense");
+  const [page, setPage] = useState("balance");
   const [listRender, setListRender] = useState(true);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const viewPort = useWindowDimensions();
@@ -87,8 +88,8 @@ const BalancePage = () => {
         {viewPort.width >= 768 && (
           <>
             <div className={s.balanceWrapper}>
-              <Balance />
-              <ConfirmButton />
+              <Balance page={page}/>
+              {/* <ConfirmButton /> */}
               <GoToReports />
             </div>
             <div className={s.buttons}>
@@ -114,7 +115,7 @@ const BalancePage = () => {
             {viewPort.width >= 768 && viewPort.width < 1280 && (
               <>
                 <div className={s.transactionTableSummaryContainer}>
-                  <TransactionForm />
+                  <TransactionForm type={type} />
                   <TableBalance type={type} />
                 </div>
                 <SummaryTable
@@ -125,7 +126,7 @@ const BalancePage = () => {
             )}
             {viewPort.width >= 1280 && (
               <div className={s.transactionTableSummaryContainer}>
-                <TransactionForm />
+                <TransactionForm type={type} />
                 <div className={s.tableSummaryContainer}>
                   <TableBalance type={type} />
                   <SummaryTable
@@ -143,8 +144,8 @@ const BalancePage = () => {
                 <div className={s.balanceWrapper}>
                   <GoToReports />
                   <div className={s.balance}>
-                    <Balance />
-                    <ConfirmButton />
+                    <Balance page={page}/>
+                    {/* <ConfirmButton /> */}
                   </div>
                 </div>
 
@@ -191,7 +192,7 @@ const BalancePage = () => {
                     <use href={sprite + "#arrow"} alt="Go back" />
                   </svg>
                 </button>
-                <TransactionForm />
+                <TransactionForm type={type} />
               </>
             )}
           </>

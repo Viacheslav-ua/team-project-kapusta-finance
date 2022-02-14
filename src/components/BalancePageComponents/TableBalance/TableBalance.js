@@ -5,7 +5,8 @@ import Modal from '../../Multipurpose-modal/Multipurpose-modal';
 import { getAllTransaction } from "../../../redux/finance/finance-selectors";
 import { getAccessToken } from "../../../redux/auth/auth-selectors";
 import sprite from "../../../Images/sprite.svg";
-import s from './TableBalance.module.css';
+import s from "./TableBalance.module.css";
+
 
 const TableBalance = ({type}) => {
   const dispatch = useDispatch();
@@ -15,10 +16,10 @@ const TableBalance = ({type}) => {
   const transaction = useSelector(getAllTransaction);
   const accessToken = useSelector(getAccessToken);
   const [removeTransaction] = useDeleteTransactionMutation();
-  
   const onOpenModal = useCallback((e) => {
     setDelTransactionId(e.currentTarget.dataset.id);
     console.log(delTransactionId);
+
     setShowModal(true);
      
     
@@ -50,36 +51,38 @@ const TableBalance = ({type}) => {
     }
   }, [accessToken, delTransactionId, onCloseModal, removeTransaction]);
 
-  const expenses = transaction.filter((el)=>el.isProfit===false);
-  const income = transaction.filter((el)=>el.isProfit===true);
-  
+  const expenses = transaction.filter((el) => el.isProfit === false);
+  const income = transaction.filter((el) => el.isProfit === true);
+
   return (
     <>
       <div className={s.tableHead}>
         <table className={s.tableMain}>
           <thead className={s.tableHeader}>
             <tr>
-              <th className={`${s.tableTitle } ${s.thDate}`}>дата</th>
-              <th className={`${s.tableTitle } ${s.thDescr}`}>описание</th>
-              <th className={`${s.tableTitle } ${s.thCtg}`}>категория</th>
-              <th className={`${s.tableTitle } ${s.thSum}`}>сумма</th>
-              <th className={`${s.tableTitle } ${s.thIcon}`}></th>
+              <th className={`${s.tableTitle} ${s.thDate}`}>дата</th>
+              <th className={`${s.tableTitle} ${s.thDescr}`}>описание</th>
+              <th className={`${s.tableTitle} ${s.thCtg}`}>категория</th>
+              <th className={`${s.tableTitle} ${s.thSum}`}>сумма</th>
+              <th className={`${s.tableTitle} ${s.thIcon}`}></th>
             </tr>
           </thead>
         </table>
 
         <div className={s.tableBodyScroll}>
-          {type==='expense'&&(
+          {type === "expense" && (
             <>
-            <table className={`${s.tableMain} ${s.tableMainBody}`}>
-            <tbody className={s.tableBody}>
-              {expenses.map((el) => (
-                <tr className={s.tableRow} key={el._id}>
-                      <td className={s.thDate}>{el.dateTransaction.substr(0,10)}</td>
+              <table className={`${s.tableMain} ${s.tableMainBody}`}>
+                <tbody className={s.tableBody}>
+                  {expenses.map((el) => (
+                    <tr className={s.tableRow} key={el._id}>
+                      <td className={s.thDate}>
+                        {el.dateTransaction.substr(0, 10)}
+                      </td>
                       <td className={s.tdDescr}>{el.description}</td>
                       <td className={s.thCtg}>{el.categoryName}</td>
                       <td className={`${s.tdSum} ${s.tdSumExpense}`}>
-                           {`-${el.amount.toLocaleString('ru')} грн.`}
+                        {`-${el.amount.toLocaleString("ru")} грн.`}
                       </td>
                       <td className={s.thIcon}>
                         <button
@@ -89,7 +92,6 @@ const TableBalance = ({type}) => {
                       data-id={el._id}
                       data-reception={el.isProfit}
                       data-userid={el.userId}
-                      
                         >
                           <svg className={s.icon}>
                             <use
@@ -99,13 +101,13 @@ const TableBalance = ({type}) => {
                           </svg>
                         </button>
                       </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </>
           )}
-          {type==='income'&&(
+          {type === "income" && (
             <>
             <table className={`${s.tableMain} ${s.tableMainBody}`}>
             <tbody className={s.tableBody}>
@@ -134,10 +136,10 @@ const TableBalance = ({type}) => {
                           </svg>
                         </button>
                       </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </>
           )}
 
@@ -145,15 +147,14 @@ const TableBalance = ({type}) => {
             <Modal
               questionText = 'Вы уверены?'
               onClickApproved={handleDeleteTransaction}
+
               onClose={onCloseModal}
             />
           )}
-
-      </div>
         </div>
+      </div>
     </>
   );
-  
 };
 
 export default TableBalance;

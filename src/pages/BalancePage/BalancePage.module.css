@@ -1,6 +1,7 @@
 .balanceWrapper {
   display: flex;
   flex-direction: column;
+  padding-bottom: 11px;
 }
 
 .balance {
@@ -123,6 +124,7 @@
     flex-direction: row;
     align-items: baseline;
     margin-left: 66px;
+    padding-bottom: 70px;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -147,5 +149,6 @@
     align-items: baseline;
     justify-content: end;
     margin-left: 0;
+    padding-bottom: 9px;
   }
 }
