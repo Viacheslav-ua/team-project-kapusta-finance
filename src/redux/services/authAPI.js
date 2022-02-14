@@ -3,7 +3,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const authAPI = createApi({
     reducerPath: 'authAPI',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:3001/api/auth'
+        baseUrl: 'http://localhost:3001/api/auth',
+        credentials: 'include'
     }),
     tagTypes: ['Auth'],
     endpoints: builder => ({
@@ -24,22 +25,19 @@ export const authAPI = createApi({
             invalidatesTags: ['Auth'],
         }),
         logoutUser: builder.mutation({
-            query: refreshToken => ({
+            query: accessToken => ({
                 url: '/logout',
                 method: 'POST',
                 headers: {
-                    Authorization : `Bearer ${refreshToken}`
+                    Authorization : `Bearer ${accessToken}`
                 }
             }),
             invalidatesTags: ['Auth'],
         }),
         refreshToken: builder.mutation({
-            query: refreshToken => ({
+            query: () => ({
                 url: '/refresh',
-                method: 'GET',
-                headers: {
-                    Authorization : `Bearer ${refreshToken}`
-                }
+                method: 'GET'
             }),
             invalidatesTags: ['Auth'],
         }),

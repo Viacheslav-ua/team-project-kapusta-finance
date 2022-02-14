@@ -20,7 +20,7 @@ import { reportAPI } from "./services/reportAPI";
 const persistAuthConfig = {
   key: "auth",
   storage,
-  whitelist: ["accessToken", "refreshToken"],
+  whitelist: ["accessToken"],
 };
 
 const store = configureStore({

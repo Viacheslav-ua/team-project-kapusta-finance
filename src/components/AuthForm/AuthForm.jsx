@@ -25,8 +25,6 @@ const initialValues = {
   password: "",
 };
 
-const reg = /.+?(?=@)/;
-
 const AuthForm = () => {
   const [loginUser, { isLoading: isLoadingLogin, isError: isErrorLogin }] =
     useLoginUserMutation();
@@ -41,11 +39,10 @@ const AuthForm = () => {
       dispatch(
         actions.user({
           ...response.data.user,
-          name: response.data.user.email.match(reg)[0],
+          name: response.data.user.email.match(/.+?(?=@)/)[0],
         })
       );
       dispatch(actions.accessToken(response.data.accessToken));
-      dispatch(actions.refreshToken(response.data.refreshToken));
       dispatch(actions.isLoggedIn(true));
     },
     [dispatch]
