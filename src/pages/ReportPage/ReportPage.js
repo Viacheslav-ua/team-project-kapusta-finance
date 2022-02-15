@@ -18,7 +18,8 @@ import * as actions from "../../redux/report/report-actions";
 
 
 const ReportPage = () => {
-   const accessToken = useSelector(getAccessToken);
+  const [page, setPage] = useState("report");
+  const accessToken = useSelector(getAccessToken);
   const viewPort = useWindowDimensions();
   const dispatch = useDispatch();
   const [date, setDate] = useState('2022-01')
