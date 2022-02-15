@@ -6,6 +6,7 @@ import { routes, PrivateRoute, PublicRoute } from "./routes";
 import { getAccessToken } from "./redux/auth/auth-selectors"
 import { useRefreshTokenMutation } from "./redux/services/authAPI"
 import * as actions from "./redux/auth/auth-actions"
+import { Oval } from 'react-loader-spinner'
 
 import Header from "../src/components/Header/Header";
 // import AuthForm from "./components/AuthForm/AuthForm";
@@ -18,12 +19,13 @@ import Header from "../src/components/Header/Header";
 // import ModalBalance from "./components/ModalBalance";
 
 const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
+const GoogleRedirect = lazy(() => import("./pages/GoogleRedirect/GoogleRedirect"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
 const BalancePage = lazy(() => import("./pages/BalancePage/BalancePage"));
 const ReportPage = lazy(() => import("./pages/ReportPage/ReportPage"));
 
 function App() {
-const accessToken = useSelector(getAccessToken)
+  const accessToken = useSelector(getAccessToken)
   const dispatch = useDispatch()
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [getCurrentUser] = useRefreshTokenMutation()
@@ -67,7 +69,15 @@ const accessToken = useSelector(getAccessToken)
     <>
       {!isRefreshing && <div className="App">
         <Header />
-        <Suspense fallback="loading...">
+        <Suspense
+          fallback={<div className="App-loader"><Oval
+                      ariaLabel="loading-indicator"
+                      height={50}
+                      width={50}
+                      strokeWidth={3}
+                      color="rgba(255, 117, 29, 1)"
+                      secondaryColor="rgba(170, 178, 197, 0.7)"
+                    /></div>}>
           <Routes>
             <Route
               exact
@@ -76,7 +86,7 @@ const accessToken = useSelector(getAccessToken)
             />
             <Route
               path={routes.google}
-              element={<PublicRoute restricted component={AuthPage} />}
+              element={<PublicRoute restricted component={GoogleRedirect} />}
             />
             <Route
               path={routes.balance}

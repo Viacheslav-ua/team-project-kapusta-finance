@@ -7,7 +7,6 @@ import toast, { Toaster } from "react-hot-toast";
 import sprite from "../../Images/sprite.svg";
 import style from "./AuthForm.module.css";
 import {
-  useLoginByGoogleQuery,
   useLoginUserMutation,
   useRegistrationUserMutation,
 } from "../../redux/services/authAPI";
@@ -101,7 +100,7 @@ const AuthForm = () => {
                 Вы можете авторизоваться с помощью <br /> Google Account:
               </h4>
 
-              <a href={"/"} className={style.googleAuthButton}>
+              <a href={"http://localhost:3001/api/auth/google"} className={style.googleAuthButton}>
                 <svg className={style.googleIcon}>
                   <use href={sprite + "#google"} alt="Google" width="18" />
                 </svg>
