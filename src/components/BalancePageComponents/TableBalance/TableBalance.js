@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { useDeleteTransactionMutation} from '../../../redux/services/transactionsAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Multipurpose-modal/Multipurpose-modal';
+import * as actions from "../../../redux/finance/finance-actions";
 import { getAllTransaction } from "../../../redux/finance/finance-selectors";
 import { getAccessToken } from "../../../redux/auth/auth-selectors";
 import sprite from "../../../Images/sprite.svg";
@@ -19,23 +20,23 @@ const TableBalance = ({type}) => {
   const onOpenModal = useCallback((e) => {
     setShowModal(true);
     setDelTransactionId(e.currentTarget.dataset.id);
-  },[delTransactionId])
+  },[])
 
 
   const onCloseModal = useCallback(() => {
     setShowModal(false);
-  },[delTransactionId]);
+  },[]);
 
   const handleDeleteTransaction = useCallback(async () => {
-      // if(delTransactionId){
+     
         try {
-          await removeTransaction({accessToken, delTransactionId});
+          const response = await removeTransaction({ accessToken, delTransactionId });
+          dispatch(actions.allTransaction(response.data.data));
           onCloseModal();
         } catch (error) {
           console.log(error);
         }
-      // }
-  }, [accessToken, delTransactionId, onCloseModal, removeTransaction]);
+  }, [accessToken, delTransactionId, dispatch, onCloseModal, removeTransaction]);
 
   // useEffect(() => {
   //   handleDeleteTransaction();
