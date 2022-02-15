@@ -65,8 +65,8 @@ export const transactionsApi = createApi({
     }),
 
     deleteTransaction: builder.mutation({
-      query: ({ accessToken, idUser }) => ({
-        url: `/remove-transaction/${idUser}`,
+      query: ({ accessToken, delTransactionId }) => ({
+        url: `/remove-transaction/${delTransactionId}`,
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${accessToken}`,
