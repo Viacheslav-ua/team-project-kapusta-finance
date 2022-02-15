@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useDeleteTransactionMutation} from '../../../redux/services/transactionsAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from '../../Multipurpose-modal/Multipurpose-modal';
@@ -11,45 +11,35 @@ import s from "./TableBalance.module.css";
 const TableBalance = ({type}) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
-  const [delTransactionId, setDelTransactionId] = useState('init state');
-  console.log(delTransactionId);
+  const [delTransactionId, setDelTransactionId] = useState('');
   const transaction = useSelector(getAllTransaction);
   const accessToken = useSelector(getAccessToken);
   const [removeTransaction] = useDeleteTransactionMutation();
+  
   const onOpenModal = useCallback((e) => {
-    setDelTransactionId(e.currentTarget.dataset.id);
-    console.log(delTransactionId);
-
     setShowModal(true);
-     
-    
-    // const selId = e.currentTarget.dataset.id;
-    // const selReception = e.currentTarget.dataset.reception;
-    // const selUserId = e.currentTarget.dataset.userid; 
-    // console.log(selId);
-    // console.log(selReception);
-    // console.log(selUserId);
-    
-    
+    setDelTransactionId(e.currentTarget.dataset.id);
   },[delTransactionId])
 
 
   const onCloseModal = useCallback(() => {
     setShowModal(false);
-    // setDelTransactionId('')
-    console.log(delTransactionId);
   },[delTransactionId]);
 
   const handleDeleteTransaction = useCallback(async () => {
-    try {
-      const response = await removeTransaction(accessToken, delTransactionId);
-      console.log(delTransactionId);
-      console.log(response);
-      onCloseModal();
-    } catch (error) {
-      console.log(error);
-    }
+      // if(delTransactionId){
+        try {
+          await removeTransaction({accessToken, delTransactionId});
+          onCloseModal();
+        } catch (error) {
+          console.log(error);
+        }
+      // }
   }, [accessToken, delTransactionId, onCloseModal, removeTransaction]);
+
+  // useEffect(() => {
+  //   handleDeleteTransaction();
+  // }, [handleDeleteTransaction]);
 
   const expenses = transaction.filter((el) => el.isProfit === false);
   const income = transaction.filter((el) => el.isProfit === true);
@@ -147,7 +137,6 @@ const TableBalance = ({type}) => {
             <Modal
               questionText = 'Вы уверены?'
               onClickApproved={handleDeleteTransaction}
-
               onClose={onCloseModal}
             />
           )}
