@@ -48,7 +48,7 @@
   }
 
   .btn {
-    width: 125px;
+    width: 133px;
     height: 44px;
     background-color: var(--bg-color);
     border: 2px solid var(--bg-text-color);
@@ -168,7 +168,7 @@
     border: 2px solid var(--bg-text-color);
     box-sizing: border-box;
     border-radius: 16px;
-    width: 125px;
+    width: 133px;
     height: 44px;
     background-color: var(--bg-color);
     font-size: 12px;
@@ -240,7 +240,7 @@
     border: 2px solid var(--bg-text-color);
     box-sizing: border-box;
     border-radius: 16px;
-    width: 125px;
+    width: 133px;
     height: 44px;
     background-color: var(--bg-color);
     font-size: 12px;

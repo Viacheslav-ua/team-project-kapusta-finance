@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useCallback, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import ReportsBalance from "../../components/Reports/ReportsBalance";
 import MultipleSlider from "../../components/Reports/MultipleSlider/MultipleSlider";
@@ -11,9 +11,62 @@ import style from "./ReportPage.module.css";
 import s from "./bg.module.css";
 import sprite from "../../Images/sprite.svg";
 
+import {useFetchCategoryProfitMutation,useFetchCategoryCostsMutation} from '../../redux/services/reportAPI'
+import { getAccessToken } from "../../redux/auth/auth-selectors";
+import * as actions from "../../redux/report/report-actions";
+
+
+
 const ReportPage = () => {
   const [page, setPage] = useState("report");
+  const accessToken = useSelector(getAccessToken);
   const viewPort = useWindowDimensions();
+  const dispatch = useDispatch();
+  const [date, setDate] = useState('2022-01')
+  const [fetchCategoryCosts] = useFetchCategoryCostsMutation();
+  const [fetchCategoryProfit] = useFetchCategoryProfitMutation();
+ 
+  
+   const sendDataInStore = useCallback(
+     (response, category) => {
+       switch (category) {
+         case 'cost':
+           dispatch(actions.categoryCosts(response.data))
+           break;
+         case 'profit':
+           dispatch(actions.categoryProfit(response.data))
+           break;
+         default: return;
+       }
+    },
+    [dispatch]
+  )
+
+  const getCosts = useCallback(async () => {
+    try {
+      const response = await fetchCategoryCosts({ accessToken, date })
+
+      sendDataInStore(response, 'cost')
+    } catch (error) {
+      console.log(error);
+    }
+  }, [])
+
+    const getProfit = useCallback(async () => {
+    try {
+      const response = await fetchCategoryProfit({ accessToken, date })
+      sendDataInStore(response, 'profit')
+    } catch (error) {
+      console.log(error);
+    }
+  }, [])
+ 
+
+  useEffect(() => {
+    getCosts();
+    getProfit();
+  }, [])
+ 
   return (
 
     <div className={s.bg_contaiter}>

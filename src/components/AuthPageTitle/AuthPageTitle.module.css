@@ -58,7 +58,8 @@
   .titleItems {
     display: flex;
     flex-direction: column;
-    margin-right: 150px;
+    margin-right: 120px;
+    margin-top: 90px;
   }
   .titleContainer {
     padding: 0;
@@ -93,6 +94,7 @@
     display: inline-flex;
     flex-direction: column;
     margin-right: 150px;
+    margin-top: 0;
   }
   .titleContainer {
     /* display: inline-block; */

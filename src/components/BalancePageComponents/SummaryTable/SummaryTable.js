@@ -1,90 +1,40 @@
 import React from 'react';
-import { useTable } from 'react-table';
+import { useSelector } from 'react-redux';
+import * as action from '../../../redux/report/report-actions';
+import { getSummary } from '../../../redux/report/report-selectors';
 import styles from './SummaryTable.module.css';
 
-function SummaryTable() {
-// function SummaryTable({title, data}) {
-
-  const title = "СВОДКА";
- const data = React.useMemo(
-     () => [
-       {
-         month: 'Ноябрь',
-         amount: '10 000.00',
-       },
-       {
-         month: 'Октябрь',
-         amount: '30 000.00',
-       },
-       {
-         month: 'Сентябрь',
-         amount: '30 000.00',
-         },
-       {
-         month: 'Август',
-         amount: '20 000.00',
-         },
-       {
-         month: 'Июль',
-         amount: '15 000.00',
-         },
-       {
-         month: 'Июнь',
-         amount: '18 000.00',
-       },
-     ],
-     []
- )
-
- const columns = React.useMemo(
-    () => [
-      {
-        Header: 'Сводка',
-        columns: [
-          {
-            accessor: 'month',
-          },
-          {
-            accessor: 'amount',
-          },
-        ],
-      },
-    ],
-    []
-  )
-
-  const {
-    getTableProps,
-    getTableBodyProps,
-    rows,
-    prepareRow,
-  } = useTable({
-    columns,
-    data,
-  })
+function SummaryTable({type, title}) {
+  const summary = useSelector(getSummary);
 
   return (
-      <table className={styles.table} {...getTableProps()}>
-          <thead className={styles.tableHead}>
-              <tr>
-                  <th colSpan={2} className={styles.header}>{title}</th>
-              </tr>
-          </thead>
-          <tbody className={styles.tableBody} {...getTableBodyProps()}>
-              {rows.map((row, i) => {
-                  prepareRow(row)
-                  return (
-                      <tr className={styles.tableRows} {...row.getRowProps()}>
-                          {row.cells.map(cell => {
-                              return <td className={styles.tableCell}{...cell.getCellProps()}>
-                                  {cell.render('Cell')}
-                              </td>
-                          })}
-                      </tr>   
-                  ) 
-              })}
-          </tbody>
-      </table>
+    <table className={styles.table}>
+      <thead className={styles.tableHead}>
+        <tr>
+          <th colSpan={2} className={styles.header}>{title}</th>
+        </tr>
+      </thead>
+      {type === 'expense' && (
+        <tbody className={styles.tableBody}>
+          {summary.map((month) => (
+            <tr className={styles.tableRows} key={month.id}>
+              <td className={styles.tableCell}>{month.description}</td> 
+              <td className={styles.tableCell}>{month.costs.totalAmount}</td>
+           </tr> 
+          ))}
+        </tbody>
+      )}
+       {type === 'income' && (
+        <tbody className={styles.tableBody}>
+          {summary.map((month) => (
+            <tr className={styles.tableRows} key={month.id}>
+              <td className={styles.tableCell}>{month.description}</td> 
+              <td className={styles.tableCell}>{month.profit.totalAmount}</td>
+           </tr> 
+          ))}
+        </tbody>
+      )}
+    </table>
   )
 }
 

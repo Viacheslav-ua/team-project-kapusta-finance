@@ -1,23 +1,45 @@
-import { useState } from "react";
-import { transactionsApi } from "../../../redux/services/transactionsAPI";
-import { useDispatch, useSelector } from "react-redux";
-import Modal from "../../Multipurpose-modal/Multipurpose-modal";
+import { useState, useCallback, useEffect } from 'react';
+import { useDeleteTransactionMutation} from '../../../redux/services/transactionsAPI';
+import { useDispatch, useSelector } from 'react-redux';
+import Modal from '../../Multipurpose-modal/Multipurpose-modal';
 import { getAllTransaction } from "../../../redux/finance/finance-selectors";
+import { getAccessToken } from "../../../redux/auth/auth-selectors";
 import sprite from "../../../Images/sprite.svg";
 import s from "./TableBalance.module.css";
 
-const TableBalance = ({ type, id }) => {
+
+const TableBalance = ({type}) => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
+  const [delTransactionId, setDelTransactionId] = useState('');
   const transaction = useSelector(getAllTransaction);
-
-  const onOpenModal = () => {
+  const accessToken = useSelector(getAccessToken);
+  const [removeTransaction] = useDeleteTransactionMutation();
+  
+  const onOpenModal = useCallback((e) => {
     setShowModal(true);
-  };
+    setDelTransactionId(e.currentTarget.dataset.id);
+  },[delTransactionId])
 
-  const onCloseModal = () => {
+
+  const onCloseModal = useCallback(() => {
     setShowModal(false);
-  };
+  },[delTransactionId]);
+
+  const handleDeleteTransaction = useCallback(async () => {
+      // if(delTransactionId){
+        try {
+          await removeTransaction({accessToken, delTransactionId});
+          onCloseModal();
+        } catch (error) {
+          console.log(error);
+        }
+      // }
+  }, [accessToken, delTransactionId, onCloseModal, removeTransaction]);
+
+  // useEffect(() => {
+  //   handleDeleteTransaction();
+  // }, [handleDeleteTransaction]);
 
   const expenses = transaction.filter((el) => el.isProfit === false);
   const income = transaction.filter((el) => el.isProfit === true);
@@ -55,8 +77,11 @@ const TableBalance = ({ type, id }) => {
                       <td className={s.thIcon}>
                         <button
                           className={s.deleteBtn}
-                          type="button"
-                          onClick={onOpenModal}
+                          type='button'
+                      onClick={(e) => onOpenModal(e)}
+                      data-id={el._id}
+                      data-reception={el.isProfit}
+                      data-userid={el.userId}
                         >
                           <svg className={s.icon}>
                             <use
@@ -74,23 +99,24 @@ const TableBalance = ({ type, id }) => {
           )}
           {type === "income" && (
             <>
-              <table className={`${s.tableMain} ${s.tableMainBody}`}>
-                <tbody className={s.tableBody}>
-                  {income.map((el) => (
-                    <tr className={s.tableRow} key={el._id}>
-                      <td className={s.thDate}>
-                        {el.dateTransaction.substr(0, 10)}
-                      </td>
-                      <td className={s.tdDescr}>{el.description}</td>
-                      <td className={s.thCtg}>{el.categoryName}</td>
-                      <td className={s.tdSum}>
-                        {`${el.amount.toLocaleString("ru")} грн.`}
-                      </td>
-                      <td className={s.thIcon}>
-                        <button
-                          className={s.deleteBtn}
-                          type="button"
-                          onClick={onOpenModal}
+            <table className={`${s.tableMain} ${s.tableMainBody}`}>
+            <tbody className={s.tableBody}>
+              {income.map((el) => (
+                <tr className={s.tableRow} key={el._id}>
+                  <td className={s.thDate}>{el.dateTransaction.substr(0, 10)}</td>
+                  <td className={s.tdDescr}>{el.description}</td>
+                  <td className={s.thCtg}>{el.categoryName}</td>
+                  <td className={s.tdSum}>
+                    {`${el.amount.toLocaleString('ru')} грн.`}
+                  </td>
+                  <td className={s.thIcon}>
+                    <button
+                      className={s.deleteBtn}
+                          type='button'
+                      onClick={(e) => onOpenModal(e)}
+                      data-id={el._id}
+                      data-reception={el.isProfit}
+                      data-userid={el.userId}
                         >
                           <svg className={s.icon}>
                             <use
@@ -109,10 +135,8 @@ const TableBalance = ({ type, id }) => {
 
           {showModal === true && (
             <Modal
-              questionText="Вы уверены?"
-              onClickApproved={() =>
-                dispatch(transactionsApi.deleteTransaction(id))
-              }
+              questionText = 'Вы уверены?'
+              onClickApproved={handleDeleteTransaction}
               onClose={onCloseModal}
             />
           )}

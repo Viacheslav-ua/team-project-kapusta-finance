@@ -3,6 +3,7 @@ import "./App.css";
 import { lazy, Suspense, useState, useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { routes, PrivateRoute, PublicRoute } from "./routes";
+
 import { getAccessToken } from "./redux/auth/auth-selectors"
 import { useRefreshTokenMutation } from "./redux/services/authAPI"
 import * as actions from "./redux/auth/auth-actions"
@@ -25,6 +26,7 @@ const BalancePage = lazy(() => import("./pages/BalancePage/BalancePage"));
 const ReportPage = lazy(() => import("./pages/ReportPage/ReportPage"));
 
 function App() {
+
   const accessToken = useSelector(getAccessToken)
   const dispatch = useDispatch()
   const [isRefreshing, setIsRefreshing] = useState(false)
@@ -46,24 +48,24 @@ function App() {
 
   const refreshCurrentUser = useCallback(async () => {
     try {
-      setIsRefreshing(true)
-      const response = await getCurrentUser()
+      setIsRefreshing(true);
+      const response = await getCurrentUser();
       if (response.data) {
-        sendDataInStore(response)
+        sendDataInStore(response);
       }
-      setIsRefreshing(false)
+      setIsRefreshing(false);
     } catch (error) {
-      setIsRefreshing(false)
+      setIsRefreshing(false);
       console.log(error);
     }
-  }, [getCurrentUser, sendDataInStore])
+  }, [getCurrentUser, sendDataInStore]);
 
   useEffect(() => {
     if (!accessToken) {
-      return
+      return;
     }
-    refreshCurrentUser()
-  }, [])
+    refreshCurrentUser();
+  }, []);
 
   return (
     <>
@@ -102,6 +104,7 @@ function App() {
           </Routes>
         </Suspense>
       </div>}
+
     </>
   );
 }
