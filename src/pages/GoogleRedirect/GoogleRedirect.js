@@ -31,7 +31,7 @@ export default function GoogleRedirect() {
 
     useEffect(() => {
       loginByGoogle()
-    }, [])
+    }, [loginByGoogle])
 
     return (
         <div className={style.spiner}>

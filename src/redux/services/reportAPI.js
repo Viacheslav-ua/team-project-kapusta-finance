@@ -8,19 +8,18 @@ export const reportAPI = createApi({
   }),
   endpoints: (builder) => ({
     fetchSummary: builder.mutation({
-      query: (accessToken, countMonths) => ({
-        url: `/summary`,
+      query: ({ accessToken, countMonths = 6 }) => ({
+        url: `/summary/${countMonths}`,
         method: "GET",
         headers: {
           Authorization: `Bearer ${accessToken}`,
-        },
-        body: countMonths
+        }
       }),
       invalidatesTags: ["Report"],
     }),
 
     fetchCategoryProfit: builder.mutation({
-      query: (accessToken, date) => ({
+      query: ({ accessToken, date }) => ({
         url: `/category-grouping/profit/${date}`,
         method: "GET",
         headers: {
@@ -31,7 +30,7 @@ export const reportAPI = createApi({
     }),
 
     fetchCategoryCosts: builder.mutation({
-      query: (accessToken, date) => ({
+      query: ({ accessToken, date }) => ({
         url: `/category-grouping/costs/${date}`,
         method: "GET",
         headers: {
@@ -42,13 +41,12 @@ export const reportAPI = createApi({
     }),
 
     fetchCategoryItems: builder.mutation({
-      query: (accessToken, categoryId, date) => ({
-        url: `/items-grouping/${categoryId}`,
+      query: ({ accessToken, categoryId, date }) => ({
+        url: `/items-grouping/${categoryId}?date=${date}`,
         method: "GET",
         headers: {
           Authorization: `Bearer ${accessToken}`,
-        },
-        body: date
+        }
       }),
       invalidatesTags: ["Report"],
     }),
