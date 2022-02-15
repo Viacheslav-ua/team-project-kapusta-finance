@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
-import ConfirmButton from "../../components/BalancePageComponents/ConfirmButton/ConfirmButton";
 import GoToReports from "../../components/BalancePageComponents/GoToReport";
 import Container from "../../components/Container/index";
 import TransactionForm from "../../components/BalancePageComponents/TransactionForm/index";
@@ -61,7 +60,7 @@ const BalancePage = () => {
 
   const getSummaryReport = useCallback(async () => {
     try {
-      const response = await fetchSummary({ accessToken });
+      const response = await fetchSummary({accessToken});
       sendSummaryInStore(response);
     } catch (error) {
       console.log(error);

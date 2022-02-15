@@ -40,10 +40,6 @@ export const authAPI = createApi({
                 method: 'GET'
             }),
             invalidatesTags: ['Auth'],
-        }),
-        loginByGoogle: builder.query({
-            query: () => '/google',
-            providesTags: ['Auth'],
         })
     })
 })
@@ -53,5 +49,4 @@ export const {
     useLoginUserMutation,
     useLogoutUserMutation,
     useRefreshTokenMutation,
-    useLoginByGoogleQuery
 } = authAPI

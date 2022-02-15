@@ -69,7 +69,7 @@
     height: 526px;
     background: #f5f6fb;
     border-bottom-left-radius: 120px;
-    max-width: 1280px;
+    min-width: 1280px;
   }
 
   .mainBgAuth {

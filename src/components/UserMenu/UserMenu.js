@@ -10,7 +10,7 @@ import s from "./UserMenu.module.css";
 function UserMenu() {
   const name = useSelector(getUserName);
   const [logOut] = useLogoutUserMutation();
-  const token = useSelector(getAccessToken);
+  const accessToken = useSelector(getAccessToken);
 
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
@@ -31,13 +31,14 @@ function UserMenu() {
 
   const handleLogout = useCallback(async () => {
     try {
-      await logOut(token);
-      onCloseModal();
+      await logOut(accessToken);
       removeUserData();
+      onCloseModal();
+      
     } catch (error) {
       console.log(error);
     }
-  }, [logOut, removeUserData, token]);
+  }, [logOut, removeUserData, accessToken]);
 
   return (
     <div className={s.container}>
