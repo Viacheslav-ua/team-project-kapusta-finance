@@ -1,10 +1,13 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts'
 import useWindowDimensions from '../../../hooks/useWindowDimensions'
+import { getCategoryItems } from '../../../redux/report/report-selectors';
+import { useSelector } from 'react-redux';
 import style from './Chart.module.css'
 
 export default function Chart({data}) { 
 
     const viewPort = useWindowDimensions();
+    const list = useSelector(getCategoryItems);
 
     let containerWidth = '90%'
     if (viewPort.width >= 1279) {
