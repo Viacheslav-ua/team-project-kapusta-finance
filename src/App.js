@@ -3,9 +3,9 @@ import "./App.css";
 import { lazy, Suspense, useState, useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { routes, PrivateRoute, PublicRoute } from "./routes";
-import { getAccessToken } from "./redux/auth/auth-selectors"
-import { useRefreshTokenMutation } from "./redux/services/authAPI"
-import * as actions from "./redux/auth/auth-actions"
+import { getAccessToken } from "./redux/auth/auth-selectors";
+import { useRefreshTokenMutation } from "./redux/services/authAPI";
+import * as actions from "./redux/auth/auth-actions";
 
 import Header from "../src/components/Header/Header";
 // import AuthForm from "./components/AuthForm/AuthForm";
@@ -23,10 +23,10 @@ const BalancePage = lazy(() => import("./pages/BalancePage/BalancePage"));
 const ReportPage = lazy(() => import("./pages/ReportPage/ReportPage"));
 
 function App() {
-const accessToken = useSelector(getAccessToken)
-  const dispatch = useDispatch()
-  const [isRefreshing, setIsRefreshing] = useState(false)
-  const [getCurrentUser] = useRefreshTokenMutation()
+  const accessToken = useSelector(getAccessToken);
+  const dispatch = useDispatch();
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [getCurrentUser] = useRefreshTokenMutation();
 
   const sendDataInStore = useCallback(
     (response) => {
@@ -44,54 +44,59 @@ const accessToken = useSelector(getAccessToken)
 
   const refreshCurrentUser = useCallback(async () => {
     try {
-      setIsRefreshing(true)
-      const response = await getCurrentUser()
+      setIsRefreshing(true);
+      const response = await getCurrentUser();
       if (response.data) {
-        sendDataInStore(response)
+        sendDataInStore(response);
       }
-      setIsRefreshing(false)
+      setIsRefreshing(false);
     } catch (error) {
-      setIsRefreshing(false)
+      setIsRefreshing(false);
       console.log(error);
     }
-  }, [getCurrentUser, sendDataInStore])
+  }, [getCurrentUser, sendDataInStore]);
 
   useEffect(() => {
     if (!accessToken) {
-      return
+      return;
     }
-    refreshCurrentUser()
-  }, [])
+    refreshCurrentUser();
+  }, []);
 
   return (
     <>
-      {!isRefreshing && <div className="App">
-        <Header />
-        <Suspense fallback="loading...">
-          <Routes>
-            <Route
-              exact
-              path={routes.auth}
-              element={<PublicRoute restricted component={AuthPage} />}
-            />
-            <Route
-              path={routes.google}
-              element={<PublicRoute restricted component={AuthPage} />}
-            />
-            <Route
-              path={routes.balance}
-              // element={<PublicRoute component={BalancePage} />}
-              element={<PrivateRoute component={BalancePage} />}
-            />
-            <Route
-              path={routes.report}
-              // element={<PublicRoute component={ReportPage} />}
-              element={<PrivateRoute component={ReportPage} />}
-            />
-            <Route path="*" element={<PublicRoute component={PageNotFound} />} />
-          </Routes>
-        </Suspense>
-      </div>}
+      {!isRefreshing && (
+        <div className="App">
+          <Header />
+          <Suspense fallback="loading...">
+            <Routes>
+              <Route
+                exact
+                path={routes.auth}
+                element={<PublicRoute restricted component={AuthPage} />}
+              />
+              <Route
+                path={routes.google}
+                element={<PublicRoute restricted component={AuthPage} />}
+              />
+              <Route
+                path={routes.balance}
+                // element={<PublicRoute component={BalancePage} />}
+                element={<PrivateRoute component={BalancePage} />}
+              />
+              <Route
+                path={routes.report}
+                // element={<PublicRoute component={ReportPage} />}
+                element={<PrivateRoute component={ReportPage} />}
+              />
+              <Route
+                path="*"
+                element={<PublicRoute component={PageNotFound} />}
+              />
+            </Routes>
+          </Suspense>
+        </div>
+      )}
     </>
   );
 }
