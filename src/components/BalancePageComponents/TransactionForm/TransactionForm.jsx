@@ -26,13 +26,13 @@ const FormSchema = Yup.object().shape({
 });
 
 function TransactionForm({ type }) {
-  const [newTransaction, setNewTransaction] = useState({});
   const accessToken = useSelector(getAccessToken);
   const [addTransaction] = useAddTransactionMutation();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [placeholderCategories, setPlaceholderCategories] = useState("");
   const viewPort = useWindowDimensions();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -49,14 +49,17 @@ function TransactionForm({ type }) {
     setSelectedDate(newdata);
   };
 
-  const postNewTransactions = useCallback(async () => {
-    try {
-      console.log("test", newTransaction);
-      await addTransaction({ accessToken, newTransaction });
-    } catch (error) {
-      console.log(error);
-    }
-  }, [accessToken, addTransaction, newTransaction]);
+  const postNewTransactions = useCallback(
+    async (newTransaction) => {
+      try {
+        const response = await addTransaction({ accessToken, newTransaction });
+        dispatch(actions.allTransaction(response.data.data));
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [accessToken, addTransaction, dispatch]
+  );
 
   useEffect(() => {
     getDate(selectedDate);
@@ -91,9 +94,7 @@ function TransactionForm({ type }) {
       isProfit: type === "expense" ? false : true,
     };
 
-    setNewTransaction(dataTransaction);
-    postNewTransactions(newTransaction);
-    console.log(newTransaction);
+    postNewTransactions(dataTransaction);
 
     reset({
       name: "",
