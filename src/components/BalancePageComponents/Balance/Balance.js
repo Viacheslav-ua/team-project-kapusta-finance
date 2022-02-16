@@ -13,37 +13,40 @@ import { getBalance } from "../../../redux/finance/finance-selectors";
 
 export default function Balance({page}) {
   const balance = useSelector(getBalance);
-  // const [balance, setBalance] = useState("");
-  // const accessToken = useSelector(getAccessToken);
-  // const [fetchResetBalance] = useFetchResetBalanceMutation();
-  // const dispatch = useDispatch();
+  const [resBalance, setResBalance] = useState('');
+  const accessToken = useSelector(getAccessToken);
+  const [fetchResetBalance] = useFetchResetBalanceMutation();
+  const dispatch = useDispatch();
 
-  const onHandleChange = useCallback(async (e) => {
-    // setBalance(e.target.value);
-    // const balance = {balance: e.target.value}
-    // try {
-    //   const response = await fetchResetBalance(accessToken, balance)
-    //   // dispatch(actions.balance(response))
-    //   console.log(response);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    console.log(e.target.value);
-  }, []) 
-
-  const clickOnBtn = e => {
-    e.preventDefault();
-      const valueInput = e.target.value;
-    if (!valueInput) {
-      toast.error('Пожалуйста, введите правильное значение!');
-    }
+  const onHandleChange = e => {
+    const inputValue = e.currentTarget.value;
+    setResBalance(inputValue);
   };
+  
+
+     
+      
+//       const onClickApprove = useCallback(async () => {
+//         e.preventDefault();
+//         if (!inputValue) {
+//          return toast.error('Пожалуйста, введите правильное значение!');
+//         };
+//         if (inputValue.trim() === '') {
+  
+// }
+
+//   })
 
   return (
     <div className={s.container}>
       <div className={s.containerRight}>
-        <h2 className={s.title}>Баланс:</h2>
-        <form className={s.wrapperBalance}>
+        <h2 className={s.title}>
+          Баланс:
+        </h2>
+
+        <form className={s.wrapperBalance}
+          // onSubmit={onClickApprove}
+        >
           <div className={s.form}>
             <div className={s.wrapperBtn}>
               <input
@@ -52,13 +55,12 @@ export default function Balance({page}) {
                 type="number"
                 id="balanceId"
                 onChange={onHandleChange}
-                // value={`${balance}`}
                 placeholder={`${balance} UAH`}
               />
               <button
             className={`${s.confirm} ${s.btn} ${page !== 'balance' && s.reportPagedisplay}`}
             type="submit"
-            onClick={clickOnBtn}
+            
         >
             ПОДТВЕРДИТЬ
         </button>

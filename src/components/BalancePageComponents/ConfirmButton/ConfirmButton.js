@@ -1,8 +1,10 @@
+import React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import s from '../../../components/BalancePageComponents/ConfirmButton/ConfirmButton.module.css';
 
 export default function ConfirmButton() {
+
     const clickOnBtn = e => {
     e.preventDefault();
       const valueInput = e.target.value;
