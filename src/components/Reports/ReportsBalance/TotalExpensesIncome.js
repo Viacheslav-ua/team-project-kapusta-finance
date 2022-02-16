@@ -6,18 +6,17 @@ import styles from './TotalExpensesIncome.module.css';
 function TotalExpensesIncome() {
     const summary = useSelector(getSummary)
     const date = useSelector(getDate)
-    const [profit, SetProfit] = useState(null)
-    const [costs, SetCosts] = useState(null)
-    console.log(date);
-
+    const [income, SetIncome] = useState(null)
+    const [expences, SetExpences] = useState(null)
+   
     const getProfit = () => {
-        const { profit: { totalAmount } } = summary.find((el) => el.startDate === date )
-        SetProfit(totalAmount)
+        const { profit: { totalAmount } } = summary.find((el) => el.startDate === date ? date : '2022-01-01' )
+        SetIncome(totalAmount)
     }
 
      const getCosts = () => {
-         const { profit: { totalAmount } } = summary.find((el) => el.startDate === date )
-        SetCosts(totalAmount)
+         const { costs: { totalAmount } } = summary.find((el) => el.startDate === date ? date : '2022-01-01'  )
+        SetExpences(totalAmount)
      }
 
     useEffect(() => {
@@ -33,7 +32,7 @@ function TotalExpensesIncome() {
                         Расходы:
                     </p>
                     <span className={styles.expensesValue}>
-                        {`- ${costs} грн.`}
+                        {`- ${expences} грн.`}
                     </span>
                 </li>
                 <li className={styles.balanceItem}>
@@ -41,7 +40,7 @@ function TotalExpensesIncome() {
                         Доходы:
                     </p>
                     <span className={styles.incomeValue}>
-                         {`+ ${profit} грн.`}
+                         {`+ ${income} грн.`}
                     </span>
                 </li>
             </ul>
