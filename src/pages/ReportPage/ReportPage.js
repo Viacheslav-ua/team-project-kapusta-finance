@@ -7,65 +7,31 @@ import CurrentPeriod from "../../components/Reports/CurrentPeriod/CurrentPeriod"
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
 import ConfirmButton from "../../components/BalancePageComponents/ConfirmButton/ConfirmButton";
+import { getSummary, getDate } from '../../redux/report/report-selectors';
+import * as actions from "../../redux/report/report-actions";
 import style from "./ReportPage.module.css";
 import s from "./bg.module.css";
 import sprite from "../../Images/sprite.svg";
 
-import {useFetchCategoryProfitMutation,useFetchCategoryCostsMutation} from '../../redux/services/reportAPI'
-import { getAccessToken } from "../../redux/auth/auth-selectors";
-import * as actions from "../../redux/report/report-actions";
+
 
 
 
 const ReportPage = () => {
-  const [page, setPage] = useState("report");
+
   const accessToken = useSelector(getAccessToken);
   const viewPort = useWindowDimensions();
   const dispatch = useDispatch();
-  const [date, setDate] = useState('2022-01')
-  const [fetchCategoryCosts] = useFetchCategoryCostsMutation();
-  const [fetchCategoryProfit] = useFetchCategoryProfitMutation();
- 
-  
-   const sendDataInStore = useCallback(
-     (response, category) => {
-       switch (category) {
-         case 'cost':
-           dispatch(actions.categoryCosts(response.data))
-           break;
-         case 'profit':
-           dispatch(actions.categoryProfit(response.data))
-           break;
-         default: return;
-       }
-    },
-    [dispatch]
-  )
+  const [page, setPage] = useState('report')
+    const summary = useSelector(getSummary);
+  const reversedSummary = [...summary].reverse();
+  const currentDate = reversedSummary[0].startDate
 
-  const getCosts = useCallback(async () => {
-    try {
-      const response = await fetchCategoryCosts({ accessToken, date })
-
-      sendDataInStore(response, 'cost')
-    } catch (error) {
-      console.log(error);
-    }
-  }, [])
-
-    const getProfit = useCallback(async () => {
-    try {
-      const response = await fetchCategoryProfit({ accessToken, date })
-      sendDataInStore(response, 'profit')
-    } catch (error) {
-      console.log(error);
-    }
-  }, [])
- 
+  console.log(currentDate);
 
   useEffect(() => {
-    getCosts();
-    getProfit();
-  }, [])
+    dispatch(actions.date(currentDate));
+  },[])
  
   return (
 

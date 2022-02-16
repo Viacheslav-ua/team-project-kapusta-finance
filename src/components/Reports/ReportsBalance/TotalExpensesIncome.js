@@ -1,8 +1,31 @@
+
+import { getSummary, getDate } from '../../../redux/report/report-selectors';
+import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import styles from './TotalExpensesIncome.module.css';
 
 function TotalExpensesIncome() {
-    const expenses = '18 000.00';
-    const income='45 000.00'
+    const summary = useSelector(getSummary)
+    const date = useSelector(getDate)
+    const [income, SetIncome] = useState(null)
+    const [expences, SetExpences] = useState(null)
+
+    console.log(date);
+    const getProfit = () => {
+        const { profit: { totalAmount } } = summary.find((el) => el.startDate === date ? date : '2022-01-01')
+        SetIncome(totalAmount)
+    }
+
+     const getCosts = () => {
+         const { costs: { totalAmount } } = summary.find((el) => el.startDate === date ? date : '2022-01-01')
+        SetExpences(totalAmount)
+     }
+
+    useEffect(() => {
+        getProfit()
+        getCosts()
+    }, [date])
+
 
     return (
         <div className={styles.componentBox}>
@@ -12,7 +35,9 @@ function TotalExpensesIncome() {
                         Расходы:
                     </p>
                     <span className={styles.expensesValue}>
-                        {`- ${expenses} грн.`}
+
+                        {`- ${expences} грн.`}
+
                     </span>
                 </li>
                 <li className={styles.balanceItem}>
@@ -20,7 +45,7 @@ function TotalExpensesIncome() {
                         Доходы:
                     </p>
                     <span className={styles.incomeValue}>
-                         {`+ ${income} грн.`}
+                         {`+ ${profit.totalAmount} грн.`}
                     </span>
                 </li>
             </ul>
