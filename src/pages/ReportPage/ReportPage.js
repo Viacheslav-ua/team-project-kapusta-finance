@@ -16,7 +16,8 @@ import sprite from "../../Images/sprite.svg";
 
 
 const ReportPage = () => {
-  //  const accessToken = useSelector(getAccessToken);
+
+  const accessToken = useSelector(getAccessToken);
   const viewPort = useWindowDimensions();
   // const dispatch = useDispatch();
   const [page, setPage] = useState('report')

@@ -1,5 +1,5 @@
 import style from "./DropDownList.module.css";
-
+import categoryName from "../../../helpers/categoryList";
 // const DropDownList = ({ type, options, changerDescription }) => {
 //   return (
 //     <div className={style.containerList}>
@@ -24,21 +24,22 @@ import style from "./DropDownList.module.css";
 // };
 
 const DropDownList = ({ type, options, changerDescription }) => {
-  const items = Object.values(options);
   return (
     <div className={style.DropDownContainer}>
       <div className={style.containerList}>
         <ul className={style.list}>
-          {items.map((elem) => (
-            <li
-              className={style.item}
-              onClick={() => {
-                changerDescription(elem);
-              }}
-            >
-              {elem}
-            </li>
-          ))}
+          {options
+            .filter((el) => el.type === type)
+            .map((elem) => (
+              <li
+                className={style.item}
+                onClick={() => {
+                  changerDescription(elem.label);
+                }}
+              >
+                {elem.label}
+              </li>
+            ))}
         </ul>
       </div>
     </div>

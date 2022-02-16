@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import { useDeleteTransactionMutation, useFetchAllTransactionsQuery } from '../../../redux/services/transactionsAPI';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllTransaction } from "../../../redux/finance/finance-selectors";
+import { getAccessToken } from "../../../redux/auth/auth-selectors";
 import Modal from '../../Multipurpose-modal/Multipurpose-modal';
 import items from "./expenses.json";
 import sprite from "../../../Images/sprite.svg";
@@ -9,29 +10,32 @@ import s from './TableBalanceMob.module.css';
 
 const TableBalanceMob = () => {
   const dispatch = useDispatch();
-  // const [removeTransaction] = useDeleteTransactionMutation();
+
   const [showModal, setShowModal] = useState(false);
+  const [delTransactionId, setDelTransactionId] = useState('init');
   const transaction = useSelector(getAllTransaction);
+  const accessToken = useSelector(getAccessToken);
+  const [removeTransaction] = useDeleteTransactionMutation();
 
-  // const sortTransaction = [...transaction].sort((a,b)=> b.dateTransaction-a.dateTransaction);
-
-
-  const onOpenModal = () => {
+  const onOpenModal = useCallback((e) => {
     setShowModal(true);
-  };
+    setDelTransactionId(e.currentTarget.dataset.id);
+  },[delTransactionId])
 
-  const onCloseModal = () => {
+
+  const onCloseModal = useCallback(() => {
     setShowModal(false);
-  };
+  },[delTransactionId]);
 
-  // const deleteTransaction = useCallback(async (id) => {
-  //   try {
-  //     // const response = await removeTransaction(id);
-  //     console.log(id);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
+  const handleDeleteTransaction = useCallback(async () => {
+    try {
+      const response = await removeTransaction({accessToken, delTransactionId});
+      onCloseModal();
+    } catch (error) {
+      console.log(error);
+    }
+}, [accessToken, delTransactionId, onCloseModal, removeTransaction]);
+
 
   return (
     <>
@@ -61,7 +65,8 @@ const TableBalanceMob = () => {
                 <button
                   className={s.deleteBtn}
                   type="button"
-                  onClick={onOpenModal}
+                  onClick={(e) => onOpenModal(e)}
+                  data-id={el._id}
                 >
                   <svg className={s.icon}>
                     <use href={sprite + "#delete"} alt="delete transaction" />
@@ -74,7 +79,7 @@ const TableBalanceMob = () => {
         {showModal === true && (
           <Modal
             questionText="Вы уверены?"
-            // onClickApproved={deleteTransaction(el._id)}
+            onClickApproved={handleDeleteTransaction}
             onClose={onCloseModal}
           />
         )}

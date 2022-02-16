@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ru from "date-fns/locale/ru";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -7,8 +8,11 @@ import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { expenseOptions } from "../../../helpers/expencesOptions";
-import { incomeOptions } from "../../../helpers/incomeOptions";
+import { getAccessToken } from "../../../redux/auth/auth-selectors";
+import * as actions from "../../../redux/finance/finance-actions";
+import { useAddTransactionMutation } from "../../../redux/services/transactionsAPI";
+
+import categoryName from "../../../helpers/categoryList";
 import DropDownList from "../DropDownList/DropDownList";
 import style from "./TransitionForm.module.css";
 import sprite from "../../../Images/sprite.svg";
@@ -22,9 +26,13 @@ const FormSchema = Yup.object().shape({
 });
 
 function TransactionForm({ type }) {
+  const [newTransaction, setNewTransaction] = useState("");
+  const accessToken = useSelector(getAccessToken);
+  const [addTransaction] = useAddTransactionMutation();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [placeholderCategories, setPlaceholderCategories] = useState("");
+  const dispatch = useDispatch();
 
   const viewPort = useWindowDimensions();
 
@@ -41,8 +49,16 @@ function TransactionForm({ type }) {
 
   const getDate = (newdata) => {
     setSelectedDate(newdata);
-    const arr = newdata.toLocaleDateString().split("-");
   };
+
+  const postNewTransactions = useCallback(async () => {
+    try {
+      console.log(accessToken);
+      await addTransaction({ accessToken, newTransaction });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [accessToken, newTransaction, addTransaction]);
 
   useEffect(() => {
     getDate(selectedDate);
@@ -64,8 +80,22 @@ function TransactionForm({ type }) {
 
   const onSubmit = async (data) => {
     const { date, name, value, categories } = data;
-    console.log(data);
+    const categoryID = categoryName
+      .filter((data) => data.label === categories)
+      .map((el) => el._id);
 
+    const newTransaction = {
+      categoryId: categoryID[0],
+      categoryName: categories,
+      dateTransaction: date.toISOString(),
+      description: name,
+      amount: value,
+      isProfit: type === "expense" ? true : false,
+    };
+    setNewTransaction(newTransaction);
+    postNewTransactions();
+
+    console.log(newTransaction);
     reset({
       name: "",
       categories: "",
@@ -160,7 +190,7 @@ function TransactionForm({ type }) {
               {open && (
                 <DropDownList
                   type={type}
-                  options={type === "expense" ? expenseOptions : incomeOptions}
+                  options={categoryName}
                   changerDescription={changerPlaceholder}
                 />
               )}
