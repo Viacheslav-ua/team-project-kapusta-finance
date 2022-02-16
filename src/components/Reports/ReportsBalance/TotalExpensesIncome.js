@@ -1,3 +1,4 @@
+
 import { getSummary, getDate } from '../../../redux/report/report-selectors';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -25,6 +26,7 @@ function TotalExpensesIncome() {
         getCosts()
     }, [date])
 
+
     return (
         <div className={styles.componentBox}>
             <ul className={styles.balanceList}>
@@ -33,7 +35,9 @@ function TotalExpensesIncome() {
                         Расходы:
                     </p>
                     <span className={styles.expensesValue}>
+
                         {`- ${expences} грн.`}
+
                     </span>
                 </li>
                 <li className={styles.balanceItem}>
@@ -41,7 +45,7 @@ function TotalExpensesIncome() {
                         Доходы:
                     </p>
                     <span className={styles.incomeValue}>
-                         {`+ ${income} грн.`}
+                         {`+ ${profit.totalAmount} грн.`}
                     </span>
                 </li>
             </ul>

@@ -9,7 +9,7 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    min-width: 768px;
+    width: 768px;
     align-items: stretch;
     padding-left: 51px;
     padding-right: 51px;
@@ -18,7 +18,7 @@
 
 @media screen and (min-width: 1280px) {
   .container {
-    min-width: 1280px;
+    width: 1280px;
     padding-left: 110px;
     padding-right: 110px;
   }
