@@ -8,8 +8,8 @@ export const reportAPI = createApi({
   }),
   endpoints: (builder) => ({
     fetchSummary: builder.mutation({
-      query: ({ accessToken, countMonths = 6 }) => ({
-        url: `/summary/${countMonths}`,
+      query: ({ accessToken }) => ({
+        url: `/summary/`,
         method: "GET",
         headers: {
           Authorization: `Bearer ${accessToken}`,

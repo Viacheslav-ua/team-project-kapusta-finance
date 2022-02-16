@@ -8,7 +8,6 @@ export default function Chart() {
 
     const viewPort = useWindowDimensions();
     const list = useSelector(getCategoryItems);
-     console.log(list);
 
     let containerWidth = '90%'
     if (viewPort.width >= 1279) {
