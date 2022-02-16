@@ -21,7 +21,6 @@ export default function CurrentPeriod() {
   const [fetchCategoryCosts] = useFetchCategoryCostsMutation();
   const [fetchCategoryProfit] = useFetchCategoryProfitMutation();
 
-
    const sendDataInStore = useCallback(
      (response, category) => {
        switch (category) {

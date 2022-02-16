@@ -49,6 +49,7 @@ export const reportAPI = createApi({
         },
         body: date 
         }
+
       }),
       invalidatesTags: ["Report"],
     }),
