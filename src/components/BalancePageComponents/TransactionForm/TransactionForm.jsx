@@ -26,15 +26,13 @@ const FormSchema = Yup.object().shape({
 });
 
 function TransactionForm({ type }) {
-  const [newTransaction, setNewTransaction] = useState("");
   const accessToken = useSelector(getAccessToken);
   const [addTransaction] = useAddTransactionMutation();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [placeholderCategories, setPlaceholderCategories] = useState("");
-  const dispatch = useDispatch();
-
   const viewPort = useWindowDimensions();
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -51,14 +49,17 @@ function TransactionForm({ type }) {
     setSelectedDate(newdata);
   };
 
-  const postNewTransactions = useCallback(async () => {
-    try {
-      console.log(accessToken);
-      await addTransaction({ accessToken, newTransaction });
-    } catch (error) {
-      console.log(error);
-    }
-  }, [accessToken, newTransaction, addTransaction]);
+  const postNewTransactions = useCallback(
+    async (newTransaction) => {
+      try {
+        const response = await addTransaction({ accessToken, newTransaction });
+        dispatch(actions.allTransaction(response.data.data));
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [accessToken, addTransaction, dispatch]
+  );
 
   useEffect(() => {
     getDate(selectedDate);
@@ -84,18 +85,17 @@ function TransactionForm({ type }) {
       .filter((data) => data.label === categories)
       .map((el) => el._id);
 
-    const newTransaction = {
+    const dataTransaction = {
       categoryId: categoryID[0],
       categoryName: categories,
       dateTransaction: date.toISOString(),
       description: name,
       amount: value,
-      isProfit: type === "expense" ? true : false,
+      isProfit: type === "expense" ? false : true,
     };
-    setNewTransaction(newTransaction);
-    postNewTransactions();
 
-    console.log(newTransaction);
+    postNewTransactions(dataTransaction);
+
     reset({
       name: "",
       categories: "",

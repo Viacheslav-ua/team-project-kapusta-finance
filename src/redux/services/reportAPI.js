@@ -9,6 +9,7 @@ export const reportAPI = createApi({
   endpoints: (builder) => ({
     fetchSummary: builder.mutation({
       query: ({ accessToken }) => ({
+
         url: `/summary/`,
         method: "GET",
         headers: {

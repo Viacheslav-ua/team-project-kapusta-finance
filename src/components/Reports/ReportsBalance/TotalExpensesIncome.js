@@ -49,6 +49,6 @@ function  TotalExpensesIncome () {
             </ul>
       </div>
   )  
-}
+
 
 export default TotalExpensesIncome;
