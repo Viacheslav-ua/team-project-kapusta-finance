@@ -16,7 +16,7 @@ export default function CurrentPeriod() {
   const accessToken = useSelector(getAccessToken);
   const dispatch = useDispatch();
   const [date, setDate] = useState(currentDate)
-  const [i , setI] = useState(0)
+  let [i , setI] = useState(0)
   const [nav, setNav] = useState(null)
   const [fetchCategoryCosts] = useFetchCategoryCostsMutation();
   const [fetchCategoryProfit] = useFetchCategoryProfitMutation();
@@ -63,11 +63,12 @@ export default function CurrentPeriod() {
   }, [date])
 
   const next = () => {
+
     if (reversedSummary.length - 1 > i) {
       nav.slickNext()
        setI(i + 1)
-      setDate(reversedSummary[i].startDate)
-      console.log("prev",i)
+      setDate(reversedSummary[i +=1].startDate)
+
     }   
     return;
   }
@@ -75,8 +76,7 @@ export default function CurrentPeriod() {
     if (i >= 1) {
       nav.slickPrev();
       setI(i - 1)
-      setDate(reversedSummary[i].startDate)
-      console.log("next",i)
+      setDate(reversedSummary[i-=1].startDate)
     }   
     return;
   }
@@ -97,7 +97,7 @@ const settings = {
           </button>
          <Slider className="slider" ref={c => setNav(c)} {...settings}>
                  {reversedSummary && reversedSummary.map(({id, description}) => (
-                     <div key={id}><p className="month" >{description}</p></div>
+                     <div key={id} ><p className="month" >{description}</p></div>
                  ))}
          </Slider>
          <button className="button right-arr" onClick={previous}>

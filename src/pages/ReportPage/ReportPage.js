@@ -6,28 +6,32 @@ import MultipleSlider from "../../components/Reports/MultipleSlider/MultipleSlid
 import CurrentPeriod from "../../components/Reports/CurrentPeriod/CurrentPeriod";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
-import ConfirmButton from "../../components/BalancePageComponents/ConfirmButton/ConfirmButton";
-import { getSummary, getDate } from "../../redux/report/report-selectors";
+import { getSummary, getDate } from '../../redux/report/report-selectors';
 import * as actions from "../../redux/report/report-actions";
 import style from "./ReportPage.module.css";
 import s from "./bg.module.css";
 import sprite from "../../Images/sprite.svg";
 
 const ReportPage = () => {
-  // const accessToken = useSelector(getAccessToken);
   const viewPort = useWindowDimensions();
   const dispatch = useDispatch();
-  const [page, setPage] = useState("report");
+
+  const [page, setPage] = useState('report')
+
   const summary = useSelector(getSummary);
   const reversedSummary = [...summary].reverse();
   const currentDate = reversedSummary[0].startDate;
 
-  console.log(currentDate);
+   const sendDateInStore = useCallback(
+    () => {
+      dispatch(actions.date(currentDate))
+    }, [dispatch]
+  );
 
   useEffect(() => {
-    dispatch(actions.date(currentDate));
-  }, []);
-
+    sendDateInStore()
+  },[])
+ 
   return (
     <div className={s.bg_contaiter}>
       <div className={style.topWrapper}>

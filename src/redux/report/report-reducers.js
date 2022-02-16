@@ -30,6 +30,6 @@ export default combineReducers({
     summary,
     categoryProfit,
     categoryCosts,
-  categoryItems,
+    categoryItems,
     date,
 })
