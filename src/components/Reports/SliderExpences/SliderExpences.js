@@ -5,7 +5,6 @@ import SliderNotification from "../SliderNotification/SliderNotification";
 
 export default function SliderIncome() {
     const costs = useSelector(getCategoryCosts);
-    console.log("costs", costs)
     return (
         costs.length > 0 ? (<SliderExpencesList data={costs} />) : (<SliderNotification operation={'расходов:)'} />)
     )

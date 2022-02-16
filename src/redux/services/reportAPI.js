@@ -46,7 +46,10 @@ export const reportAPI = createApi({
         method: "GET",
         headers: {
           Authorization: `Bearer ${accessToken}`,
+        },
+        body: date 
         }
+
       }),
       invalidatesTags: ["Report"],
     }),
