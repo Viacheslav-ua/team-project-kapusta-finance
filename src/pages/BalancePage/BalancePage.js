@@ -17,7 +17,7 @@ import { useFetchSummaryMutation } from '../../redux/services/reportAPI';
 
 import { getAccessToken } from "../../redux/auth/auth-selectors";
 import * as actions from "../../redux/finance/finance-actions";
-
+import { getSummary } from '../../redux/report/report-selectors';
 import * as action from '../../redux/report/report-actions';
 
 import s from "./BalancePage.module.css";
@@ -60,7 +60,7 @@ const BalancePage = () => {
 
   const getSummaryReport = useCallback(async () => {
     try {
-      const response = await fetchSummary({accessToken});
+      const response = await fetchSummary(accessToken);
       sendSummaryInStore(response);
     } catch (error) {
       console.log(error);
@@ -81,6 +81,11 @@ const BalancePage = () => {
     return listRender ? setListRender(false) : setListRender(true);
   };
 
+  const summary = useSelector(getSummary);
+
+  const conditionSummaryExp = summary.map((month) => month.costs.totalAmount);
+  const conditionSummaryInc = summary.map((month) => month.profit.totalAmount);
+  
   return (
     <>
       <Container>
@@ -117,10 +122,14 @@ const BalancePage = () => {
                   <TransactionForm type={type} />
                   <TableBalance type={type} />
                 </div>
-                <SummaryTable
+
+                { typeof conditionSummaryExp[0] !== 'undefined' &&
+                  typeof conditionSummaryInc[0] !== 'undefined' &&
+                  (<SummaryTable
                   type={type}
                   title="СВОДКА"
-                />
+                  />
+                  )}
               </>
             )}
             {viewPort.width >= 1280 && (
@@ -128,9 +137,15 @@ const BalancePage = () => {
                 <TransactionForm type={type} />
                 <div className={s.tableSummaryContainer}>
                   <TableBalance type={type} />
-                  <SummaryTable
+
+                  { typeof conditionSummaryExp[0] !== 'undefined' &&
+                    typeof conditionSummaryInc[0] !== 'undefined' &&
+                    (<SummaryTable
                     type={type}
-                  title="СВОДКА"/>
+                    title="СВОДКА"
+                    />
+                    )}
+                  
                 </div>
               </div>
             )}
