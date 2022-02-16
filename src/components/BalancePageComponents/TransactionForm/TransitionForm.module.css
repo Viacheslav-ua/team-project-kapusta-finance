@@ -1,0 +1,389 @@
+.allContainer {
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* width: 282px; */
+}
+
+.calendar {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-color-3);
+}
+
+.inputeDate {
+  font-family: Roboto;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--text-color-3);
+  border: none;
+  cursor: pointer;
+}
+
+.inputWrapper {
+  font-family: "Roboto";
+}
+
+.input {
+  padding: 13px 18px;
+  width: 289px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-color-3);
+  outline: none;
+  /* border: 2px solid var(--bg-color); */
+  border: none;
+  cursor: pointer;
+  border-radius: 16px 16px 16px 16px;
+}
+
+.input::placeholder {
+  color: var(--color-placeholder);
+}
+
+.category {
+  position: relative;
+  font-family: "Roboto";
+}
+
+.icon {
+  position: absolute;
+  top: 25%;
+  right: 10%;
+}
+
+.inputCategoty {
+  padding: 13px 18px;
+  width: 242px;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-color-3);
+  outline: none;
+  /* border: 2px solid var(--bg-color);
+  border-radius: 0 0 16px 0; */
+  cursor: pointer;
+}
+
+.inputCategoty::placeholder {
+  color: var(--color-placeholder);
+}
+
+.options {
+  width: 282px;
+  color: var(--text-color-3);
+  cursor: pointer;
+}
+
+.options:hover {
+  background-color: var(--bg-color);
+  color: var(--text-color-3n);
+}
+
+.valueContainer {
+  position: relative;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 126px;
+}
+
+.inputValue {
+  padding: 13px 40px 13px 21px;
+  width: 68px;
+  font-family: Roboto;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  outline: none;
+  text-align: center;
+}
+
+.inputValue::placeholder {
+  color: var(--color-placeholder);
+}
+
+.inputValue::after {
+  content: "";
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  width: 400px;
+  height: 100px;
+  background-color: var(--accent-color-3);
+}
+
+.calculator {
+  position: absolute;
+  top: 25%;
+  left: 80%;
+  width: 20px;
+  height: 20px;
+  fill: var(--text-color-3);
+}
+
+.btnContainer {
+  margin-top: 83px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 265px;
+}
+
+.formBtn {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 12px 0;
+  width: 125px;
+  height: 44px;
+  border-radius: 16px;
+  border: 2px solid var(--bg-color);
+  background-color: var(--bg-text-color);
+  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
+  cursor: pointer;
+  color: var(--text-color-3);
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.17;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition-property: color, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+
+.formBtn:first-child {
+  margin-right: 15px;
+}
+
+.formBtn:hover,
+.formBtn:focus {
+  background-color: var(--accent-color);
+  color: var(--bg-text-color);
+}
+
+.arrowDown {
+  height: 10px;
+  width: 10px;
+  stroke: var(--color-placeholder);
+  transform: rotate(-90deg);
+}
+
+.arrowUp {
+  height: 10px;
+  width: 10px;
+  stroke: var(--color-placeholder);
+  transform: rotate(90deg);
+}
+
+.errors {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  margin-top: 5px;
+  color: var(--accent-color-3);
+
+  position: absolute;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .input {
+    margin-top: 54px;
+    width: 282px;
+    border: 2px solid var(--bg-tab-selected);
+    background: var(--bg-color);
+    border-radius: 16px 16px 0 0;
+    color: var(--text-color);
+  }
+
+  .categoryArrowContainer {
+    position: relative;
+  }
+
+  .inputCategoty {
+    padding: 13px 18px;
+    width: 282px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+    color: var(--text-color-3);
+    outline: none;
+    background: var(--bg-color);
+    border: 2px solid var(--bg-tab-selected);
+    border-radius: 0 0 16px 16px;
+    border-top: none;
+  }
+
+  .valueContainer {
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 183px;
+    background: var(--bg-color);
+    border: 2px solid var(--bg-tab-selected);
+    border-radius: 16px 16px 16px 16px;
+  }
+
+  .inputValue {
+    padding: 13px 20px 13px 0px;
+    width: 100px;
+    font-family: Roboto;
+    font-weight: 700;
+    box-sizing: initial;
+    margin-right: 50px;
+    background: var(--bg-color);
+    border: none;
+    border-right: 2px solid var(--bg-tab-selected);
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .allContainer {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .calendarTransactionForm {
+    display: flex;
+  }
+
+  .icon {
+    position: absolute;
+    top: 25%;
+    right: 25%;
+  }
+
+  .inputTransactionContainer {
+    position: relative;
+    display: flex;
+    border: 2px solid var(--bg-color);
+    border-radius: 16px 16px 16px 0px;
+    width: 467px;
+  }
+
+  .category {
+    position: relative;
+    /* width: 188px; */
+    border-left: 2px solid var(--bg-color);
+    border-right: 2px solid var(--bg-color);
+  }
+  .formContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .inputeDate {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    margin-left: 10px;
+    margin-right: 33px;
+    width: 74px;
+  }
+
+  .input {
+    padding: 13px 20px;
+    width: 192px;
+    font-weight: 400;
+    /* margin-top: 54px; */
+    /* border-radius: 16px 0 0 0; */
+  }
+
+  .inputCategoty {
+    padding: 13px 20px;
+    width: 171px;
+    border: none;
+    font-weight: 400;
+  }
+
+  .valueContainer {
+    margin-top: 0;
+    width: 104px;
+  }
+
+  .inputValue {
+    padding: 13px 28px 13px 0px;
+    width: 68px;
+    border: none;
+  }
+
+  .calculator {
+    top: 26%;
+    left: 70%;
+  }
+
+  .btnContainer {
+    margin-top: 30px;
+    margin-left: 180px;
+    margin-bottom: 48px;
+  }
+
+  .formBtn {
+    box-shadow: none;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .allContainer {
+    margin-bottom: 59px;
+    width: 601px;
+  }
+
+  .inputContainer {
+    display: flex;
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+  }
+
+  .inputTransactionContainer {
+    display: flex;
+    border: 2px solid var(--bg-color);
+    border-radius: 16px 16px 16px 0px;
+    width: 601px;
+  }
+
+  .inputeDate {
+    margin-right: 23px;
+    width: 74px;
+  }
+
+  .input {
+    padding: 13px 21px;
+    width: 289px;
+    border: none;
+    font-weight: 400;
+  }
+
+  .inputCategoty {
+    width: 184px;
+  }
+
+  .valueContainer {
+    width: 122px;
+  }
+
+  .inputValue {
+    width: 110px;
+    border: none;
+  }
+
+  .calculator {
+    top: 26%;
+    left: 70%;
+  }
+
+  .btnContainer {
+    display: flex;
+    margin: 0;
+    margin-left: 27px;
+  }
+}

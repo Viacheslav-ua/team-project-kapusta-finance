@@ -1,0 +1,367 @@
+@media screen and (min-width: 220px) {
+  .container {
+    background-color: #ffffff;
+    box-shadow: 5px 10px 20px 0px #aab2c566;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 525px;
+    display: block;
+    border: none;
+    border-radius: 30px;
+  }
+  .auth {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    text-align: center;
+    vertical-align: top;
+    letter-spacing: 0.04em;
+    color: #52555f;
+    padding-top: 40px;
+    padding-bottom: 24px;
+    width: 222px;
+    height: 24px;
+    margin: auto;
+  }
+
+  .authTittle {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    text-align: left;
+    vertical-align: top;
+    letter-spacing: 0.04em;
+    color: #52555f;
+    padding-top: 30px;
+    padding-bottom: 24px;
+    width: 222px;
+    height: 24px;
+    margin: auto;
+    margin-left: 29px;
+  }
+
+  .googleAuthButton {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    vertical-align: center;
+    letter-spacing: 0.02em;
+    display: flex;
+    width: 122px;
+    height: 40px;
+    border-radius: 26px;
+    margin: auto;
+    margin-top: 24px;
+    padding: 0px;
+    text-decoration: none;
+    background-color: #f6f7fb;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0px 1px 0 rgb(0 0 0 / 10%), 0 1px 1px 0 rgb(0 0 0 / 10%);
+  }
+  .googleAuthButton:active {
+    box-shadow: 5px 5px 10px #c9c9c9, inset -5px -5px 8px -4px #c9c9c9,
+      inset -6px -6px 8px 0 #fdfdfd, -5px -5px 10px #fdfdfd,
+      inset 5px 5px 8px -4px #fdfdfd, inset 6px 6px 8px 0 #c9c9c9;
+  }
+  .googleIcon {
+    padding: 11px 5px 11px 20px;
+  }
+  .googleText {
+    color: #000000;
+    display: block;
+    padding: 10px 25px 10px 0px;
+  }
+  .formRow {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 29px;
+    margin-right: 18px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  .formRowTitle {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    text-align: left;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+  }
+  .asterisk {
+    color: #eb5757;
+  }
+  .email,
+  .password {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    letter-spacing: 0.04em;
+    padding: auto;
+    color: #a6abb9;
+    background-color: #f6f7fb;
+    width: 253px;
+    height: 52px;
+    border: 0;
+    border-radius: 30px;
+    box-shadow: 0 0px 1px 0 rgb(0 0 0 / 2%), 0 1px 1px 0 rgb(0 0 0 / 2%);
+  }
+  .email,
+  .password::placeholder {
+    color: #a6abb9;
+  }
+
+  .email,
+  .password {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .authButtons {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+    letter-spacing: 0.02em;
+    margin-bottom: 53px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .btn {
+    width: 125px;
+    height: 44px;
+    border: none;
+    border-radius: 16px;
+    padding: 0px;
+    margin: 0px;
+    cursor: pointer;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    justify-content: center;
+    color: #52555f;
+    background-color: #f5f6fb;
+    transition: background-color var(--time) var(--timing),
+      color var(--time) var(--timing);
+    box-shadow: 0 0px 1px 0 rgb(0 0 0 / 2%), 0 1px 1px 0 rgb(0 0 0 / 2%);
+  }
+  .btn:hover {
+    color: #ffffff;
+    background-color: #ff751d;
+  }
+  .formRow {
+    position: relative;
+  }
+  .formRow {
+    position: relative;
+  }
+  .error {
+    position: absolute;
+    top: 85px;
+    left: 0;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    color: #eb5757;
+  }
+}
+@media (min-width: 480px) and (max-width: 767.98px) {
+  .container {
+    width: 436px;
+    height: 535px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 10px 60px 0px #aab2c533;
+  }
+  .auth {
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    padding-top: 50px;
+    width: 265px;
+    height: 28px;
+    text-align: left;
+  }
+  .googleAuthButton {
+    margin-top: 22px;
+  }
+  .formRow {
+    margin: 24px 85px 30px 86px;
+  }
+  .formRowTitle {
+    font-size: 12px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .email,
+  .password {
+    width: 265px;
+  }
+  .authButtons {
+    margin-left: 86px;
+    margin-right: 85px;
+    justify-content: space-between;
+  }
+  .authTittle {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    text-align: left;
+    width: 265px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    margin-left: 86px;
+    margin-right: 85px;
+    color: #52555f;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279.98px) {
+  .component {
+    display: inline-flex;
+  }
+  .container {
+    width: auto;
+    height: 535px;
+    box-shadow: 0px 10px 60px 0px #aab2c533;
+    margin-top: 117px;
+    margin-right: 50px;
+  }
+  .auth {
+    width: 265px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: #52555f;
+    padding: 0;
+    padding-top: 48px;
+    text-align: left;
+    padding-bottom: 30px;
+  }
+  .email,
+  .password {
+    width: 265px;
+    height: 52px;
+  }
+  .btn {
+    width: 125px;
+    height: 44px;
+  }
+  .formRow {
+    margin: 20px 85px 30px 86px;
+  }
+  .formRowTitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: #000000;
+  }
+  .googleAuthButton {
+    margin-top: 15px;
+  }
+  .authTittle {
+    width: 265px;
+    padding-top: 34px;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    margin-left: 86px;
+    margin-right: 85px;
+    color: #52555f;
+  }
+  .authButtons {
+    padding-top: 10px;
+    margin-left: 85px;
+    width: 265px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .component {
+    display: inline-flex;
+  }
+  .container {
+    margin-top: 117px;
+    width: auto;
+    height: 535px;
+    box-shadow: 0px 10px 60px 0px #aab2c533;
+  }
+  .auth {
+    width: 265px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: #52555f;
+    padding: 0;
+    padding-top: 48px;
+    text-align: left;
+    padding-bottom: 30px;
+  }
+  .email,
+  .password {
+    width: 265px;
+    height: 52px;
+  }
+  .btn {
+    width: 125px;
+    height: 44px;
+  }
+  .formRow {
+    margin: 20px 85px 30px 86px;
+  }
+  .formRowTitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    color: #000000;
+  }
+  .googleAuthButton {
+    margin-top: 15px;
+  }
+  .authTittle {
+    width: 265px;
+    padding-top: 34px;
+    text-align: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+    margin-left: 86px;
+    margin-right: 85px;
+    color: #52555f;
+  }
+  .authButtons {
+    padding-top: 10px;
+    margin-left: 85px;
+    width: 265px;
+  }
+}

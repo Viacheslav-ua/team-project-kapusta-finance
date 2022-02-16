@@ -1,0 +1,72 @@
+@media screen and (max-width: 767px) {
+    .btn {
+        width: 125px;
+        height: 44px;
+        background-color: var(--bg-color);
+        border: 2px solid var(--bg-text-color);
+        font-size: 12px;
+        line-height: 1.17;
+        letter-spacing: 0.02em;
+    }
+
+    .confirm {
+        margin-top: 8px;
+        color: var(--text-color-2);
+        border-radius: 0px 22px 22px 0px;
+        cursor: pointer;
+
+    }
+
+    .confirm:hover,
+    .confirm:focus {
+        background: var(--accent-color);
+        color: var(--bg-text-color);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .btn {
+        border: 2px solid var(--bg-text-color);
+        box-sizing: border-box;
+        border-radius: 16px;
+        width: 125px;
+        height: 44px;
+        background-color: var(--bg-color);
+        font-size: 12px;
+        line-height: 1.17;
+        letter-spacing: 0.02em;
+    }
+
+    .confirm {
+        margin-left: 15px;
+        padding: 12px 6px;
+        color: var(--text-color-2);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .btn {
+        border: 2px solid var(--bg-text-color);
+        box-sizing: border-box;
+        border-radius: 16px;
+        width: 125px;
+        height: 44px;
+        background-color: var(--bg-color);
+        font-size: 12px;
+        line-height: 1.17;
+        letter-spacing: 0.02em;
+    }
+
+    .confirm {
+        padding: 12px 6px;
+        color: var(--text-color-2);
+        cursor: pointer;
+    }
+
+    .confirm:hover,
+    .confirm:focus {
+        background: var(--accent-color);
+        color: var(--bg-text-color);
+    }
+
+}

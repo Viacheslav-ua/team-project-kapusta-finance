@@ -1,0 +1,73 @@
+.expencesList {
+  width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.expencesType,
+.amount {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  width: 75px;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  color: #52555f;
+}
+
+.expencesItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 45px;
+}
+.expencesItem:nth-child(-n + 6) {
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 767px) {
+  .expencesList {
+    width: 320px;
+  }
+  .expencesItem {
+    position: relative;
+    margin-right: 40px;
+    padding-bottom: 20px;
+  }
+  .expencesItem:nth-child(3n + 3) {
+    margin-right: 0;
+  }
+  .expencesItem:nth-child(3n + 3)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 280px;
+    background-color: #e0e5eb;
+  }
+}
+.iconWrapper {
+  width: 56px;
+  height: 56px;
+  margin: 5px 0;
+  background-color: #f5f6fb;
+  border-radius: 20px;
+}
+.icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: visible;
+  outline: none;
+  cursor: pointer;
+}
+
+.iconWrapper:hover,
+.iconWrapper :focus {
+  fill: var(--accent-color);
+  background-color: #ffdac0;
+}
