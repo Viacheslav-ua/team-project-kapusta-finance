@@ -16,21 +16,21 @@ const ReportPage = () => {
   const viewPort = useWindowDimensions();
   const dispatch = useDispatch();
 
-  const [page, setPage] = useState('report')
+  const page='report'
 
   const summary = useSelector(getSummary);
   const reversedSummary = [...summary].reverse();
   const currentDate = reversedSummary[0].startDate;
 
    const sendDateInStore = useCallback(
-    () => {
+     () => {
       dispatch(actions.date(currentDate))
-    }, [dispatch]
+    }, [currentDate, dispatch]
   );
 
   useEffect(() => {
     sendDateInStore()
-  },[])
+  },[sendDateInStore])
  
   return (
     <div className={s.bg_contaiter}>
