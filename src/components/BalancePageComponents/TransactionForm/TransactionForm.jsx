@@ -26,14 +26,12 @@ const FormSchema = Yup.object().shape({
 });
 
 function TransactionForm({ type }) {
-  const [newTransaction, setNewTransaction] = useState("");
+  const [newTransaction, setNewTransaction] = useState({});
   const accessToken = useSelector(getAccessToken);
   const [addTransaction] = useAddTransactionMutation();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [placeholderCategories, setPlaceholderCategories] = useState("");
-  const dispatch = useDispatch();
-
   const viewPort = useWindowDimensions();
 
   const {
@@ -53,12 +51,12 @@ function TransactionForm({ type }) {
 
   const postNewTransactions = useCallback(async () => {
     try {
-      console.log(accessToken);
+      console.log("test", newTransaction);
       await addTransaction({ accessToken, newTransaction });
     } catch (error) {
       console.log(error);
     }
-  }, [accessToken, newTransaction, addTransaction]);
+  }, [accessToken, addTransaction, newTransaction]);
 
   useEffect(() => {
     getDate(selectedDate);
@@ -84,18 +82,19 @@ function TransactionForm({ type }) {
       .filter((data) => data.label === categories)
       .map((el) => el._id);
 
-    const newTransaction = {
+    const dataTransaction = {
       categoryId: categoryID[0],
       categoryName: categories,
       dateTransaction: date.toISOString(),
       description: name,
       amount: value,
-      isProfit: type === "expense" ? true : false,
+      isProfit: type === "expense" ? false : true,
     };
-    setNewTransaction(newTransaction);
-    postNewTransactions();
 
+    setNewTransaction(dataTransaction);
+    postNewTransactions(newTransaction);
     console.log(newTransaction);
+
     reset({
       name: "",
       categories: "",

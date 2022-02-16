@@ -14,7 +14,7 @@ export const transactionsApi = createApi({
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
-        body: balance
+        body: balance,
       }),
       invalidatesTags: ["Banking"],
     }),
@@ -59,7 +59,7 @@ export const transactionsApi = createApi({
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
-        body: newTransaction,
+        body: { ...newTransaction },
       }),
       invalidatesTags: ["Banking"],
     }),
