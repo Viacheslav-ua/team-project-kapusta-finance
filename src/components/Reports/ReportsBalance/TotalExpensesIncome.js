@@ -8,14 +8,15 @@ function TotalExpensesIncome() {
     const date = useSelector(getDate)
     const [income, SetIncome] = useState(null)
     const [expences, SetExpences] = useState(null)
-   
+
+    console.log(date);
     const getProfit = () => {
-        const { profit: { totalAmount } } = summary.find((el) => el.startDate === date ? date : '2022-01-01' )
+        const { profit: { totalAmount } } = summary.find((el) => el.startDate === date ? date : '2022-01-01')
         SetIncome(totalAmount)
     }
 
      const getCosts = () => {
-         const { costs: { totalAmount } } = summary.find((el) => el.startDate === date ? date : '2022-01-01'  )
+         const { costs: { totalAmount } } = summary.find((el) => el.startDate === date ? date : '2022-01-01')
         SetExpences(totalAmount)
      }
 

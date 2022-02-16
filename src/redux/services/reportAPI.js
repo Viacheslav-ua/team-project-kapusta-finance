@@ -43,12 +43,11 @@ export const reportAPI = createApi({
 
     fetchCategoryItems: builder.mutation({
       query: ({ accessToken, categoryId, date }) => ({
-        url: `/items-grouping/${categoryId}`,
+        url: `/items-grouping/${categoryId}?date=${date}`,
         method: "GET",
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
-        body: date 
       }),
       invalidatesTags: ["Report"],
     }),
