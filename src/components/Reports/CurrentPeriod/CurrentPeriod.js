@@ -13,7 +13,7 @@ export default function CurrentPeriod() {
   const summary = useSelector(getSummary);
   const reversedSummary = [...summary].reverse();
   const currentDate = reversedSummary[0].startDate
-   const accessToken = useSelector(getAccessToken);
+  const accessToken = useSelector(getAccessToken);
   const dispatch = useDispatch();
   const [date, setDate] = useState(currentDate)
   const [i , setI] = useState(0)

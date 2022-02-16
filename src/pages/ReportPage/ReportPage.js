@@ -7,6 +7,8 @@ import CurrentPeriod from "../../components/Reports/CurrentPeriod/CurrentPeriod"
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Balance from "../../components/BalancePageComponents/Balance/Balance";
 import ConfirmButton from "../../components/BalancePageComponents/ConfirmButton/ConfirmButton";
+import { getSummary, getDate } from '../../redux/report/report-selectors';
+import * as actions from "../../redux/report/report-actions";
 import style from "./ReportPage.module.css";
 import s from "./bg.module.css";
 import sprite from "../../Images/sprite.svg";
@@ -19,8 +21,17 @@ const ReportPage = () => {
 
   const accessToken = useSelector(getAccessToken);
   const viewPort = useWindowDimensions();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [page, setPage] = useState('report')
+    const summary = useSelector(getSummary);
+  const reversedSummary = [...summary].reverse();
+  const currentDate = reversedSummary[0].startDate
+
+  console.log(currentDate);
+
+  useEffect(() => {
+    dispatch(actions.date(currentDate));
+  },[])
  
   return (
 
