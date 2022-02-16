@@ -1,6 +1,6 @@
 import { Oval } from 'react-loader-spinner'
 import style from './GoogleRedirect.module.css'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useCallback, useEffect } from "react";
 import { useRefreshTokenMutation } from '../../redux/services/authAPI'
 import * as actions from '../../redux/auth/auth-actions'
