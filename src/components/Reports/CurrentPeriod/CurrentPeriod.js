@@ -58,7 +58,8 @@ export default function CurrentPeriod() {
 
    useEffect(() => {
     getCosts();
-    getProfit();
+     getProfit();
+     dispatch(actions.date(date));
   }, [date])
 
   const next = () => {

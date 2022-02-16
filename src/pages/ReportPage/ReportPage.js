@@ -17,10 +17,10 @@ import sprite from "../../Images/sprite.svg";
 
 const ReportPage = () => {
 
-  const [page, setPage] = useState("report");
   const accessToken = useSelector(getAccessToken);
   const viewPort = useWindowDimensions();
   // const dispatch = useDispatch();
+  const [page, setPage] = useState('report')
  
   return (
 
