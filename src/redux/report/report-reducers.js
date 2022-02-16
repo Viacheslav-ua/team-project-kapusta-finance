@@ -6,7 +6,8 @@ const initialState = {
     summary: [],
     categoryProfit: [],
     categoryCosts: [],
-    categoryItems: [],
+  categoryItems: [],
+    date: '',
 }
 
 const summary = createReducer(initialState.summary, {
@@ -21,10 +22,14 @@ const categoryCosts = createReducer(initialState.categoryCosts, {
 const categoryItems = createReducer(initialState.categoryItems, {
   [actions.categoryItems]: (_, { payload }) => payload,
 });
+const date = createReducer(initialState.date, {
+  [actions.date]: (_, { payload }) => payload,
+});
 
 export default combineReducers({
     summary,
     categoryProfit,
     categoryCosts,
-    categoryItems,
+  categoryItems,
+    date,
 })
