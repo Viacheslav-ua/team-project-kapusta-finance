@@ -4,7 +4,9 @@ import { API_URL } from '../../config'
 export const authAPI = createApi({
     reducerPath: 'authAPI',
     baseQuery: fetchBaseQuery({
+
         baseUrl: `${API_URL}/api/auth`,
+
         credentials: 'include'
     }),
     tagTypes: ['Auth'],

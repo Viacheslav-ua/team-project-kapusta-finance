@@ -101,7 +101,10 @@ const AuthForm = () => {
                 Вы можете авторизоваться с помощью <br /> Google Account:
               </h4>
 
+
               <a href={`${API_URL}/api/auth/google`} className={style.googleAuthButton}>
+
+
                 <svg className={style.googleIcon}>
                   <use href={sprite + "#google"} alt="Google" width="18" />
                 </svg>

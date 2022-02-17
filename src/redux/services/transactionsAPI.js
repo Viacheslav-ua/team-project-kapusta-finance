@@ -6,6 +6,7 @@ export const transactionsApi = createApi({
   tagTypes: ["Banking"],
   baseQuery: fetchBaseQuery({
     baseUrl: `${API_URL}/api/banking`,
+
   }),
   endpoints: (builder) => ({
     fetchResetBalance: builder.mutation({
