@@ -1,9 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { API_URL } from '../../config'
 
 export const authAPI = createApi({
     reducerPath: 'authAPI',
     baseQuery: fetchBaseQuery({
-        baseUrl: `${window.env.API_URL}/api/auth`,
+
+        baseUrl: `${API_URL}/api/auth`,
+
         credentials: 'include'
     }),
     tagTypes: ['Auth'],
